@@ -1,0 +1,53 @@
+@import "tailwindcss";
+@import "./theme.css";
+@import "./typography.css";
+@import "./animations.css";
+
+/* Custom utility classes */
+.bg-rk-navy {
+  background-color: var(--rk-navy);
+}
+
+.text-rk-navy {
+  color: var(--rk-navy);
+}
+
+.bg-rk-navy-dark {
+  background-color: var(--rk-navy-dark);
+}
+
+.bg-rk-cyan {
+  background-color: var(--rk-cyan);
+}
+
+.text-rk-cyan {
+  color: var(--rk-cyan);
+}
+
+.border-rk-cyan {
+  border-color: var(--rk-cyan);
+}
+
+.bg-rk-cyan-light {
+  background-color: var(--rk-cyan-light);
+}
+
+.bg-rk-cyan-soft {
+  background-color: var(--rk-cyan-soft);
+}
+
+.bg-rk-whatsapp {
+  background-color: var(--rk-whatsapp);
+}
+
+.text-rk-whatsapp {
+  color: var(--rk-whatsapp);
+}
+
+.hover\:bg-rk-cyan-dark:hover {
+  background-color: var(--rk-cyan-dark);
+}
+
+.hover\:bg-rk-navy-light:hover {
+  background-color: var(--rk-navy-light);
+}

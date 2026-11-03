@@ -1,0 +1,24 @@
+:root {
+  /* Brand colors matching the RK International Logo */
+  --rk-navy: #0A3663;
+  --rk-navy-dark: #062343;
+  --rk-navy-light: #124C85;
+  --rk-cyan: #0098DA;
+  --rk-cyan-dark: #0080B8;
+  --rk-cyan-light: #E0F2FE;
+  --rk-cyan-soft: #F0F9FF;
+  --rk-cyan-border: #BAE6FD;
+  
+  /* Accent colors */
+  --rk-gold: #F59E0B;
+  --rk-emerald: #10B981;
+  --rk-whatsapp: #25D366;
+  --rk-whatsapp-dark: #1EBE5D;
+
+  /* Neutrals */
+  --rk-bg: #FFFFFF;
+  --rk-bg-soft: #F8FAFC;
+  --rk-text-main: #0F172A;
+  --rk-text-muted: #475569;
+  --rk-border: #E2E8F0;
+}
