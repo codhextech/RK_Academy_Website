@@ -1,129 +1,177 @@
 import React from 'react';
 import Link from 'next/link';
-import { Check, X, ArrowRight, Laptop, Clock, GraduationCap } from 'lucide-react';
-import { ACADEMY_INFO } from '@/lib/constants';
+import Image from 'next/image';
+import {
+  CheckCircle2,
+  Clock,
+  Laptop,
+  GraduationCap,
+  ArrowRight,
+} from 'lucide-react';
+import { ACADEMY_COURSES } from '@/lib/coursesData';
 
 export const metadata = {
-  title: 'IELTS Courses in Sri Lanka | Academic, General & Foundation | RK International',
+  title: 'Certified Diplomas & Language Courses in Kilinochchi | RK International Academy',
   description:
-    'Compare IELTS Academic, IELTS General Training, and Foundation English courses at RK International Academy in Kilinochchi and online. Fees, syllabus & duration.',
+    'Explore accredited diploma programs and language preparations at RK International Language Academy: IELTS & UKVI, PTE Academic, Diplomas in English & IT, Sinhala, French DELF, and Dutch & Deutsch.',
 };
 
 export default function CoursesHubPage() {
   return (
-    <div className="bg-white">
-      {/* Banner */}
-      <section className="bg-gradient-to-r from-[#062343] to-[#0A3663] text-white py-14 md:py-20 text-center">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-3">
-          <span className="text-xs font-bold text-[#0098DA] uppercase tracking-wider bg-white/10 px-3 py-1 rounded-full">
-            Comprehensive Training
-          </span>
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white">
-            IELTS Courses & Pathways
+    <div className="bg-slate-50 min-h-screen">
+      {/* Page Header Banner - Compact & Streamlined */}
+      <section className="bg-gradient-to-r from-[#062343] to-[#0A3663] text-white py-8 md:py-12 text-center">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 space-y-2.5">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white leading-tight tracking-tight">
+            Our Courses &amp; Diplomas
           </h1>
-          <p className="text-sm sm:text-base text-slate-300 max-w-2xl mx-auto">
-            Choose the right course for your specific goal: Study abroad, Work/Migration visa, or foundational English mastery.
+          <p className="text-xs sm:text-sm md:text-base text-slate-300 max-w-2xl mx-auto leading-relaxed">
+            Choose from Northern Sri Lanka&apos;s leading academy for international language tests, vocational IT training, and European language pathways.
           </p>
         </div>
       </section>
 
-      {/* Comparison Matrix */}
-      <section className="py-16 md:py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-[#0A3663]">
-              Course Comparison Guide
-            </h2>
-            <p className="text-sm text-slate-600 mt-2">
-              Find out which course matches your requirements
-            </p>
+      {/* Course Cards Grid */}
+      <section className="py-10 md:py-16">
+        <div className="max-w-screen-2xl mx-auto px-4 sm:px-8 lg:px-12 xl:px-16 space-y-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {ACADEMY_COURSES.map((course) => {
+              const linkHref =
+                course.slug === 'ielts-ukvi'
+                  ? '/ielts-courses/academic'
+                  : `/ielts-courses/${course.slug}`;
+
+              return (
+                <div
+                  key={course.id}
+                  className={`bg-white rounded-3xl shadow-sm hover:shadow-xl border-t-4 ${course.accentColor} border-x border-b border-slate-200/90 overflow-hidden flex flex-col justify-between transition-all duration-300 group`}
+                >
+                  <div>
+                    {/* Course Thumbnail Image */}
+                    <div className="relative h-52 w-full bg-slate-200 overflow-hidden">
+                      <Image
+                        src={course.image}
+                        alt={course.title}
+                        fill
+                        className="object-cover group-hover:scale-105 transition-transform duration-500"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                      <span className="absolute bottom-3 left-4 text-xs font-bold px-2.5 py-1 rounded-md shadow-xs bg-white text-[#0A3663]">
+                        {course.tag}
+                      </span>
+                    </div>
+
+                    {/* Card Body */}
+                    <div className="p-6 sm:p-7">
+                      <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider">
+                        {course.category}
+                      </span>
+                      <h3 className="text-xl font-bold text-[#0A3663] mt-1 mb-2 leading-tight">
+                        {course.title}
+                      </h3>
+                      <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mb-6">
+                        {course.description}
+                      </p>
+
+                      {/* Specs */}
+                      <div className="space-y-2 py-3 border-y border-slate-100 mb-6 text-xs text-slate-700">
+                        <div className="flex items-center gap-2">
+                          <Clock className="w-4 h-4 text-[#0098DA] shrink-0" />
+                          <span><strong>Duration:</strong> {course.duration}</span>
+                        </div>
+                        <div className="flex items-center gap-2">
+                          <Laptop className="w-4 h-4 text-[#0098DA] shrink-0" />
+                          <span><strong>Mode:</strong> {course.modes}</span>
+                        </div>
+                      </div>
+
+                      {/* Highlights */}
+                      <h4 className="text-xs font-bold text-slate-900 uppercase tracking-wider mb-3">
+                        Curriculum Highlights:
+                      </h4>
+                      <ul className="space-y-2.5 mb-6">
+                        {course.curriculumHighlights.slice(0, 4).map((h, i) => (
+                          <li key={i} className="flex items-start gap-2 text-xs text-slate-600">
+                            <CheckCircle2 className="w-4 h-4 text-[#0098DA] shrink-0 mt-0.5" />
+                            <span>{h}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+
+                  {/* Buttons */}
+                  <div className="p-6 sm:p-7 pt-0 flex flex-col gap-2">
+                    <Link
+                      href={linkHref}
+                      className="w-full text-center py-2.5 px-4 rounded-xl font-bold text-xs sm:text-sm border border-[#0A3663] text-[#0A3663] hover:bg-slate-50 transition-colors"
+                    >
+                      View Full Modules & Syllabus
+                    </Link>
+                    <Link
+                      href={`/register?course=${course.slug}`}
+                      className="w-full text-center py-2.5 px-4 rounded-xl font-bold text-xs sm:text-sm bg-[#0A3663] hover:bg-[#124C85] text-white flex items-center justify-center gap-2 transition-colors shadow-xs"
+                    >
+                      <GraduationCap className="w-4 h-4 text-[#0098DA]" />
+                      <span>Enroll in Program</span>
+                      <ArrowRight className="w-4 h-4 ml-auto" />
+                    </Link>
+                  </div>
+                </div>
+              );
+            })}
           </div>
 
-          <div className="overflow-x-auto">
-            <table className="w-full border-collapse rounded-2xl overflow-hidden shadow-sm border border-slate-200">
-              <thead>
-                <tr className="bg-[#0A3663] text-white text-left">
-                  <th className="p-4 sm:p-5 text-sm font-bold">Feature / Module</th>
-                  <th className="p-4 sm:p-5 text-sm font-bold bg-[#0098DA]">IELTS Academic</th>
-                  <th className="p-4 sm:p-5 text-sm font-bold">IELTS General Training</th>
-                  <th className="p-4 sm:p-5 text-sm font-bold">Foundation & Spoken</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-slate-200 text-xs sm:text-sm text-slate-700">
-                <tr className="hover:bg-slate-50">
-                  <td className="p-4 sm:p-5 font-bold text-slate-900">Primary Purpose</td>
-                  <td className="p-4 sm:p-5 font-semibold text-[#0098DA]">University Study Abroad (BSc/MSc)</td>
-                  <td className="p-4 sm:p-5 font-semibold">PR, Work Permits, Express Entry</td>
-                  <td className="p-4 sm:p-5 font-semibold">Fluency, Grammar & Preparation</td>
-                </tr>
-                <tr className="hover:bg-slate-50">
-                  <td className="p-4 sm:p-5 font-bold text-slate-900">Reading Module</td>
-                  <td className="p-4 sm:p-5">Academic texts & scientific journals</td>
-                  <td className="p-4 sm:p-5">Workplace & everyday social articles</td>
-                  <td className="p-4 sm:p-5">Basic sentence & paragraph comprehension</td>
-                </tr>
-                <tr className="hover:bg-slate-50">
-                  <td className="p-4 sm:p-5 font-bold text-slate-900">Writing Task 1</td>
-                  <td className="p-4 sm:p-5">Graph, Chart, Table & Diagram analysis</td>
-                  <td className="p-4 sm:p-5">Formal & Informal Letter Writing</td>
-                  <td className="p-4 sm:p-5">Sentence structure & short paragraphs</td>
-                </tr>
-                <tr className="hover:bg-slate-50">
-                  <td className="p-4 sm:p-5 font-bold text-slate-900">Writing Task 2</td>
-                  <td className="p-4 sm:p-5">Formal discursive 250-word essay</td>
-                  <td className="p-4 sm:p-5">Social issues & opinion essay</td>
-                  <td className="p-4 sm:p-5">Introductory essays & opinion pieces</td>
-                </tr>
-                <tr className="hover:bg-slate-50">
-                  <td className="p-4 sm:p-5 font-bold text-slate-900">Speaking & Listening</td>
-                  <td className="p-4 sm:p-5">Exact same standard (Band 0-9)</td>
-                  <td className="p-4 sm:p-5">Exact same standard (Band 0-9)</td>
-                  <td className="p-4 sm:p-5">Pronunciation, confidence & vocabulary</td>
-                </tr>
-                <tr className="hover:bg-slate-50">
-                  <td className="p-4 sm:p-5 font-bold text-slate-900">Duration</td>
-                  <td className="p-4 sm:p-5">8 Weeks (60+ Hours)</td>
-                  <td className="p-4 sm:p-5">8 Weeks (60+ Hours)</td>
-                  <td className="p-4 sm:p-5">6 to 10 Weeks</td>
-                </tr>
-                <tr className="hover:bg-slate-50">
-                  <td className="p-4 sm:p-5 font-bold text-slate-900">Study Mode</td>
-                  <td className="p-4 sm:p-5">Kilinochchi Campus + Live Online</td>
-                  <td className="p-4 sm:p-5">Kilinochchi Campus + Live Online</td>
-                  <td className="p-4 sm:p-5">Kilinochchi Campus + Live Online</td>
-                </tr>
-                <tr className="bg-slate-50">
-                  <td className="p-4 sm:p-5 font-bold text-slate-900">Take Action</td>
-                  <td className="p-4 sm:p-5">
-                    <Link
-                      href="/ielts-courses/academic"
-                      className="inline-flex items-center gap-1.5 text-xs font-bold text-white bg-[#0A3663] px-3.5 py-2 rounded-lg hover:bg-[#124C85]"
-                    >
-                      <span>Academic Details</span>
-                      <ArrowRight className="w-3.5 h-3.5" />
-                    </Link>
-                  </td>
-                  <td className="p-4 sm:p-5">
-                    <Link
-                      href="/ielts-courses/general-training"
-                      className="inline-flex items-center gap-1.5 text-xs font-bold text-white bg-[#0098DA] px-3.5 py-2 rounded-lg hover:bg-[#0080B8]"
-                    >
-                      <span>General Details</span>
-                      <ArrowRight className="w-3.5 h-3.5" />
-                    </Link>
-                  </td>
-                  <td className="p-4 sm:p-5">
-                    <Link
-                      href="/ielts-courses/preparation"
-                      className="inline-flex items-center gap-1.5 text-xs font-bold text-slate-800 bg-slate-200 px-3.5 py-2 rounded-lg hover:bg-slate-300"
-                    >
-                      <span>Foundation Details</span>
-                      <ArrowRight className="w-3.5 h-3.5" />
-                    </Link>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
+          {/* Master Comparison Table */}
+          <div className="pt-12">
+            <div className="text-center mb-8">
+              <h3 className="text-2xl font-bold text-[#0A3663]">
+                Course At-A-Glance Comparison Matrix
+              </h3>
+              <p className="text-xs sm:text-sm text-slate-500 mt-1">
+                Find the ideal program matching your university, immigration, or professional goals.
+              </p>
+            </div>
+
+            <div className="overflow-x-auto rounded-3xl border border-slate-200 shadow-sm bg-white">
+              <table className="w-full border-collapse text-left text-xs sm:text-sm">
+                <thead>
+                  <tr className="bg-[#0A3663] text-white">
+                    <th className="p-4 sm:p-5 font-bold">Course / Program</th>
+                    <th className="p-4 sm:p-5 font-bold">Target Focus</th>
+                    <th className="p-4 sm:p-5 font-bold">Duration</th>
+                    <th className="p-4 sm:p-5 font-bold">Key Modules</th>
+                    <th className="p-4 sm:p-5 font-bold">Action</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-slate-100 text-slate-700">
+                  {ACADEMY_COURSES.map((c) => (
+                    <tr key={c.id} className="hover:bg-sky-50/40 transition-colors">
+                      <td className="p-4 sm:p-5 font-bold text-[#0A3663]">
+                        {c.title}
+                        <span className="block text-[11px] font-normal text-slate-500">{c.tag}</span>
+                      </td>
+                      <td className="p-4 sm:p-5 max-w-xs">{c.targetAudience}</td>
+                      <td className="p-4 sm:p-5 font-semibold text-slate-900">{c.duration}</td>
+                      <td className="p-4 sm:p-5">
+                        <span className="bg-slate-100 text-slate-800 text-xs px-2.5 py-1 rounded-md font-semibold">
+                          {c.modules.length} Modules Included
+                        </span>
+                      </td>
+                      <td className="p-4 sm:p-5">
+                        <Link
+                          href={c.slug === 'ielts-ukvi' ? '/ielts-courses/academic' : `/ielts-courses/preparation#${c.slug}`}
+                          className="inline-flex items-center gap-1 font-bold text-[#0098DA] hover:text-[#0A3663]"
+                        >
+                          <span>Syllabus</span>
+                          <ArrowRight className="w-3.5 h-3.5" />
+                        </Link>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
       </section>

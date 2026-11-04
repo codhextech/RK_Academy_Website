@@ -45,27 +45,25 @@ export default function StudentSuccessPage() {
 
   return (
     <div className="bg-white">
-      <section className="bg-gradient-to-r from-[#062343] to-[#0A3663] text-white py-14 md:py-20 text-center">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-3">
-          <span className="text-xs font-bold text-[#0098DA] bg-white/10 px-3 py-1 rounded-full uppercase tracking-wider">
-            Proven Results
-          </span>
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white">
-            Student Success & Band Scores
+      {/* Compact & Streamlined Header */}
+      <section className="bg-gradient-to-r from-[#062343] to-[#0A3663] text-white py-8 md:py-12 text-center">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 space-y-2.5">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+            Student Success Stories
           </h1>
-          <p className="text-sm sm:text-base text-slate-300 max-w-2xl mx-auto">
+          <p className="text-xs sm:text-sm md:text-base text-slate-300 max-w-2xl mx-auto leading-relaxed">
             Real stories from our students who achieved their dreams of university abroad and migration.
           </p>
         </div>
       </section>
 
-      <section className="py-16 md:py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <section className="py-10 md:py-16">
+        <div className="max-w-screen-2xl mx-auto px-4 sm:px-8 lg:px-12 xl:px-16">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
             {testimonials.map((t, idx) => (
               <div
                 key={idx}
-                className="bg-slate-50 border border-slate-200 rounded-2xl overflow-hidden flex flex-col justify-between hover:shadow-lg transition-all"
+                className="bg-slate-50 border-2 border-slate-200/90 hover:border-[#0098DA] rounded-2xl overflow-hidden flex flex-col justify-between hover:shadow-xl transition-all duration-300"
               >
                 <div>
                   {/* Student Portrait */}

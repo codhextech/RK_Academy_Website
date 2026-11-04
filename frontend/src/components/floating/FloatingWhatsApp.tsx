@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { MessageCircle } from 'lucide-react';
+import WhatsAppIcon from '@/components/common/WhatsAppIcon';
 import { ACADEMY_INFO } from '@/lib/constants';
 
 export default function FloatingWhatsApp() {
@@ -10,9 +10,9 @@ export default function FloatingWhatsApp() {
   return (
     <aside
       aria-label="Direct WhatsApp Contact"
-      className="fixed bottom-20 md:bottom-6 right-5 z-40 flex items-center group"
+      className="hidden md:flex fixed bottom-6 right-5 z-40 items-center group"
     >
-      <span className="hidden group-hover:inline-block bg-[#0A3663] text-white text-xs font-semibold py-1.5 px-3 rounded-lg shadow-lg mr-2 transition-all duration-200">
+      <span className="hidden md:group-hover:inline-block bg-[#0A3663] text-white text-xs font-semibold py-1.5 px-3 rounded-lg shadow-lg mr-2 transition-all duration-200 pointer-events-none">
         Chat with Admissions
       </span>
       <a
@@ -20,9 +20,9 @@ export default function FloatingWhatsApp() {
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Chat with RK Academy on WhatsApp"
-        className="flex items-center justify-center w-14 h-14 bg-[#25D366] hover:bg-[#1EBE5D] text-white rounded-full shadow-2xl transition-transform hover:scale-110 active:scale-95 animate-pulse-subtle"
+        className="flex items-center justify-center w-14 h-14 bg-[#25D366] hover:bg-[#1EBE5D] text-white rounded-full shadow-2xl transition-all duration-300 hover:scale-110 active:scale-95 animate-pulse-subtle hover:shadow-green-500/50"
       >
-        <MessageCircle className="w-8 h-8 fill-current" />
+        <WhatsAppIcon className="w-8 h-8 text-white" />
       </a>
     </aside>
   );

@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
-import { Home, Phone, MessageCircle, ArrowLeft } from 'lucide-react';
+import { Home, Phone, ArrowLeft } from 'lucide-react';
+import WhatsAppIcon from '@/components/common/WhatsAppIcon';
 import { ACADEMY_INFO } from '@/lib/constants';
 
 export default function NotFound() {
@@ -28,7 +29,7 @@ export default function NotFound() {
             rel="noopener noreferrer"
             className="w-full inline-flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#1EBE5D] text-white py-3 rounded-xl font-bold text-xs sm:text-sm transition-colors shadow-xs"
           >
-            <MessageCircle className="w-4 h-4 fill-current" />
+            <WhatsAppIcon className="w-4 h-4 text-white" />
             <span>Chat on WhatsApp</span>
           </a>
         </div>

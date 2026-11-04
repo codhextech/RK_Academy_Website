@@ -10,15 +10,13 @@ export const metadata = {
 export default function ContactPage() {
   return (
     <div className="bg-white">
-      <section className="bg-gradient-to-r from-[#062343] to-[#0A3663] text-white py-14 md:py-20 text-center">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-3">
-          <span className="text-xs font-bold text-[#0098DA] bg-white/10 px-3 py-1 rounded-full uppercase tracking-wider">
-            Kilinochchi Campus & Helpline
-          </span>
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white">
-            Contact RK International Academy
+      {/* Compact & Streamlined Header */}
+      <section className="bg-gradient-to-r from-[#062343] to-[#0A3663] text-white py-8 md:py-12 text-center">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 space-y-2.5">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+            Contact Us
           </h1>
-          <p className="text-sm sm:text-base text-slate-300 max-w-2xl mx-auto">
+          <p className="text-xs sm:text-sm md:text-base text-slate-300 max-w-2xl mx-auto leading-relaxed">
             Get directions, call our admissions desk, or chat with our counselors on WhatsApp.
           </p>
         </div>

@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
-import { Video, Clock, Laptop, CheckCircle2, MessageCircle, Globe, Sparkles } from 'lucide-react';
+import { Video, Clock, Laptop, CheckCircle2, Globe } from 'lucide-react';
+import WhatsAppIcon from '@/components/common/WhatsAppIcon';
 import { ACADEMY_INFO } from '@/lib/constants';
 
 export const metadata = {
@@ -12,38 +13,34 @@ export const metadata = {
 export default function OnlineClassesPage() {
   return (
     <div className="bg-slate-50 min-h-screen">
-      {/* Top Navy Hero Banner */}
-      <section className="bg-gradient-to-r from-[#062343] to-[#0A3663] text-white py-14 md:py-20 text-center relative overflow-hidden">
+      {/* Top Navy Hero Banner - Compact & Streamlined */}
+      <section className="bg-gradient-to-r from-[#062343] to-[#0A3663] text-white py-8 md:py-12 text-center relative overflow-hidden">
         {/* Subtle decorative glow */}
         <div className="absolute inset-0 opacity-10 pointer-events-none">
           <div className="absolute -top-24 -left-24 w-96 h-96 rounded-full bg-[#0098DA] blur-3xl" />
           <div className="absolute -bottom-24 -right-24 w-96 h-96 rounded-full bg-sky-400 blur-3xl" />
         </div>
 
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-3 relative z-10">
-          <span className="inline-flex items-center gap-1.5 text-xs font-bold text-[#0098DA] bg-white/10 px-3.5 py-1 rounded-full uppercase tracking-wider border border-white/10">
-            <Sparkles className="w-3.5 h-3.5" />
-            Live Virtual Classrooms
-          </span>
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white">
-            Live Online IELTS Coaching
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 space-y-2.5 relative z-10">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+            Live Online Classes
           </h1>
-          <p className="text-sm sm:text-base text-slate-300 max-w-2xl mx-auto">
+          <p className="text-xs sm:text-sm md:text-base text-slate-300 max-w-2xl mx-auto leading-relaxed">
             Interactive Zoom & Google Meet sessions designed for busy university students, professionals, and overseas candidates.
           </p>
         </div>
       </section>
 
       {/* Feature Cards & CTA Section with Soft Light Gray Background */}
-      <section className="py-16 md:py-24 bg-slate-50 border-t border-slate-200/60">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+      <section className="py-10 md:py-16 bg-slate-50 border-t border-slate-200/60">
+        <div className="max-w-screen-2xl mx-auto px-4 sm:px-8 lg:px-12 xl:px-16">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-12 md:mb-16">
             {/* Card 1: Interactive Live Video */}
-            <div className="group p-8 rounded-2xl bg-white border border-slate-200/80 shadow-sm hover:shadow-xl hover:shadow-[#0A3663]/10 hover:-translate-y-1.5 hover:border-sky-300 transition-all duration-300 text-center space-y-4 cursor-default">
+            <div className="group p-6 sm:p-8 rounded-2xl bg-white border-2 border-slate-200/90 shadow-sm hover:shadow-xl hover:shadow-[#0A3663]/10 hover:-translate-y-1.5 hover:border-[#0098DA] transition-all duration-300 text-center space-y-4 cursor-default">
               <div className="w-14 h-14 bg-sky-50 rounded-2xl mx-auto flex items-center justify-center text-[#0098DA] group-hover:bg-[#0098DA] group-hover:text-white group-hover:scale-105 transition-all duration-300 border border-sky-100 shadow-xs">
                 <Video className="w-7 h-7" />
               </div>
-              <h3 className="font-bold text-[#0A3663] group-hover:text-[#0098DA] text-xl transition-colors duration-200">
+              <h3 className="font-bold text-[#0A3663] group-hover:text-[#0098DA] text-lg sm:text-xl transition-colors duration-200">
                 Interactive Live Video
               </h3>
               <p className="text-sm text-slate-600 leading-relaxed">
@@ -52,11 +49,11 @@ export default function OnlineClassesPage() {
             </div>
 
             {/* Card 2: Flexible Timings */}
-            <div className="group p-8 rounded-2xl bg-white border border-slate-200/80 shadow-sm hover:shadow-xl hover:shadow-[#0A3663]/10 hover:-translate-y-1.5 hover:border-sky-300 transition-all duration-300 text-center space-y-4 cursor-default">
+            <div className="group p-6 sm:p-8 rounded-2xl bg-white border-2 border-slate-200/90 shadow-sm hover:shadow-xl hover:shadow-[#0A3663]/10 hover:-translate-y-1.5 hover:border-[#0098DA] transition-all duration-300 text-center space-y-4 cursor-default">
               <div className="w-14 h-14 bg-sky-50 rounded-2xl mx-auto flex items-center justify-center text-[#0098DA] group-hover:bg-[#0098DA] group-hover:text-white group-hover:scale-105 transition-all duration-300 border border-sky-100 shadow-xs">
                 <Clock className="w-7 h-7" />
               </div>
-              <h3 className="font-bold text-[#0A3663] group-hover:text-[#0098DA] text-xl transition-colors duration-200">
+              <h3 className="font-bold text-[#0A3663] group-hover:text-[#0098DA] text-lg sm:text-xl transition-colors duration-200">
                 Flexible Timings
               </h3>
               <p className="text-sm text-slate-600 leading-relaxed">
@@ -65,11 +62,11 @@ export default function OnlineClassesPage() {
             </div>
 
             {/* Card 3: Recorded Replays */}
-            <div className="group p-8 rounded-2xl bg-white border border-slate-200/80 shadow-sm hover:shadow-xl hover:shadow-[#0A3663]/10 hover:-translate-y-1.5 hover:border-sky-300 transition-all duration-300 text-center space-y-4 cursor-default">
+            <div className="group p-6 sm:p-8 rounded-2xl bg-white border-2 border-slate-200/90 shadow-sm hover:shadow-xl hover:shadow-[#0A3663]/10 hover:-translate-y-1.5 hover:border-[#0098DA] transition-all duration-300 text-center space-y-4 cursor-default">
               <div className="w-14 h-14 bg-sky-50 rounded-2xl mx-auto flex items-center justify-center text-[#0098DA] group-hover:bg-[#0098DA] group-hover:text-white group-hover:scale-105 transition-all duration-300 border border-sky-100 shadow-xs">
                 <Laptop className="w-7 h-7" />
               </div>
-              <h3 className="font-bold text-[#0A3663] group-hover:text-[#0098DA] text-xl transition-colors duration-200">
+              <h3 className="font-bold text-[#0A3663] group-hover:text-[#0098DA] text-lg sm:text-xl transition-colors duration-200">
                 Recorded Replays
               </h3>
               <p className="text-sm text-slate-600 leading-relaxed">
@@ -99,7 +96,7 @@ export default function OnlineClassesPage() {
                 rel="noopener noreferrer"
                 className="w-full sm:w-auto bg-[#25D366] hover:bg-[#1EBE5D] text-white px-8 py-3.5 rounded-xl font-bold text-sm shadow-md transition-all hover:shadow-lg hover:shadow-green-500/20 flex items-center justify-center gap-2"
               >
-                <MessageCircle className="w-4 h-4 fill-current" />
+                <WhatsAppIcon className="w-4 h-4 text-white" />
                 <span>WhatsApp Admissions</span>
               </a>
             </div>

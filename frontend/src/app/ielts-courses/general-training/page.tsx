@@ -12,16 +12,13 @@ export const metadata = {
 export default function GeneralTrainingCoursePage() {
   return (
     <div className="bg-white">
-      <section className="bg-gradient-to-r from-[#062343] to-[#0A3663] text-white py-14 md:py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl space-y-4">
-            <span className="text-xs font-bold text-[#0098DA] bg-white/10 px-3 py-1 rounded-full uppercase tracking-wider">
-              PR & Migration Pathway
-            </span>
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight text-white">
-              IELTS General Training in Kilinochchi & Online
+      <section className="bg-gradient-to-r from-[#062343] to-[#0A3663] text-white py-8 md:py-12">
+        <div className="max-w-screen-2xl mx-auto px-4 sm:px-8 lg:px-12 xl:px-16">
+          <div className="max-w-3xl space-y-2.5">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold leading-tight text-white tracking-tight">
+              IELTS General Training
             </h1>
-            <p className="text-sm sm:text-base text-slate-300 leading-relaxed">
+            <p className="text-xs sm:text-sm md:text-base text-slate-300 leading-relaxed">
               Target CLB 9 & 10 scores for Canada Express Entry and maximum immigration points for Australia and UK Skilled Worker visas.
             </p>
           </div>
@@ -29,7 +26,7 @@ export default function GeneralTrainingCoursePage() {
       </section>
 
       <section className="py-16 md:py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-screen-2xl mx-auto px-4 sm:px-8 lg:px-12 xl:px-16">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
             <div className="lg:col-span-8 space-y-10">
               <div>

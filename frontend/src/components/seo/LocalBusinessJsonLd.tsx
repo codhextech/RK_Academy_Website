@@ -28,6 +28,15 @@ export default function LocalBusinessJsonLd() {
       longitude: 80.4000,
     },
     hasMap: ACADEMY_INFO.googleMapsUrl,
+    areaServed: [
+      { '@type': 'AdministrativeArea', name: 'Kilinochchi' },
+      { '@type': 'AdministrativeArea', name: 'Jaffna' },
+      { '@type': 'AdministrativeArea', name: 'Northern Province' },
+      { '@type': 'AdministrativeArea', name: 'Vavuniya' },
+      { '@type': 'AdministrativeArea', name: 'Mullaitivu' },
+      { '@type': 'AdministrativeArea', name: 'Mannar' },
+      { '@type': 'Country', name: 'Sri Lanka' },
+    ],
     openingHoursSpecification: [
       {
         '@type': 'OpeningHoursSpecification',

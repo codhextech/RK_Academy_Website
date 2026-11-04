@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { GraduationCap, Phone, MessageCircle, CheckCircle2, ShieldCheck } from 'lucide-react';
+import { GraduationCap, Phone, CheckCircle2, ShieldCheck } from 'lucide-react';
 import { ACADEMY_INFO } from '@/lib/constants';
 
 export default function RegisterPage() {
@@ -13,7 +13,7 @@ export default function RegisterPage() {
     phone: '',
     whatsapp: '',
     email: '',
-    courseSlug: 'academic',
+    courseSlug: 'ielts-ukvi',
     preferredMode: 'offline',
     city: 'Kilinochchi',
     targetBand: '7.5',
@@ -47,11 +47,8 @@ export default function RegisterPage() {
         <div className="bg-white rounded-3xl shadow-xl border border-slate-200 overflow-hidden">
           {/* Header */}
           <div className="bg-[#0A3663] text-white p-6 sm:p-10 text-center space-y-2">
-            <span className="text-xs font-bold text-[#0098DA] uppercase tracking-wider bg-white/10 px-3 py-1 rounded-full">
-              Enrollment 2026
-            </span>
             <h1 className="text-2xl sm:text-3xl font-extrabold">
-              Student Course Registration
+              Course Registration
             </h1>
             <p className="text-xs sm:text-sm text-slate-300 max-w-xl mx-auto">
               Complete this form to reserve your seat in the upcoming IELTS or English batch at RK International Language Academy.
@@ -154,12 +151,13 @@ export default function RegisterPage() {
                   onChange={(e) => setFormData({ ...formData, courseSlug: e.target.value })}
                   className="w-full px-4 py-2.5 rounded-xl border border-slate-300 text-sm focus:outline-hidden focus:ring-2 focus:ring-[#0098DA]"
                 >
-                  <option value="academic">IELTS Academic (University Abroad - 8 Weeks)</option>
-                  <option value="general-training">IELTS General Training (Migration / PR - 8 Weeks)</option>
-                  <option value="pte">PTE Academic Coaching (Fast Results - 6-8 Weeks)</option>
-                  <option value="diploma">Diploma in English (Professional Qualification - 12 Weeks)</option>
-                  <option value="spoken-english">Spoken English & Fluency Mastery (8 Weeks)</option>
-                  <option value="preparation">Foundation English (Pre-IELTS Grammar)</option>
+                  <option value="ielts-ukvi">IELTS & UKVI (Academic, General & Life Skills - 8 Weeks)</option>
+                  <option value="pte-academic">PTE Academic Coaching (Fast AI Scoring - 6-8 Weeks)</option>
+                  <option value="basic-diploma-english">Basic Diploma in English (Comprehensive - 12-16 Weeks)</option>
+                  <option value="diploma-in-it">Diploma in Information Technology - IT (16 Weeks)</option>
+                  <option value="diploma-in-sinhala">Diploma in Sinhala Language (12 Weeks)</option>
+                  <option value="french-delf">French DELF Exam Prep - A1 & A2 (10-12 Weeks)</option>
+                  <option value="dutch-deutsch">Dutch & Deutsch (German) Language Prep (44 Hours)</option>
                 </select>
               </div>
 

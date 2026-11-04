@@ -58,11 +58,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth">
-      <head>
+    <html lang="en" className="scroll-smooth" suppressHydrationWarning>
+      <body
+        className="min-h-screen flex flex-col bg-white text-slate-800 antialiased selection:bg-[#0098DA] selection:text-white"
+        suppressHydrationWarning
+      >
         <LocalBusinessJsonLd />
-      </head>
-      <body className="min-h-screen flex flex-col bg-white text-slate-800 antialiased selection:bg-[#0098DA] selection:text-white">
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />

@@ -42,27 +42,25 @@ export default function TrainersPage() {
 
   return (
     <div className="bg-white">
-      <section className="bg-gradient-to-r from-[#062343] to-[#0A3663] text-white py-14 md:py-20 text-center">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-3">
-          <span className="text-xs font-bold text-[#0098DA] bg-white/10 px-3 py-1 rounded-full uppercase tracking-wider">
-            Expert Faculty
-          </span>
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white">
-            Meet Our Expert Trainers
+      {/* Compact & Streamlined Header */}
+      <section className="bg-gradient-to-r from-[#062343] to-[#0A3663] text-white py-8 md:py-12 text-center">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 space-y-2.5">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+            Our Certified Trainers
           </h1>
-          <p className="text-sm sm:text-base text-slate-300 max-w-2xl mx-auto">
+          <p className="text-xs sm:text-sm md:text-base text-slate-300 max-w-2xl mx-auto leading-relaxed">
             Learn from certified, experienced instructors who understand exam scoring criteria inside out.
           </p>
         </div>
       </section>
 
-      <section className="py-16 md:py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <section className="py-10 md:py-16">
+        <div className="max-w-screen-2xl mx-auto px-4 sm:px-8 lg:px-12 xl:px-16">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
             {trainers.map((t, idx) => (
               <div
                 key={idx}
-                className="bg-slate-50 rounded-2xl border border-slate-200 overflow-hidden flex flex-col justify-between hover:shadow-lg transition-all"
+                className="bg-slate-50 rounded-2xl border-2 border-slate-200/90 hover:border-[#0098DA] overflow-hidden flex flex-col justify-between hover:shadow-xl transition-all duration-300"
               >
                 <div>
                   {/* Trainer Portrait */}
