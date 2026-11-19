@@ -100,39 +100,28 @@ function CoursesManager() {
   const [newModDesc, setNewModDesc] = useState('');
   const [newModTopics, setNewModTopics] = useState('');
 
-  const fetchCourses = async () => {
-    try {
-      setLoading(true);
-      setError(null);
-      const res = await fetch('/api/admin/courses');
-      const data = await res.json();
-      if (res.ok && data.success) {
-        const loadedCourses: CourseItem[] = data.courses || [];
-        setCourses(loadedCourses);
-
-        // Check if navigated with ?edit=<slug>
-        if (editSlug) {
-          const match = loadedCourses.find(
-            (c) => c.slug.toLowerCase() === editSlug.toLowerCase() || c.id === editSlug
-          );
-          if (match) {
-            openEditModal(match);
-          }
-        }
-      } else {
-        setError(data.error || 'Failed to load courses.');
-      }
-    } catch (err) {
-      console.error(err);
-      setError('Network connection error.');
-    } finally {
-      setLoading(false);
-    }
+  const openEditModal = (c: CourseItem) => {
+    setEditingCourse(c);
+    setActiveTab('hero');
+    setFormTitle(c.title || '');
+    setFormShortTitle(c.shortTitle || c.title || '');
+    setFormSlug(c.slug || '');
+    setFormCategory(c.category || 'English & Exams');
+    setFormTag(c.tag || '');
+    setFormDuration(c.duration || '8 Weeks');
+    setFormModes(c.modes || 'In-Person & Live Online');
+    setFormCampus(c.campus || 'A-9 Road, Kilinochchi');
+    setFormAdmissions(c.admissionsStatus || 'Now Enrolling');
+    setFormFee(c.feeLKR ? String(c.feeLKR) : '');
+    setFormAudience(c.targetAudience || '');
+    setFormDesc(c.description || '');
+    setFormLongDesc(c.longDescription || c.description || '');
+    setFormHighlights(c.curriculumHighlights?.join('\n') || '');
+    setFormModules(c.modules ? JSON.parse(JSON.stringify(c.modules)) : []);
+    setFormImage(c.image || '');
+    setFormActive(c.active !== undefined ? c.active : true);
+    setShowModal(true);
   };
-
-  useEffect(() => {
-    fetchCourses();
-  }, [editSlug]);
 
   const openAddModal = () => {
     setEditingCourse(null);
@@ -170,28 +159,39 @@ function CoursesManager() {
     setShowModal(true);
   };
 
-  const openEditModal = (c: CourseItem) => {
-    setEditingCourse(c);
-    setActiveTab('hero');
-    setFormTitle(c.title || '');
-    setFormShortTitle(c.shortTitle || c.title || '');
-    setFormSlug(c.slug || '');
-    setFormCategory(c.category || 'English & Exams');
-    setFormTag(c.tag || '');
-    setFormDuration(c.duration || '8 Weeks');
-    setFormModes(c.modes || 'In-Person & Live Online');
-    setFormCampus(c.campus || 'A-9 Road, Kilinochchi');
-    setFormAdmissions(c.admissionsStatus || 'Now Enrolling');
-    setFormFee(c.feeLKR ? String(c.feeLKR) : '');
-    setFormAudience(c.targetAudience || '');
-    setFormDesc(c.description || '');
-    setFormLongDesc(c.longDescription || c.description || '');
-    setFormHighlights(c.curriculumHighlights?.join('\n') || '');
-    setFormModules(c.modules ? JSON.parse(JSON.stringify(c.modules)) : []);
-    setFormImage(c.image || '');
-    setFormActive(c.active !== undefined ? c.active : true);
-    setShowModal(true);
+  const fetchCourses = async () => {
+    try {
+      setLoading(true);
+      setError(null);
+      const res = await fetch('/api/admin/courses');
+      const data = await res.json();
+      if (res.ok && data.success) {
+        const loadedCourses: CourseItem[] = data.courses || [];
+        setCourses(loadedCourses);
+
+        // Check if navigated with ?edit=<slug>
+        if (editSlug) {
+          const match = loadedCourses.find(
+            (c) => c.slug.toLowerCase() === editSlug.toLowerCase() || c.id === editSlug
+          );
+          if (match) {
+            openEditModal(match);
+          }
+        }
+      } else {
+        setError(data.error || 'Failed to load courses.');
+      }
+    } catch (err) {
+      console.error(err);
+      setError('Network connection error.');
+    } finally {
+      setLoading(false);
+    }
   };
+
+  useEffect(() => {
+    fetchCourses();
+  }, [editSlug]);
 
   const handleAddModule = () => {
     if (!newModTitle.trim()) {
