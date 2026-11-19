@@ -41,7 +41,7 @@ export default function MarqueeTicker({ className = '' }: MarqueeTickerProps) {
 
   return (
     <div className={`w-full bg-white py-1.5 sm:py-2.5 ${className}`}>
-      <div className="max-w-screen-2xl mx-auto px-4 sm:px-8 lg:px-12 xl:px-16">
+      <div className="site-container">
         <aside
           aria-label="Academy Highlights and Announcements"
           className="relative w-full overflow-hidden rounded-xl sm:rounded-2xl bg-gradient-to-r from-[#041a33] via-[#0A3663] to-[#041a33] border border-[#0098DA]/30 shadow-md py-2.5 sm:py-3.5 select-none"

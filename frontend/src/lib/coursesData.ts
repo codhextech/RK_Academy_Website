@@ -1,3 +1,5 @@
+import { R2_MEDIA } from './constants';
+
 export interface CourseModule {
   number: string;
   title: string;
@@ -20,6 +22,10 @@ export interface CourseDetail {
   featured?: boolean;
   duration: string;
   modes: string;
+  campus?: string;
+  admissionsStatus?: string;
+  feeLKR?: number;
+  active?: boolean;
   targetAudience: string;
   description: string;
   longDescription: string;
@@ -44,7 +50,7 @@ export const ACADEMY_COURSES: CourseDetail[] = [
     shortTitle: 'IELTS / UKVI',
     tag: 'UKVI & Global University / PR Recognized',
     category: 'English & Exams',
-    image: 'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=800&q=80',
+    image: R2_MEDIA.courses.ieltsUkvi,
     badgeBg: 'bg-sky-50 text-[#0A3663] border border-sky-200',
     accentColor: 'border-[#0098DA]',
     popular: true,
@@ -149,86 +155,105 @@ export const ACADEMY_COURSES: CourseDetail[] = [
     ],
   },
 
-  // 2. PTE ACADEMIC
+  // 2. PTE ACADEMIC & PTE CORE
   {
     id: 'c-pte-academic',
     slug: 'pte-academic',
-    title: 'PTE Academic Exam Preparation',
-    shortTitle: 'PTE Academic',
-    tag: 'Computer-Based Exam (Fast AI Scoring)',
+    title: 'PTE Exam Preparation (Academic & Core)',
+    shortTitle: 'PTE (Academic & Core)',
+    tag: 'Computer-Based Exam (PTE Academic & Core)',
     category: 'English & Exams',
-    image: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=800&q=80',
+    image: R2_MEDIA.courses.pteAcademic,
     badgeBg: 'bg-sky-50 text-[#0A3663] border border-sky-200',
     accentColor: 'border-[#0098DA]',
     popular: true,
     duration: '6 – 8 Weeks',
     modes: 'Kilinochchi Computer Lab & Live Online',
-    targetAudience: 'Candidates seeking fast results (within 48 hours) for study and work visas in Australia, New Zealand, the UK, and Canada.',
-    description: 'Complete Pearson Test of English training in our computer lab. Learn the AI scoring algorithm secrets for Describe Image, Repeat Sentence, Retell Lecture, and Write from Dictation.',
-    longDescription: 'PTE Academic is a 100% computer-delivered test scored by Pearson’s advanced AI algorithms. Our specialized curriculum and state-of-the-art computer lab in Kilinochchi teach you the exact scoring criteria, speaking templates, and time-management techniques needed to achieve 65+ (IELTS 7.0 equivalent) and 79+ (IELTS 8.0 equivalent).',
+    targetAudience: 'Candidates seeking fast results (within 48 hours) for study abroad and skilled migration (Australia, UK, New Zealand) or Canadian Permanent Residency (IRCC-approved PTE Core / Express Entry).',
+    description: 'Complete Pearson Test of English training covering both PTE Academic (for university admissions & skilled migration to Australia/UK/NZ) and PTE Core (IRCC-approved for Canada PR & Express Entry) in our computer lab.',
+    longDescription: 'Pearson Test of English (PTE) is a 100% computer-delivered English test scored by Pearson’s advanced AI algorithms with results delivered in 48 hours. At RK International Language Academy, our specialized curriculum and dedicated computer lab in Kilinochchi provide end-to-end training for both official pathways:\n\n• Track 1: PTE Academic — Designed for students and skilled professionals aiming for university admissions, professional registration, and migration visas in Australia, New Zealand, the United Kingdom, and Canada (SDS).\n\n• Track 2: PTE Core — The newly approved general English test by IRCC (Immigration, Refugees and Citizenship Canada) for Canadian Permanent Residency, Express Entry, Provincial Nominee Programs (PNP), and work permits.',
     curriculumHighlights: [
-      'Comprehensive breakdown of Speaking & Writing (Part 1), Reading (Part 2), and Listening (Part 3)',
-      'High-scoring templates for Describe Image, Retell Lecture, and 20-minute Essay',
-      'AI algorithm scoring hacks for Oral Fluency, Pronunciation, and Content',
-      'Write from Dictation and Repeat Sentence daily speed drills',
-      'Full computer lab simulations matching official Pearson exam center software',
+      'Dual-Track Curriculum: Tailored preparation for both PTE Academic (Study/Work) and PTE Core (Canada PR)',
+      'Track 1: PTE Academic Focus (Describe Image, Retell Lecture, Academic Essay & Summarize Written Text)',
+      'Track 2: PTE Core Focus (Workplace Email Writing, Respond to a Situation, Everyday English Analysis for Canada PR)',
+      'AI algorithm scoring strategies for Oral Fluency, Pronunciation, and Content',
+      'Daily speed drills for Repeat Sentence, Write from Dictation, and Fill in the Blanks',
+      'Official Pearson exam center simulation software in our Kilinochchi computer lab',
     ],
     modules: [
       {
-        number: 'Part 1',
-        title: 'Speaking & Writing Module (54 – 67 Minutes)',
-        description: 'Integrated speaking and writing tasks assessed by automated voice and language processing.',
+        number: 'Module 1',
+        title: 'Speaking & Writing Module — Academic & Core (54 – 67 Minutes)',
+        description: 'Integrated speaking and writing tasks assessed by Pearson automated voice and language processing algorithms.',
         topics: [
-          'Read Aloud: Pronunciation, syllable stress, and natural rhythm',
-          'Repeat Sentence: Memory retention and chunking techniques',
-          'Describe Image: Proven structured templates for graphs, maps, charts, and life cycles',
-          'Re-tell Lecture: Note-taking strategies and fluent spoken summaries',
-          'Answer Short Questions: Quick vocabulary and common knowledge responses',
-          'Summarize Written Text: Crafting one single grammatical sentence between 5 and 75 words',
-          'Write Essay: Standard 200–300 word formal argumentative essay template',
+          'Read Aloud: Pronunciation, syllable stress, intonation, and natural speech rhythm',
+          'Repeat Sentence: Working memory retention, phrase chunking, and oral fluency techniques',
+          'Describe Image: Proven structured templates for graphs, charts, maps, process diagrams, and tables',
+          'Re-tell Lecture (Academic) & Respond to a Situation (PTE Core): Note-taking and fluent spontaneous speech',
+          'Answer Short Questions: Rapid vocabulary retrieval and everyday knowledge responses',
+          'Summarize Written Text: Crafting one single compound-complex sentence between 5 and 75 words',
+          'Track 1 (Academic): Write Essay — Standard 200–300 word formal argumentative essay template',
+          'Track 2 (PTE Core): Write Email — 100-word formal and informal workplace email responses for Canada PR',
         ],
       },
       {
-        number: 'Part 2',
-        title: 'Reading Module (29 – 30 Minutes)',
-        description: 'Fast-paced academic reading comprehension and vocabulary in context.',
+        number: 'Module 2',
+        title: 'Reading Module — Academic & Everyday Comprehension (29 – 30 Minutes)',
+        description: 'Fast-paced reading comprehension, vocabulary collocation, and text organization.',
         topics: [
-          'Reading & Writing: Fill in the Blanks (Highest weighted reading section)',
-          'Multiple Choice, Multiple Answers',
-          'Re-order Paragraphs: Identifying topic sentences, referencing pronouns, and logical sequence',
-          'Reading: Fill in the Blanks (Drag and drop vocabulary collocation mastery)',
-          'Multiple Choice, Single Answer',
+          'Reading & Writing: Fill in the Blanks (Highest weighted reading section across both exams)',
+          'Multiple Choice, Multiple Answers & Single Answer strategies',
+          'Re-order Paragraphs: Identifying topic sentences, pronoun referencing, and cohesive ties',
+          'Reading: Fill in the Blanks (Drag-and-drop academic vocabulary and workplace collocations)',
+          'Skimming, scanning, and time-management under the 30-minute countdown timer',
         ],
       },
       {
-        number: 'Part 3',
-        title: 'Listening Module (30 – 43 Minutes)',
-        description: 'Audio and video clips with international English accents tested via diverse response types.',
+        number: 'Module 3',
+        title: 'Listening Module — Academic Lectures & Real-World Audio (30 – 43 Minutes)',
+        description: 'International accents (British, American, Australian, Canadian) tested via diverse integrated response types.',
         topics: [
-          'Summarize Spoken Text: 50–70 word written summary of an audio lecture (contributes to Writing & Listening)',
+          'Summarize Spoken Text: 50–70 word written summary of spoken content (contributes to both Writing & Listening)',
           'Multiple Choice, Multiple Answers & Single Answer',
-          'Fill in the Blanks: Typing missing words while listening in real time',
+          'Fill in the Blanks: Live transcription typing while audio plays without pausing',
           'Highlight Correct Summary & Select Missing Word',
-          'Highlight Incorrect Words: Catching transcription discrepancies while audio plays',
-          'Write from Dictation: The most critical high-scoring task in the entire PTE test',
+          'Highlight Incorrect Words: Catching transcription discrepancies in real time',
+          'Write from Dictation: The most critical, highest-scoring task in both PTE Academic & Core',
+        ],
+      },
+      {
+        number: 'Module 4',
+        title: 'Track Specialization, CLB Mapping & Lab Mock Tests',
+        description: 'Dedicated focus on student destination requirements, target band scores, and full software simulations.',
+        topics: [
+          'Track 1 Mastery: Australian/NZ visa score requirements (PTE 65+ for 65 points, 79+ for 20 migration points)',
+          'Track 2 Mastery: Canadian CLB 7, CLB 8, and CLB 9 score conversions for Express Entry CRS ranking',
+          'Full-length computer mock tests on Pearson-grade simulation platform in our Kilinochchi lab',
+          'One-on-one diagnostic feedback on enabling skills: Grammar, Oral Fluency, Pronunciation, Spelling, and Vocabulary',
         ],
       },
     ],
     keyComponents: [
-      '1. Skill Building: Oral fluency, pronunciation accuracy, and typing speed at 40+ WPM',
-      '2. Timed Practice: Real-time countdown timer simulations under exam software pressure',
-      '3. Strategy Training: Algorithm scoring mechanics, keyword recognition, and memory hooks',
-      '4. Feedback & Diagnostic Improvement: Section-by-section breakdown of enabling skills',
+      '1. Dual-Track Pathway: Clear guidance for PTE Academic (Study/Work in AU/NZ/UK) and PTE Core (Canada PR)',
+      '2. AI Algorithm Training: Oral fluency, pronunciation accuracy, and typing speed at 40+ WPM',
+      '3. Timed Lab Practice: Real-time countdown timer simulations under exact Pearson exam conditions',
+      '4. Diagnostic Feedback: Individual score reports detailing enabling skills and personalized improvement plans',
     ],
     examFormat: {
-      components: ['Speaking & Writing (54–67 mins)', 'Reading (29–30 mins)', 'Listening (30–43 mins)'],
-      certification: 'Pearson PTE Academic Score Report (Score scale: 10 – 90 points)',
-      acceptance: '100% accepted for Australian and New Zealand visas, and accepted by top UK and Canadian universities.',
+      components: [
+        'Speaking & Writing (54–67 mins)',
+        'Reading (29–30 mins)',
+        'Listening (30–43 mins)',
+        'Total Duration: Approx. 2 Hours (100% Computer-Based)',
+      ],
+      certification: 'Pearson PTE Official Score Report (Score scale: 10 – 90 points, valid for 2 years)',
+      acceptance: 'PTE Academic: 100% accepted for Australia & New Zealand visas; UK universities & UKVI; top Canadian & US universities. PTE Core: Approved by IRCC Canada for Express Entry, PNP, and Canadian Citizenship.',
     },
     tipsForSuccess: [
       'Never pause longer than 3 seconds in speaking tasks—the microphone will automatically shut off!',
-      'In Write from Dictation, double-check singular/plural forms and capital letters.',
-      'Oral fluency is penalized more heavily by hesitations and self-corrections than slight pronunciation errors.',
+      'In Write from Dictation, double-check singular/plural forms, tense endings, and initial capitalization.',
+      'For Canada Express Entry candidates, target CLB 9 (Listening 82–88, Reading 78–87, Speaking 84–88, Writing 88–89) to maximize CRS points.',
+      'Oral fluency is penalized more heavily by hesitations, fillers, and self-corrections than minor pronunciation differences.',
     ],
   },
 
@@ -240,7 +265,7 @@ export const ACADEMY_COURSES: CourseDetail[] = [
     shortTitle: 'Diploma in English',
     tag: 'Comprehensive Foundation & Fluency',
     category: 'English & Exams',
-    image: 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=800&q=80',
+    image: R2_MEDIA.courses.diplomaEnglish,
     badgeBg: 'bg-sky-50 text-[#0A3663] border border-sky-200',
     accentColor: 'border-[#0098DA]',
     duration: '12 – 16 Weeks (3 – 4 Months)',
@@ -325,7 +350,7 @@ export const ACADEMY_COURSES: CourseDetail[] = [
     shortTitle: 'Diploma in IT',
     tag: 'Practical Computing & Software Skills',
     category: 'Information Technology',
-    image: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=800&q=80',
+    image: R2_MEDIA.courses.diplomaIt,
     badgeBg: 'bg-sky-50 text-[#0A3663] border border-sky-200',
     accentColor: 'border-[#0098DA]',
     featured: true,
@@ -418,7 +443,7 @@ export const ACADEMY_COURSES: CourseDetail[] = [
     shortTitle: 'Diploma in Sinhala',
     tag: 'National Language Proficiency (සිංහල ඩිප්ලෝමාව)',
     category: 'Foreign Languages',
-    image: 'https://images.unsplash.com/photo-1546410531-bb4caa6b424d?auto=format&fit=crop&w=800&q=80',
+    image: R2_MEDIA.courses.diplomaSinhala,
     badgeBg: 'bg-sky-50 text-[#0A3663] border border-sky-200',
     accentColor: 'border-[#0098DA]',
     duration: '12 Weeks (3 Months)',
@@ -497,7 +522,7 @@ export const ACADEMY_COURSES: CourseDetail[] = [
     shortTitle: 'French DELF (A1/A2)',
     tag: 'Official French Ministry Certification (France & Canada)',
     category: 'Foreign Languages',
-    image: 'https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=800&q=80',
+    image: R2_MEDIA.courses.frenchDelf,
     badgeBg: 'bg-sky-50 text-[#0A3663] border border-sky-200',
     accentColor: 'border-[#0098DA]',
     duration: '10 – 12 Weeks',
@@ -574,7 +599,7 @@ export const ACADEMY_COURSES: CourseDetail[] = [
     shortTitle: 'Dutch & Deutsch',
     tag: 'European Career & Migration Preparation',
     category: 'Foreign Languages',
-    image: 'https://images.unsplash.com/photo-1467269204594-9661b134dd2b?auto=format&fit=crop&w=800&q=80',
+    image: R2_MEDIA.courses.dutchDeutsch,
     badgeBg: 'bg-sky-50 text-[#0A3663] border border-sky-200',
     accentColor: 'border-[#0098DA]',
     duration: '10 – 12 Weeks (Structured 40+ Hours)',
@@ -678,7 +703,7 @@ export function getCourseBySlug(slug: string): CourseDetail | undefined {
   if (normalized === 'diploma-in-english' || normalized === 'spoken-english') {
     return ACADEMY_COURSES.find((c) => c.slug === 'basic-diploma-english');
   }
-  if (normalized === 'pte' || normalized === 'pte-academic-exam-preparation') {
+  if (normalized === 'pte' || normalized === 'pte-academic-exam-preparation' || normalized === 'pte-core') {
     return ACADEMY_COURSES.find((c) => c.slug === 'pte-academic');
   }
   if (normalized === 'it' || normalized === 'diploma-it') {

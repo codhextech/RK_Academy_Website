@@ -1,3 +1,5 @@
+import { R2_MEDIA } from './constants';
+
 export interface BlogPost {
   slug: string;
   title: string;
@@ -35,7 +37,7 @@ export const BLOG_POSTS: BlogPost[] = [
     readTime: '7 min read',
     author: 'S. Ketheeswaran',
     authorRole: 'Senior IELTS & PTE Master Trainer',
-    image: 'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=800&q=80',
+    image: R2_MEDIA.blogs.pteVsIelts,
     excerpt: 'Confused between taking IELTS or PTE? Discover how AI computer grading compares to human examiners, test duration differences, and which exam gives you the fastest score for Australia and the UK.',
     content: [
       {
@@ -94,7 +96,7 @@ export const BLOG_POSTS: BlogPost[] = [
     readTime: '6 min read',
     author: 'K. Nimalan',
     authorRole: 'IELTS Writing Specialist (Band 8.5)',
-    image: 'https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&fit=crop&w=800&q=80',
+    image: R2_MEDIA.blogs.academicVsGeneral,
     excerpt: 'Do you need IELTS Academic or General Training? Discover the format differences in Reading and Writing Task 1, scoring variations, and country visa prerequisites.',
     content: [
       {
@@ -141,7 +143,7 @@ export const BLOG_POSTS: BlogPost[] = [
     readTime: '6 min read',
     author: 'Admissions Desk',
     authorRole: 'Official Registration Coordinator',
-    image: 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=800&q=80',
+    image: R2_MEDIA.blogs.britishCouncilVsIdp,
     excerpt: 'Is the British Council stricter than IDP? Learn the truth about examiner marking, official test venues in Northern Sri Lanka, fee structures, and registration assistance.',
     content: [
       {
@@ -187,7 +189,7 @@ export const BLOG_POSTS: BlogPost[] = [
     readTime: '8 min read',
     author: 'Faculty of Overseas Higher Education',
     authorRole: 'Visa Guidance & University Placement',
-    image: 'https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?auto=format&fit=crop&w=800&q=80',
+    image: R2_MEDIA.blogs.ukStudentVisa,
     excerpt: 'Planning to study in the United Kingdom? Review the exact minimum band scores required for undergraduate and master’s degrees, CAS issuance, and UKVI test rules.',
     content: [
       {
@@ -233,7 +235,7 @@ export const BLOG_POSTS: BlogPost[] = [
     readTime: '7 min read',
     author: 'S. Tharani',
     authorRole: 'Immigration & General Training Specialist',
-    image: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=800&q=80',
+    image: R2_MEDIA.blogs.canadaClb9,
     excerpt: 'Discover why CLB 9 is known as the "golden score" for Canadian Express Entry, adding up to 50+ extra CRS points, and the exact section scores required to achieve it.',
     content: [
       {
@@ -276,7 +278,7 @@ export const BLOG_POSTS: BlogPost[] = [
     readTime: '6 min read',
     author: 'J. Pratheepan',
     authorRole: 'PTE 79+ Specialist',
-    image: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=800&q=80',
+    image: R2_MEDIA.blogs.australiaMigration,
     excerpt: 'Detailed breakdown of Competent, Proficient, and Superior English bands for Australian PR Subclass 189/190/491 visas, and why PTE Academic is popular for points.',
     content: [
       {
@@ -311,7 +313,7 @@ export const BLOG_POSTS: BlogPost[] = [
     readTime: '6 min read',
     author: 'Campus Director',
     authorRole: 'RK International Language Academy',
-    image: 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=800&q=80',
+    image: R2_MEDIA.blogs.jaffnaKilinochchi,
     excerpt: 'Why students across Jaffna and Northern Sri Lanka travel to our central A-9 campus or attend our interactive Zoom cohorts for Band 7.5+ and PTE 65+ results.',
     content: [
       {
@@ -348,7 +350,7 @@ export const BLOG_POSTS: BlogPost[] = [
     readTime: '8 min read',
     author: 'K. Nimalan',
     authorRole: 'IELTS Writing Specialist',
-    image: 'https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&w=800&q=80',
+    image: R2_MEDIA.blogs.writingTask2,
     excerpt: 'Learn the exact 4-paragraph essay formula our trainers use to help students score 7.5 to 8.5 in Academic and General Task 2 writing.',
     content: [
       {
@@ -384,7 +386,7 @@ export const BLOG_POSTS: BlogPost[] = [
     readTime: '6 min read',
     author: 'J. Pratheepan',
     authorRole: 'PTE 79+ Specialist',
-    image: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=800&q=80',
+    image: R2_MEDIA.blogs.pteDictation,
     excerpt: 'Master the highest-weighted questions in PTE Academic. Learn how to capture 100% of Write from Dictation points and speak with flawless AI oral fluency.',
     content: [
       {
@@ -415,7 +417,7 @@ export const BLOG_POSTS: BlogPost[] = [
     readTime: '5 min read',
     author: 'M. Dilakshan',
     authorRole: 'Spoken English & Fluency Coordinator',
-    image: 'https://images.unsplash.com/photo-1577495508048-b635879837f1?auto=format&fit=crop&w=800&q=80',
+    image: R2_MEDIA.blogs.spokenConfidence,
     excerpt: 'Afraid of speaking English in public or interviews? Discover 7 practical techniques used in our Diploma in English classes to build instant conversational confidence.',
     content: [
       {

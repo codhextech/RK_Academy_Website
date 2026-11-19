@@ -5,10 +5,14 @@ import {
   CheckCircle2,
   Clock,
   Laptop,
-  GraduationCap,
   ArrowRight,
 } from 'lucide-react';
+import WhatsAppIcon from '@/components/common/WhatsAppIcon';
+import { ACADEMY_INFO, R2_MEDIA } from '@/lib/constants';
 import { ACADEMY_COURSES } from '@/lib/coursesData';
+import { getAcademySettings, getAllCourses, syncFromMongoDBIfNeeded } from '@/lib/server/store';
+
+export const dynamic = 'force-dynamic';
 
 export const metadata = {
   title: 'Certified Diplomas & Language Courses in Kilinochchi | RK International Academy',
@@ -16,7 +20,56 @@ export const metadata = {
     'Explore accredited diploma programs and language preparations at RK International Language Academy: IELTS & UKVI, PTE Academic, Diplomas in English & IT, Sinhala, French DELF, and Dutch & Deutsch.',
 };
 
-export default function CoursesHubPage() {
+export default async function CoursesHubPage() {
+  await syncFromMongoDBIfNeeded();
+  const settings = getAcademySettings();
+  const liveCourses = getAllCourses().filter((c) => c.active !== false);
+
+  const courses = (
+    liveCourses.length > 0
+      ? liveCourses.map((c) => {
+          const base = ACADEMY_COURSES.find((b) => b.slug === c.slug || b.id === c.id);
+          return {
+            id: c.id,
+            slug: c.slug,
+            title: c.title,
+            tag: c.tag || base?.tag || c.category,
+            category: c.category || base?.category || 'English & Exams',
+            image: c.image || base?.image || R2_MEDIA.courses.ieltsUkvi,
+            accentColor: base?.accentColor || 'border-[#0098DA]',
+            description: c.description || base?.description || '',
+            duration: c.duration || base?.duration || '8 Weeks',
+            modes: c.modes || base?.modes || 'In-Person & Live Online',
+            targetAudience: c.targetAudience || base?.targetAudience || '',
+            curriculumHighlights:
+              c.curriculumHighlights && c.curriculumHighlights.length > 0
+                ? c.curriculumHighlights
+                : base?.curriculumHighlights || [],
+            modulesCount:
+              c.modules && c.modules.length > 0
+                ? c.modules.length
+                : base?.modules?.length || 0,
+          };
+        })
+      : ACADEMY_COURSES.map((c) => ({
+          id: c.id,
+          slug: c.slug,
+          title: c.title,
+          tag: c.tag,
+          category: c.category,
+          image: c.image,
+          accentColor: c.accentColor,
+          description: c.description,
+          duration: c.duration,
+          modes: c.modes,
+          targetAudience: c.targetAudience,
+          curriculumHighlights: c.curriculumHighlights,
+          modulesCount: c.modules.length,
+        }))
+  );
+
+  const whatsappNum = settings.whatsapp || ACADEMY_INFO.whatsappNumber;
+
   return (
     <div className="bg-slate-50 min-h-screen">
       {/* Page Header Banner - Compact & Streamlined */}
@@ -33,9 +86,9 @@ export default function CoursesHubPage() {
 
       {/* Course Cards Grid */}
       <section className="py-10 md:py-16">
-        <div className="max-w-screen-2xl mx-auto px-4 sm:px-8 lg:px-12 xl:px-16 space-y-12">
+        <div className="site-container space-y-12">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {ACADEMY_COURSES.map((course) => {
+            {courses.map((course) => {
               const linkHref =
                 course.slug === 'ielts-ukvi'
                   ? '/ielts-courses/academic'
@@ -108,14 +161,16 @@ export default function CoursesHubPage() {
                     >
                       View Full Modules & Syllabus
                     </Link>
-                    <Link
-                      href={`/register?course=${course.slug}`}
-                      className="w-full text-center py-2.5 px-4 rounded-xl font-bold text-xs sm:text-sm bg-[#0A3663] hover:bg-[#124C85] text-white flex items-center justify-center gap-2 transition-colors shadow-xs"
+                    <a
+                      href={`https://wa.me/${whatsappNum}?text=${encodeURIComponent(`Hi RK International Language Academy, I would like to inquire about the ${course.title} program (fees, schedule & syllabus).`)}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-full text-center py-2.5 px-4 rounded-xl font-bold text-xs sm:text-sm bg-[#25D366] hover:bg-[#1EBE5D] text-white flex items-center justify-center gap-2 transition-colors shadow-xs"
                     >
-                      <GraduationCap className="w-4 h-4 text-[#0098DA]" />
-                      <span>Enroll in Program</span>
+                      <WhatsAppIcon className="w-4 h-4 text-white shrink-0" />
+                      <span>WhatsApp Inquiry</span>
                       <ArrowRight className="w-4 h-4 ml-auto" />
-                    </Link>
+                    </a>
                   </div>
                 </div>
               );
@@ -145,7 +200,7 @@ export default function CoursesHubPage() {
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-slate-100 text-slate-700">
-                  {ACADEMY_COURSES.map((c) => (
+                  {courses.map((c) => (
                     <tr key={c.id} className="hover:bg-sky-50/40 transition-colors">
                       <td className="p-4 sm:p-5 font-bold text-[#0A3663]">
                         {c.title}
@@ -155,12 +210,12 @@ export default function CoursesHubPage() {
                       <td className="p-4 sm:p-5 font-semibold text-slate-900">{c.duration}</td>
                       <td className="p-4 sm:p-5">
                         <span className="bg-slate-100 text-slate-800 text-xs px-2.5 py-1 rounded-md font-semibold">
-                          {c.modules.length} Modules Included
+                          {c.modulesCount} Modules Included
                         </span>
                       </td>
                       <td className="p-4 sm:p-5">
                         <Link
-                          href={c.slug === 'ielts-ukvi' ? '/ielts-courses/academic' : `/ielts-courses/preparation#${c.slug}`}
+                          href={c.slug === 'ielts-ukvi' ? '/ielts-courses/academic' : `/ielts-courses/${c.slug}`}
                           className="inline-flex items-center gap-1 font-bold text-[#0098DA] hover:text-[#0A3663]"
                         >
                           <span>Syllabus</span>

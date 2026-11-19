@@ -1,8 +1,8 @@
 import React from 'react';
+import type { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
 import {
-  CheckCircle2,
   Clock,
   Laptop,
   ShieldCheck,
@@ -10,21 +10,49 @@ import {
   Mic,
   ChevronRight,
   GraduationCap,
-  Sparkles,
 } from 'lucide-react';
 import WhatsAppIcon from '@/components/common/WhatsAppIcon';
 import CourseCurriculumSection from '@/components/common/CourseCurriculumSection';
 import { getCourseBySlug } from '@/lib/coursesData';
-import { ACADEMY_INFO } from '@/lib/constants';
+import { getAcademySettings, getLiveCourseBySlug, syncFromMongoDBIfNeeded } from '@/lib/server/store';
+import { ACADEMY_INFO, R2_MEDIA } from '@/lib/constants';
 
-export const metadata = {
-  title: 'IELTS & UKVI (Academic & General Training) Coaching | RK International Kilinochchi',
-  description:
-    'Complete IELTS & UKVI coaching in Kilinochchi and online. Modules for Academic, General Training, and Life Skills A1/B1 with British Council registration support.',
-};
+export const dynamic = 'force-dynamic';
 
-export default function AcademicCoursePage() {
-  const courseData = getCourseBySlug('ielts-ukvi');
+export async function generateMetadata(): Promise<Metadata> {
+  await syncFromMongoDBIfNeeded();
+  const courseData = getLiveCourseBySlug('ielts-ukvi') || getCourseBySlug('ielts-ukvi');
+  const title = 'IELTS & UKVI (Academic & General Training) Coaching | RK International Kilinochchi';
+  const description =
+    courseData?.description ||
+    'Complete IELTS & UKVI coaching in Kilinochchi and online. Modules for Academic, General Training, and Life Skills A1/B1 with British Council registration support.';
+
+  return {
+    title,
+    description,
+    openGraph: {
+      title,
+      description,
+      url: 'https://rkacademy.lk/ielts-courses/academic',
+      siteName: 'RK International Language Academy',
+      images: [
+        {
+          url: courseData?.image || R2_MEDIA.courses.ieltsUkvi,
+          width: 800,
+          height: 600,
+          alt: courseData?.title || 'IELTS & UKVI Academic & General Training at RK Academy',
+        },
+      ],
+    },
+  };
+}
+
+export default async function AcademicCoursePage() {
+  await syncFromMongoDBIfNeeded();
+  const settings = getAcademySettings();
+  const courseData = getLiveCourseBySlug('ielts-ukvi') || getCourseBySlug('ielts-ukvi');
+  const whatsappNum = settings.whatsapp || ACADEMY_INFO.whatsappNumber;
+
   const coreModules = [
     {
       num: '01',
@@ -116,15 +144,20 @@ export default function AcademicCoursePage() {
     'Life Skills A1 & B1 coaching with dedicated spoken and listening test format simulations',
   ];
 
-  const whatsappInquiryUrl = `https://wa.me/${ACADEMY_INFO.whatsappNumber}?text=${encodeURIComponent(
+  const whatsappInquiryUrl = `https://wa.me/${whatsappNum}?text=${encodeURIComponent(
     'Hi RK International Language Academy, I would like to inquire about IELTS & UKVI (Academic & General Training) batch timings, fee structure, and British Council test booking.'
   )}`;
+
+  const modulesToRender =
+    courseData?.modules && courseData.modules.length > 0
+      ? courseData.modules
+      : coreModules;
 
   return (
     <div className="bg-white">
       {/* Course Hero - Compact & Streamlined with Side Enroll Card */}
       <section className="bg-gradient-to-r from-[#062343] to-[#0A3663] text-white py-6 sm:py-8 md:py-10 relative overflow-hidden">
-        <div className="max-w-screen-2xl mx-auto px-4 sm:px-8 lg:px-12 xl:px-16 relative z-10">
+        <div className="site-container relative z-10">
           {/* Breadcrumbs */}
           <nav aria-label="Breadcrumb" className="mb-3 sm:mb-4">
             <ol className="flex items-center gap-2 text-xs sm:text-sm text-sky-200">
@@ -141,7 +174,7 @@ export default function AcademicCoursePage() {
               </li>
               <ChevronRight className="w-3.5 h-3.5 text-sky-400" />
               <li className="text-white font-bold truncate max-w-[200px] sm:max-w-none">
-                IELTS & UKVI
+                {courseData?.shortTitle || 'IELTS & UKVI'}
               </li>
             </ol>
           </nav>
@@ -149,26 +182,34 @@ export default function AcademicCoursePage() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             <div className="lg:col-span-8 space-y-3 sm:space-y-3.5">
               <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-white leading-tight tracking-tight">
-                IELTS &amp; UKVI
+                {courseData?.title || 'IELTS & UKVI'}
               </h1>
 
               <p className="text-sm sm:text-base text-slate-200 max-w-3xl leading-relaxed">
-                Complete, rigorous preparation for students and professionals targeting Band 7.5+ for universities, UKVI visas, and PR immigration across the UK, Canada, Australia, and New Zealand.
+                {courseData?.longDescription ||
+                  courseData?.description ||
+                  'Complete, rigorous preparation for students and professionals targeting Band 7.5+ for universities, UKVI visas, and PR immigration across the UK, Canada, Australia, and New Zealand.'}
               </p>
 
               {/* Quick Spec Pills */}
               <div className="flex flex-wrap items-center gap-2.5 sm:gap-3 pt-2 text-xs sm:text-sm text-slate-200">
                 <div className="flex items-center gap-1.5 bg-white/10 px-3 py-1.5 rounded-lg border border-white/10">
                   <Clock className="w-4 h-4 text-[#0098DA]" />
-                  <span><strong>Duration:</strong> 8 Weeks (60+ Hours)</span>
+                  <span>
+                    <strong>Duration:</strong> {courseData?.duration || '8 Weeks (60+ Hours)'}
+                  </span>
                 </div>
                 <div className="flex items-center gap-1.5 bg-white/10 px-3 py-1.5 rounded-lg border border-white/10">
                   <Laptop className="w-4 h-4 text-[#0098DA]" />
-                  <span><strong>Delivery:</strong> In-Person & Live Online</span>
+                  <span>
+                    <strong>Delivery:</strong> {courseData?.modes || 'In-Person & Live Online'}
+                  </span>
                 </div>
                 <div className="flex items-center gap-1.5 bg-white/10 px-3 py-1.5 rounded-lg border border-white/10">
                   <ShieldCheck className="w-4 h-4 text-[#0098DA]" />
-                  <span><strong>Includes:</strong> UKVI & Life Skills A1/B1</span>
+                  <span>
+                    <strong>Includes:</strong> UKVI &amp; Life Skills A1/B1
+                  </span>
                 </div>
               </div>
             </div>
@@ -178,15 +219,15 @@ export default function AcademicCoursePage() {
               <div className="bg-white rounded-3xl p-3 shadow-2xl border border-sky-100 overflow-hidden">
                 <div className="relative h-48 sm:h-52 w-full rounded-2xl overflow-hidden">
                   <Image
-                    src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=800&q=80"
-                    alt="IELTS & UKVI Academic & General Training at RK Academy"
+                    src={courseData?.image || R2_MEDIA.courses.ieltsUkvi}
+                    alt={courseData?.title || 'IELTS & UKVI Academic & General Training at RK Academy'}
                     fill
                     priority
                     className="object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#0A3663]/80 via-transparent to-transparent" />
                   <span className="absolute bottom-3 left-4 text-xs font-bold bg-[#0A3663] text-white px-3 py-1 rounded-md shadow-xs">
-                    Exam Prep
+                    {courseData?.category || 'Exam Prep'}
                   </span>
                 </div>
 
@@ -194,7 +235,7 @@ export default function AcademicCoursePage() {
                   <div className="flex items-center justify-between text-xs text-slate-600">
                     <span>Admissions:</span>
                     <span className="font-bold text-[#0A3663] bg-sky-50 px-2 py-0.5 rounded-md border border-sky-200">
-                      Now Enrolling
+                      {courseData?.admissionsStatus || 'Now Enrolling'}
                     </span>
                   </div>
 
@@ -224,7 +265,7 @@ export default function AcademicCoursePage() {
 
       {/* Main Course Content */}
       <section className="py-10 md:py-14">
-        <div className="max-w-screen-2xl mx-auto px-4 sm:px-8 lg:px-12 xl:px-16">
+        <div className="site-container">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
             <div className="lg:col-span-8 space-y-12">
               {/* Introduction */}
@@ -240,7 +281,7 @@ export default function AcademicCoursePage() {
               {/* Collapsible Curriculum Highlights & Course Modules Dropdowns */}
               <CourseCurriculumSection
                 highlights={courseData?.curriculumHighlights || []}
-                modules={coreModules}
+                modules={modulesToRender}
                 defaultHighlightsOpen={false}
                 defaultModulesOpen={false}
               />
@@ -295,7 +336,7 @@ export default function AcademicCoursePage() {
                     <span className="text-xs font-extrabold text-amber-800 bg-white px-2 py-0.5 rounded-md border border-amber-300">
                       Life Skills B1
                     </span>
-                    <h4 className="font-bold text-[#0A3663] text-sm sm:text-base">For Visa Extensions & Settlement</h4>
+                    <h4 className="font-bold text-[#0A3663] text-sm sm:text-base">For Visa Extensions &amp; Settlement</h4>
                     <p className="text-xs text-slate-600 leading-relaxed">
                       Required for applying for Indefinite Leave to Remain (ILR), permanent residency, and British citizenship.
                     </p>
@@ -304,12 +345,12 @@ export default function AcademicCoursePage() {
 
                 <div className="p-4 rounded-xl bg-slate-50 border border-slate-200">
                   <h4 className="text-xs font-bold text-[#0A3663] uppercase tracking-wider mb-2">
-                    Test Format (Life Skills A1 & B1):
+                    Test Format (Life Skills A1 &amp; B1):
                   </h4>
                   <div className="grid grid-cols-2 gap-3 text-xs sm:text-sm text-slate-700">
                     <div className="flex items-center gap-2 p-2 bg-white rounded-lg border border-slate-200">
                       <Headphones className="w-4 h-4 text-[#0098DA]" />
-                      <span><strong>1. Listening Skills:</strong> Audio tasks & Q&A</span>
+                      <span><strong>1. Listening Skills:</strong> Audio tasks &amp; Q&amp;A</span>
                     </div>
                     <div className="flex items-center gap-2 p-2 bg-white rounded-lg border border-slate-200">
                       <Mic className="w-4 h-4 text-[#0098DA]" />
@@ -328,7 +369,7 @@ export default function AcademicCoursePage() {
                     Next Batch Enrolling
                   </span>
                   <h3 className="text-2xl font-extrabold text-[#0A3663] mt-1">
-                    IELTS & UKVI Program
+                    IELTS &amp; UKVI Program
                   </h3>
                   <p className="text-xs text-slate-500 mt-1">
                     Weekday and weekend batches available in Kilinochchi and live online.
@@ -338,7 +379,7 @@ export default function AcademicCoursePage() {
                 <div className="space-y-3 py-4 border-y border-slate-200 text-xs sm:text-sm text-slate-700">
                   <div className="flex justify-between">
                     <span className="text-slate-500">Duration:</span>
-                    <span className="font-bold">8 Weeks (60+ Hours)</span>
+                    <span className="font-bold">{courseData?.duration || '8 Weeks (60+ Hours)'}</span>
                   </div>
                   <div className="flex justify-between">
                     <span className="text-slate-500">Tracks:</span>
@@ -350,7 +391,7 @@ export default function AcademicCoursePage() {
                   </div>
                   <div className="flex justify-between">
                     <span className="text-slate-500">Campus:</span>
-                    <span className="font-bold">Kilinochchi (A-9) + Zoom</span>
+                    <span className="font-bold">{courseData?.campus || 'Kilinochchi (A-9) + Zoom'}</span>
                   </div>
                   <div className="flex justify-between">
                     <span className="text-slate-500">Mock Tests:</span>
@@ -366,7 +407,7 @@ export default function AcademicCoursePage() {
                     Enroll in IELTS / UKVI Batch
                   </Link>
                   <a
-                    href={`https://wa.me/${ACADEMY_INFO.whatsappNumber}?text=${encodeURIComponent('Hi RK Academy, I would like to inquire about IELTS & UKVI course fees, schedule, and British Council test booking.')}`}
+                    href={whatsappInquiryUrl}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="w-full text-center bg-[#25D366] hover:bg-[#1EBE5D] text-white py-3 px-4 rounded-xl font-bold text-sm block transition-colors shadow-xs"

@@ -78,15 +78,27 @@ export default function MobileStickyBar() {
               </div>
             </a>
 
-            {/* 3. Call Button */}
+            {/* 3. Call Hotline 2 */}
             <a
-              href={`tel:${ACADEMY_INFO.phone}`}
+              href={`tel:${ACADEMY_INFO.phone2Raw}`}
               onClick={() => setIsOpen(false)}
-              className="flex items-center gap-2.5 bg-white hover:bg-slate-50 text-[#0A3663] pl-4 pr-3 py-2.5 rounded-full shadow-2xl border border-slate-200/90 font-bold text-xs transition-all active:scale-95 group"
+              className="flex items-center gap-2.5 bg-white hover:bg-slate-50 text-[#0A3663] pl-4 pr-3 py-2 rounded-full shadow-2xl border border-slate-200/90 font-bold text-xs transition-all active:scale-95 group"
             >
-              <span>Call: {ACADEMY_INFO.phone}</span>
-              <div className="w-8 h-8 rounded-full bg-sky-50 flex items-center justify-center text-[#0098DA]">
-                <Phone className="w-4 h-4 text-[#0098DA]" />
+              <span>Call: {ACADEMY_INFO.phone2}</span>
+              <div className="w-7 h-7 rounded-full bg-sky-50 flex items-center justify-center text-[#0098DA]">
+                <Phone className="w-3.5 h-3.5 text-[#0098DA]" />
+              </div>
+            </a>
+
+            {/* 4. Call Hotline 1 */}
+            <a
+              href={`tel:${ACADEMY_INFO.phone1Raw}`}
+              onClick={() => setIsOpen(false)}
+              className="flex items-center gap-2.5 bg-white hover:bg-slate-50 text-[#0A3663] pl-4 pr-3 py-2 rounded-full shadow-2xl border border-slate-200/90 font-bold text-xs transition-all active:scale-95 group"
+            >
+              <span>Call: {ACADEMY_INFO.phone1}</span>
+              <div className="w-7 h-7 rounded-full bg-sky-50 flex items-center justify-center text-[#0098DA]">
+                <Phone className="w-3.5 h-3.5 text-[#0098DA]" />
               </div>
             </a>
           </div>

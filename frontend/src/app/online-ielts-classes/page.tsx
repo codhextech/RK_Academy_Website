@@ -33,7 +33,7 @@ export default function OnlineClassesPage() {
 
       {/* Feature Cards & CTA Section with Soft Light Gray Background */}
       <section className="py-10 md:py-16 bg-slate-50 border-t border-slate-200/60">
-        <div className="max-w-screen-2xl mx-auto px-4 sm:px-8 lg:px-12 xl:px-16">
+        <div className="site-container">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-12 md:mb-16">
             {/* Card 1: Interactive Live Video */}
             <div className="group p-6 sm:p-8 rounded-2xl bg-white border-2 border-slate-200/90 shadow-sm hover:shadow-xl hover:shadow-[#0A3663]/10 hover:-translate-y-1.5 hover:border-[#0098DA] transition-all duration-300 text-center space-y-4 cursor-default">
@@ -84,12 +84,6 @@ export default function OnlineClassesPage() {
               Get in touch with our online coordinator to receive trial class access and class timetable.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Link
-                href="/register"
-                className="w-full sm:w-auto bg-[#0098DA] hover:bg-[#0080B8] text-white px-8 py-3.5 rounded-xl font-bold text-sm shadow-md transition-all hover:shadow-lg hover:shadow-sky-400/20"
-              >
-                Register for Online Class
-              </Link>
               <a
                 href={`https://wa.me/${ACADEMY_INFO.whatsappNumber}?text=${encodeURIComponent('Hi RK Academy, please send me details about the Live Online IELTS batch.')}`}
                 target="_blank"
@@ -97,8 +91,14 @@ export default function OnlineClassesPage() {
                 className="w-full sm:w-auto bg-[#25D366] hover:bg-[#1EBE5D] text-white px-8 py-3.5 rounded-xl font-bold text-sm shadow-md transition-all hover:shadow-lg hover:shadow-green-500/20 flex items-center justify-center gap-2"
               >
                 <WhatsAppIcon className="w-4 h-4 text-white" />
-                <span>WhatsApp Admissions</span>
+                <span>WhatsApp Inquiry</span>
               </a>
+              <Link
+                href="/ielts-courses"
+                className="w-full sm:w-auto bg-white/10 hover:bg-white/20 text-white border border-white/25 px-8 py-3.5 rounded-xl font-bold text-sm transition-all"
+              >
+                View All Courses
+              </Link>
             </div>
           </div>
         </div>

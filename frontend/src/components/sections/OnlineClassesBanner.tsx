@@ -6,7 +6,7 @@ import { ACADEMY_INFO } from '@/lib/constants';
 export default function OnlineClassesBanner() {
   return (
     <section className="py-8 md:py-12 bg-white overflow-hidden">
-      <div className="max-w-screen-2xl mx-auto px-4 sm:px-8 lg:px-12 xl:px-16">
+      <div className="site-container">
         <div className="relative rounded-2xl sm:rounded-3xl bg-gradient-to-r from-[#062343] via-[#0A3663] to-[#062343] text-white p-6 sm:p-10 lg:p-12 overflow-hidden shadow-xl border border-sky-900/30">
           {/* Subtle decorative glow */}
           <div className="absolute top-0 right-0 -mr-20 -mt-20 w-80 h-80 rounded-full bg-[#0098DA]/20 blur-3xl pointer-events-none" />

@@ -1,8 +1,10 @@
 import type { MetadataRoute } from 'next';
 import { ACADEMY_COURSES } from '@/lib/coursesData';
 import { BLOG_POSTS } from '@/lib/blogData';
+import { getAllBlogs, getAllCourses, syncFromMongoDBIfNeeded } from '@/lib/server/store';
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  await syncFromMongoDBIfNeeded();
   const baseUrl = 'https://rkacademy.lk';
   const now = new Date();
 
@@ -27,7 +29,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }));
 
   // 2. Dedicated course pages
-  const courseRoutes: MetadataRoute.Sitemap = ACADEMY_COURSES.map((course) => ({
+  const liveCourses = getAllCourses().filter((c) => c.active !== false);
+  const courseList = liveCourses.length > 0 ? liveCourses : ACADEMY_COURSES;
+  const courseRoutes: MetadataRoute.Sitemap = courseList.map((course) => ({
     url: `${baseUrl}/ielts-courses/${course.slug}`,
     lastModified: now,
     changeFrequency: 'weekly',
@@ -35,7 +39,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }));
 
   // 3. Educational SEO blog guides
-  const blogRoutes: MetadataRoute.Sitemap = BLOG_POSTS.map((post) => ({
+  const liveBlogs = getAllBlogs().filter((b) => b.published !== false);
+  const blogList = liveBlogs.length > 0 ? liveBlogs : BLOG_POSTS;
+  const blogRoutes: MetadataRoute.Sitemap = blogList.map((post) => ({
     url: `${baseUrl}/blog/${post.slug}`,
     lastModified: now,
     changeFrequency: 'monthly',
