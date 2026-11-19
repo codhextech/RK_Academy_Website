@@ -1123,7 +1123,7 @@ export function getLiveCourseBySlug(slug: string): CourseDetail | undefined {
   const normalized = (slug || '').trim().toLowerCase();
 
   let matchedSlug = normalized;
-  if (normalized === 'pte' || normalized === 'pte-academic-exam-preparation') {
+  if (normalized === 'pte' || normalized === 'pte-academic-exam-preparation' || normalized === 'pte-core') {
     matchedSlug = 'pte-academic';
   } else if (normalized === 'it' || normalized === 'diploma-it') {
     matchedSlug = 'diploma-in-it';
