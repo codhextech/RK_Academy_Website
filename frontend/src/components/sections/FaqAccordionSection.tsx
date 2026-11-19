@@ -47,7 +47,7 @@ export default function FaqAccordionSection() {
 
   return (
     <section className="py-12 md:py-20 bg-slate-50 border-t border-slate-200" id="faqs">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-5xl xl:max-w-6xl 2xl:max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-8 md:mb-12">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#0A3663] mb-2">

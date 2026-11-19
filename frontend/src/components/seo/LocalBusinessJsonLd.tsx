@@ -1,5 +1,5 @@
 import React from 'react';
-import { ACADEMY_INFO } from '@/lib/constants';
+import { ACADEMY_INFO, R2_MEDIA } from '@/lib/constants';
 
 export default function LocalBusinessJsonLd() {
   const schema = {
@@ -11,10 +11,10 @@ export default function LocalBusinessJsonLd() {
     description:
       'Premier IELTS Academic, IELTS General Training, and English Language Academy in Kilinochchi, Sri Lanka. British Council & IDP exam preparation.',
     url: 'https://rkacademy.lk',
-    telephone: ACADEMY_INFO.phoneFormatted,
+    telephone: [ACADEMY_INFO.phone1Formatted, ACADEMY_INFO.phone2Formatted],
     email: ACADEMY_INFO.email,
-    logo: 'https://rkacademy.lk/images/logo/rk-logo.png',
-    image: 'https://rkacademy.lk/images/logo/rk-logo.png',
+    logo: R2_MEDIA.brand.logo,
+    image: R2_MEDIA.brand.logo,
     address: {
       '@type': 'PostalAddress',
       streetAddress: 'A-9 Road, Near Theresamma Kovil',

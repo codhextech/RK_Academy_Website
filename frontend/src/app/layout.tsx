@@ -1,11 +1,7 @@
 import type { Metadata } from 'next';
 import './globals.css';
-import Header from '@/components/layout/Header';
-import Footer from '@/components/layout/Footer';
-import FloatingWhatsApp from '@/components/floating/FloatingWhatsApp';
-import MobileStickyBar from '@/components/floating/MobileStickyBar';
-import LocalBusinessJsonLd from '@/components/seo/LocalBusinessJsonLd';
-import { ACADEMY_INFO } from '@/lib/constants';
+import SiteLayoutWrapper from '@/components/layout/SiteLayoutWrapper';
+import { R2_MEDIA } from '@/lib/constants';
 
 export const metadata: Metadata = {
   title: 'IELTS & PTE Classes in Kilinochchi, Sri Lanka | RK International Language Academy',
@@ -39,7 +35,7 @@ export const metadata: Metadata = {
     type: 'website',
     images: [
       {
-        url: '/images/logo/rk-logo.png',
+        url: R2_MEDIA.brand.logo,
         width: 1200,
         height: 630,
         alt: 'RK International Language Academy Logo',
@@ -47,8 +43,17 @@ export const metadata: Metadata = {
     ],
   },
   icons: {
-    icon: '/favicon.ico',
-    apple: '/images/logo/rk-logo.png',
+    icon: [
+      { url: '/favicon.ico', sizes: 'any' },
+      { url: '/favicon.png', type: 'image/png', sizes: '32x32' },
+      { url: '/favicon-32.png', type: 'image/png', sizes: '32x32' },
+      { url: '/favicon-192.png', type: 'image/png', sizes: '192x192' },
+      { url: '/icon.png', type: 'image/png', sizes: '512x512' },
+    ],
+    apple: [
+      { url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
+    ],
+    shortcut: '/favicon.ico',
   },
 };
 
@@ -63,12 +68,7 @@ export default function RootLayout({
         className="min-h-screen flex flex-col bg-white text-slate-800 antialiased selection:bg-[#0098DA] selection:text-white"
         suppressHydrationWarning
       >
-        <LocalBusinessJsonLd />
-        <Header />
-        <main className="flex-1">{children}</main>
-        <Footer />
-        <FloatingWhatsApp />
-        <MobileStickyBar />
+        <SiteLayoutWrapper>{children}</SiteLayoutWrapper>
       </body>
     </html>
   );

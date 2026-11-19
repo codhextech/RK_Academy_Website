@@ -1,6 +1,7 @@
 import React from 'react';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
+import { cookies } from 'next/headers';
 import Link from 'next/link';
 import Image from 'next/image';
 import {
@@ -8,18 +9,22 @@ import {
   Clock,
   Laptop,
   CheckCircle2,
-  Calendar,
   FileCheck,
   ChevronRight,
-  Sparkles,
   Phone,
-  HelpCircle,
   Lightbulb,
   Award,
+  Edit2,
 } from 'lucide-react';
 import WhatsAppIcon from '@/components/common/WhatsAppIcon';
 import CourseCurriculumSection from '@/components/common/CourseCurriculumSection';
 import { getCourseBySlug, getAllCourseSlugs, ACADEMY_COURSES } from '@/lib/coursesData';
+import {
+  getAcademySettings,
+  getAllCourses,
+  getLiveCourseBySlug,
+  syncFromMongoDBIfNeeded,
+} from '@/lib/server/store';
 import { ACADEMY_INFO } from '@/lib/constants';
 
 interface PageProps {
@@ -31,11 +36,14 @@ export async function generateStaticParams() {
   return slugs.map((slug) => ({ slug }));
 }
 
+export const dynamic = 'force-dynamic';
+
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
-  const course = getCourseBySlug(slug);
+  await syncFromMongoDBIfNeeded();
+  const course = getLiveCourseBySlug(slug) || getCourseBySlug(slug);
 
-  if (!course) {
+  if (!course || course.active === false) {
     return {
       title: 'Course Not Found | RK International Language Academy',
     };
@@ -76,13 +84,22 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
 export default async function CourseDetailPage({ params }: PageProps) {
   const { slug } = await params;
-  const course = getCourseBySlug(slug);
+  await syncFromMongoDBIfNeeded();
+  const course = getLiveCourseBySlug(slug) || getCourseBySlug(slug);
 
-  if (!course) {
+  if (!course || course.active === false) {
     notFound();
   }
 
-  const whatsappInquiryUrl = `https://wa.me/${ACADEMY_INFO.whatsappNumber}?text=${encodeURIComponent(
+  const settings = getAcademySettings();
+  const whatsappNum = settings.whatsapp || ACADEMY_INFO.whatsappNumber;
+  const hotlineDisplay = settings.phone1 || ACADEMY_INFO.phone1;
+  const hotlineRaw = hotlineDisplay.replace(/\s+/g, '');
+
+  const cookieStore = await cookies();
+  const isAdmin = Boolean(cookieStore.get('rk_admin_token')?.value);
+
+  const whatsappInquiryUrl = `https://wa.me/${whatsappNum}?text=${encodeURIComponent(
     `Hi RK International Language Academy, I would like to inquire about admission, fee details, and syllabus for ${course.title}.`
   )}`;
 
@@ -94,7 +111,7 @@ export default async function CourseDetailPage({ params }: PageProps) {
     description: course.description,
     provider: {
       '@type': 'EducationalOrganization',
-      name: ACADEMY_INFO.name,
+      name: settings.academyName || ACADEMY_INFO.name,
       sameAs: 'https://rkacademy.lk',
       address: {
         '@type': 'PostalAddress',
@@ -103,7 +120,7 @@ export default async function CourseDetailPage({ params }: PageProps) {
         addressRegion: 'Northern Province',
         addressCountry: 'LK',
       },
-      telephone: ACADEMY_INFO.phone,
+      telephone: hotlineDisplay,
     },
     hasCourseInstance: [
       {
@@ -113,13 +130,16 @@ export default async function CourseDetailPage({ params }: PageProps) {
         location: {
           '@type': 'Place',
           name: 'RK International Language Academy Kilinochchi Campus',
-          address: 'A-9 Road, Near Theresamma Kovil, Kilinochchi',
+          address: settings.address || 'A-9 Road, Near Theresamma Kovil, Kilinochchi',
         },
       },
     ],
   };
 
-  const otherCourses = ACADEMY_COURSES.filter((c) => c.slug !== course.slug).slice(0, 3);
+  const liveCourses = getAllCourses().filter((c) => c.active !== false);
+  const otherCourses = (liveCourses.length > 0 ? liveCourses : ACADEMY_COURSES)
+    .filter((c) => c.slug !== course.slug)
+    .slice(0, 3);
 
   return (
     <div className="bg-slate-50 min-h-screen">
@@ -131,7 +151,7 @@ export default async function CourseDetailPage({ params }: PageProps) {
 
       {/* 1. HERO BANNER - Consistent Academy Navy Theme */}
       <section className="bg-gradient-to-r from-[#062343] to-[#0A3663] text-white py-6 sm:py-8 md:py-10 relative overflow-hidden">
-        <div className="max-w-screen-2xl mx-auto px-4 sm:px-8 lg:px-12 xl:px-16 relative z-10">
+        <div className="site-container relative z-10">
           {/* Breadcrumbs */}
           <nav aria-label="Breadcrumb" className="mb-3 sm:mb-4">
             <ol className="flex items-center gap-2 text-xs sm:text-sm text-sky-200">
@@ -173,9 +193,15 @@ export default async function CourseDetailPage({ params }: PageProps) {
                   <Laptop className="w-4 h-4 text-[#0098DA]" />
                   <span><strong>Delivery:</strong> {course.modes}</span>
                 </div>
+                {course.tag && (
+                  <div className="flex items-center gap-1.5 bg-white/10 px-3 py-1.5 rounded-lg border border-white/10">
+                    <CheckCircle2 className="w-4 h-4 text-[#0098DA]" />
+                    <span><strong>Includes:</strong> {course.tag}</span>
+                  </div>
+                )}
                 <div className="flex items-center gap-1.5 bg-white/10 px-3 py-1.5 rounded-lg border border-white/10">
                   <GraduationCap className="w-4 h-4 text-[#0098DA]" />
-                  <span><strong>Campus:</strong> A-9 Road, Kilinochchi</span>
+                  <span><strong>Campus:</strong> {course.campus || 'A-9 Road, Kilinochchi'}</span>
                 </div>
               </div>
             </div>
@@ -201,7 +227,7 @@ export default async function CourseDetailPage({ params }: PageProps) {
                   <div className="flex items-center justify-between text-xs text-slate-600">
                     <span>Admissions:</span>
                     <span className="font-bold text-[#0A3663] bg-sky-50 px-2 py-0.5 rounded-md border border-sky-200">
-                      Now Enrolling
+                      {course.admissionsStatus || 'Now Enrolling'}
                     </span>
                   </div>
 
@@ -231,7 +257,7 @@ export default async function CourseDetailPage({ params }: PageProps) {
 
       {/* 2. MAIN COURSE BODY: SYLLABUS, MODULES & EXAM DETAILS */}
       <section className="py-10 md:py-14">
-        <div className="max-w-screen-2xl mx-auto px-4 sm:px-8 lg:px-12 xl:px-16">
+        <div className="site-container">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
             {/* Left 8 Cols: Curriculum Highlights & Detailed Modules */}
             <div className="lg:col-span-8 space-y-12">
@@ -243,17 +269,19 @@ export default async function CourseDetailPage({ params }: PageProps) {
                 <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
                   {course.description}
                 </p>
-                <div className="p-4 rounded-2xl bg-sky-50/70 border border-sky-100 flex items-start gap-3">
-                  <Award className="w-5 h-5 text-[#0098DA] shrink-0 mt-0.5" />
-                  <div>
-                    <h3 className="text-xs font-bold text-[#0A3663] uppercase tracking-wide">
-                      Who Is This Course For?
-                    </h3>
-                    <p className="text-xs sm:text-sm text-slate-700 mt-1 leading-relaxed">
-                      {course.targetAudience}
-                    </p>
+                {course.targetAudience && (
+                  <div className="p-4 rounded-2xl bg-sky-50/70 border border-sky-100 flex items-start gap-3">
+                    <Award className="w-5 h-5 text-[#0098DA] shrink-0 mt-0.5" />
+                    <div>
+                      <h3 className="text-xs font-bold text-[#0A3663] uppercase tracking-wide">
+                        Who Is This Course For?
+                      </h3>
+                      <p className="text-xs sm:text-sm text-slate-700 mt-1 leading-relaxed">
+                        {course.targetAudience}
+                      </p>
+                    </div>
                   </div>
-                </div>
+                )}
               </div>
 
               {/* Collapsible Curriculum Highlights & Course Modules Dropdowns */}
@@ -391,11 +419,11 @@ export default async function CourseDetailPage({ params }: PageProps) {
                     </a>
 
                     <a
-                      href={`tel:${ACADEMY_INFO.phone}`}
+                      href={`tel:${hotlineRaw}`}
                       className="w-full inline-flex items-center justify-center gap-1.5 bg-slate-100 hover:bg-slate-200 text-[#0A3663] py-2 rounded-xl font-bold text-xs transition-colors border border-slate-200"
                     >
                       <Phone className="w-3.5 h-3.5 text-[#0098DA]" />
-                      <span>Call Hotline: {ACADEMY_INFO.phone}</span>
+                      <span>Call Hotline: {hotlineDisplay}</span>
                     </a>
                   </div>
 
@@ -420,7 +448,11 @@ export default async function CourseDetailPage({ params }: PageProps) {
                     {otherCourses.map((other) => (
                       <Link
                         key={other.id}
-                        href={`/ielts-courses/${other.slug}`}
+                        href={
+                          other.slug === 'ielts-ukvi'
+                            ? '/ielts-courses/academic'
+                            : `/ielts-courses/${other.slug}`
+                        }
                         className="block p-2.5 rounded-xl bg-slate-50 hover:bg-sky-50 border border-slate-200/80 hover:border-sky-200 transition-colors group"
                       >
                         <h4 className="font-bold text-xs text-[#0A3663] group-hover:text-[#0098DA] transition-colors leading-snug">
@@ -436,6 +468,21 @@ export default async function CourseDetailPage({ params }: PageProps) {
           </div>
         </div>
       </section>
+
+      {/* ADMIN FLOATING QUICK-EDIT BUTTON */}
+      {isAdmin && (
+        <aside aria-label="Admin Page Controls" className="fixed bottom-6 left-6 z-50">
+          <Link
+            href={`/admin/courses?edit=${course.slug}`}
+            className="px-4 py-2.5 bg-[#062343] hover:bg-[#0A3663] text-white text-xs font-bold rounded-2xl shadow-2xl border border-sky-400 flex items-center gap-2 transition-all hover:scale-105"
+            title="Edit this course page in the Admin Dashboard"
+          >
+            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+            <span>Edit This Course in Admin</span>
+            <Edit2 className="w-3.5 h-3.5 text-[#0098DA]" />
+          </Link>
+        </aside>
+      )}
     </div>
   );
 }

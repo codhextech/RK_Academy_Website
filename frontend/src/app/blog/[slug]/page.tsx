@@ -9,28 +9,119 @@ import {
   User,
   ChevronRight,
   HelpCircle,
-  GraduationCap,
   Phone,
   BookOpen,
-  ArrowRight,
   CheckCircle2,
 } from 'lucide-react';
 import WhatsAppIcon from '@/components/common/WhatsAppIcon';
-import { getBlogPostBySlug, getAllBlogSlugs, BLOG_POSTS } from '@/lib/blogData';
-import { ACADEMY_INFO } from '@/lib/constants';
+import { getBlogPostBySlug, getAllBlogSlugs, BLOG_POSTS, BlogPost } from '@/lib/blogData';
+import { ACADEMY_INFO, R2_MEDIA } from '@/lib/constants';
+import {
+  getAcademySettings,
+  getAllBlogs,
+  getBlogBySlug,
+  syncFromMongoDBIfNeeded,
+} from '@/lib/server/store';
 
 interface PageProps {
   params: Promise<{ slug: string }>;
 }
+
+export const dynamic = 'force-dynamic';
 
 export async function generateStaticParams() {
   const slugs = getAllBlogSlugs();
   return slugs.map((slug) => ({ slug }));
 }
 
+function buildResolvedBlogPost(slug: string): BlogPost | null {
+  const liveBlog = getBlogBySlug(slug);
+  const basePost = getBlogPostBySlug(slug);
+
+  if (liveBlog && liveBlog.published === false) {
+    return null;
+  }
+
+  if (!liveBlog && !basePost) {
+    return null;
+  }
+
+  if (basePost && !liveBlog) {
+    return basePost;
+  }
+
+  if (liveBlog && basePost) {
+    const trimmedContent = (liveBlog.content || '').trim();
+    const hasCustomBody =
+      trimmedContent.length > 0 &&
+      trimmedContent !== liveBlog.excerpt.trim() &&
+      trimmedContent !== basePost.excerpt.trim();
+
+    const contentSections = hasCustomBody
+      ? [
+          {
+            heading: 'Complete Guide & Preparation Strategy',
+            paragraphs: trimmedContent
+              .split(/\n\s*\n/)
+              .map((p) => p.trim())
+              .filter(Boolean),
+          },
+        ]
+      : basePost.content;
+
+    return {
+      ...basePost,
+      title: liveBlog.title || basePost.title,
+      category: (liveBlog.category || basePost.category) as BlogPost['category'],
+      date: liveBlog.date || basePost.date,
+      readTime: liveBlog.readTime || basePost.readTime,
+      author: liveBlog.author || basePost.author,
+      authorRole: liveBlog.authorRole || basePost.authorRole,
+      image: liveBlog.image || basePost.image || R2_MEDIA.courses.ieltsUkvi,
+      excerpt: liveBlog.excerpt || basePost.excerpt,
+      content: contentSections,
+    };
+  }
+
+  // Newly created post from Admin Dashboard (not in static BLOG_POSTS)
+  const rawBody = (liveBlog!.content || liveBlog!.excerpt || '').trim();
+  const paragraphs = rawBody
+    .split(/\n\s*\n/)
+    .map((p) => p.trim())
+    .filter(Boolean);
+
+  return {
+    slug: liveBlog!.slug,
+    title: liveBlog!.title,
+    metaTitle: `${liveBlog!.title} | RK International Language Academy`,
+    metaDescription: liveBlog!.excerpt,
+    keywords: [
+      liveBlog!.title,
+      liveBlog!.category,
+      'IELTS Kilinochchi',
+      'RK International Language Academy',
+    ],
+    category: (liveBlog!.category || 'Tips & Strategy') as BlogPost['category'],
+    date: liveBlog!.date || 'April 2026',
+    readTime: liveBlog!.readTime || '5 min read',
+    author: liveBlog!.author || 'RK Academy Faculty',
+    authorRole: liveBlog!.authorRole || 'Senior Instructor',
+    image: liveBlog!.image || R2_MEDIA.courses.ieltsUkvi,
+    excerpt: liveBlog!.excerpt,
+    content: [
+      {
+        heading: 'Overview & Key Insights',
+        paragraphs: paragraphs.length > 0 ? paragraphs : [liveBlog!.excerpt],
+      },
+    ],
+    faqs: [],
+  };
+}
+
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
-  const post = getBlogPostBySlug(slug);
+  await syncFromMongoDBIfNeeded();
+  const post = buildResolvedBlogPost(slug);
 
   if (!post) {
     return {
@@ -65,13 +156,19 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
 export default async function BlogPostPage({ params }: PageProps) {
   const { slug } = await params;
-  const post = getBlogPostBySlug(slug);
+  await syncFromMongoDBIfNeeded();
+  const post = buildResolvedBlogPost(slug);
 
   if (!post) {
     notFound();
   }
 
-  const whatsappInquiryUrl = `https://wa.me/${ACADEMY_INFO.whatsappNumber}?text=${encodeURIComponent(
+  const settings = getAcademySettings();
+  const whatsappNum = settings.whatsapp || ACADEMY_INFO.whatsappNumber;
+  const hotlineDisplay = settings.phone1 || ACADEMY_INFO.phone1;
+  const hotlineRaw = hotlineDisplay.replace(/\s+/g, '');
+
+  const whatsappInquiryUrl = `https://wa.me/${whatsappNum}?text=${encodeURIComponent(
     `Hi RK Academy, I read your guide "${post.title}" and would like to inquire about coaching classes.`
   )}`;
 
@@ -90,15 +187,15 @@ export default async function BlogPostPage({ params }: PageProps) {
       jobTitle: post.authorRole,
       worksFor: {
         '@type': 'Organization',
-        name: ACADEMY_INFO.name,
+        name: settings.academyName || ACADEMY_INFO.name,
       },
     },
     publisher: {
       '@type': 'Organization',
-      name: ACADEMY_INFO.name,
+      name: settings.academyName || ACADEMY_INFO.name,
       logo: {
         '@type': 'ImageObject',
-        url: 'https://rkacademy.lk/images/logo/rk-logo.png',
+        url: settings.logoUrl || R2_MEDIA.brand.logo,
       },
     },
     mainEntityOfPage: {
@@ -121,7 +218,23 @@ export default async function BlogPostPage({ params }: PageProps) {
     })),
   };
 
-  const relatedPosts = BLOG_POSTS.filter((p) => p.slug !== post.slug).slice(0, 3);
+  const livePublished = getAllBlogs().filter((b) => b.published !== false);
+  const relatedPool =
+    livePublished.length > 0
+      ? livePublished.map((b) => ({
+          slug: b.slug,
+          category: b.category,
+          title: b.title,
+          readTime: b.readTime,
+        }))
+      : BLOG_POSTS.map((p) => ({
+          slug: p.slug,
+          category: p.category,
+          title: p.title,
+          readTime: p.readTime,
+        }));
+
+  const relatedPosts = relatedPool.filter((p) => p.slug !== post.slug).slice(0, 3);
 
   return (
     <div className="bg-slate-50 min-h-screen">
@@ -315,30 +428,22 @@ export default async function BlogPostPage({ params }: PageProps) {
                   </div>
 
                   <div className="space-y-2.5">
-                    <Link
-                      href="/register"
-                      className="w-full inline-flex items-center justify-center gap-2 bg-[#0A3663] hover:bg-[#124C85] text-white py-3 rounded-xl font-bold text-xs sm:text-sm shadow-md transition-all active:scale-95"
-                    >
-                      <GraduationCap className="w-4 h-4 text-[#0098DA]" />
-                      <span>Register for Next Batch</span>
-                    </Link>
-
                     <a
                       href={whatsappInquiryUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="w-full inline-flex items-center justify-center gap-2 bg-transparent hover:bg-[#25D366] text-[#0A3663] hover:text-white border-2 border-[#25D366] py-2.5 rounded-xl font-bold text-xs transition-all duration-200 group shadow-xs"
+                      className="w-full inline-flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#1EBE5D] text-white py-3 rounded-xl font-bold text-xs sm:text-sm shadow-md transition-all active:scale-95"
                     >
-                      <WhatsAppIcon className="w-4 h-4 text-[#25D366] group-hover:text-white transition-colors" />
-                      <span>Inquire via WhatsApp</span>
+                      <WhatsAppIcon className="w-4 h-4 text-white shrink-0" />
+                      <span>WhatsApp Inquiry</span>
                     </a>
 
                     <a
-                      href={`tel:${ACADEMY_INFO.phone}`}
+                      href={`tel:${hotlineRaw}`}
                       className="w-full inline-flex items-center justify-center gap-1.5 bg-slate-100 hover:bg-slate-200 text-[#0A3663] py-2 rounded-xl font-bold text-xs transition-colors border border-slate-200"
                     >
                       <Phone className="w-3.5 h-3.5 text-[#0098DA]" />
-                      <span>Hotline: {ACADEMY_INFO.phone}</span>
+                      <span>Hotline: {hotlineDisplay}</span>
                     </a>
                   </div>
                 </div>

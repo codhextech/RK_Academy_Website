@@ -20,7 +20,9 @@ import {
   BadgeCheck,
   ChevronDown,
 } from 'lucide-react';
-import Link from 'next/link';
+import WhatsAppIcon from '@/components/common/WhatsAppIcon';
+import MarqueeTicker from '@/components/common/MarqueeTicker';
+import { ACADEMY_INFO } from '@/lib/constants';
 
 export default function WhyChooseUsSection() {
   const [showAllIelts, setShowAllIelts] = useState(false);
@@ -108,8 +110,8 @@ export default function WhyChooseUsSection() {
 
   return (
     <section className="py-10 md:py-16 bg-white" id="why-choose-us">
-      <div className="max-w-screen-2xl mx-auto px-4 sm:px-8 lg:px-12 xl:px-16 space-y-12 md:space-y-16">
-        {/* PART 1: Why Choose RK Academy */}
+      {/* PART 1: Why Choose RK Academy */}
+      <div className="site-container">
         <div>
           <div className="max-w-3xl mb-6 md:mb-8 text-center sm:text-left">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#0A3663] mb-2">
@@ -156,13 +158,18 @@ export default function WhyChooseUsSection() {
                   Book Your Seat in Next Batch
                 </h3>
               </div>
-              <Link
-                href="/register"
-                className="mt-2.5 inline-flex items-center justify-between w-full bg-[#0098DA] hover:bg-[#0080B8] text-white font-bold text-xs py-2 px-3.5 rounded-xl transition-all shadow-xs group-hover:bg-[#0089C4]"
+              <a
+                href={`https://wa.me/${ACADEMY_INFO.whatsappNumber}?text=${encodeURIComponent('Hi RK International Language Academy, I would like to inquire about booking a seat in the upcoming IELTS/PTE batch.')}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-2.5 inline-flex items-center justify-between w-full bg-[#25D366] hover:bg-[#1EBE5D] text-white font-bold text-xs py-2 px-3.5 rounded-xl transition-all shadow-xs"
               >
-                <span>Register Now</span>
+                <span className="inline-flex items-center gap-1.5">
+                  <WhatsAppIcon className="w-3.5 h-3.5 text-white shrink-0" />
+                  <span>WhatsApp Inquiry</span>
+                </span>
                 <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
-              </Link>
+              </a>
             </div>
           </div>
 
@@ -182,9 +189,16 @@ export default function WhyChooseUsSection() {
             </button>
           </div>
         </div>
+      </div>
 
-        {/* PART 2: Why English & Spoken Fluency? */}
-        <div className="pt-8 md:pt-10 border-t border-slate-100">
+      {/* Moving Announcement Ticker Between Part 1 & Part 2 */}
+      <div className="my-8 md:my-12">
+        <MarqueeTicker className="py-0" />
+      </div>
+
+      {/* PART 2: Why English & Spoken Fluency? */}
+      <div className="site-container">
+        <div>
           <div className="w-full max-w-none mb-6 md:mb-8 text-center sm:text-left">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#0A3663] mb-2">
               Why English &amp; Spoken Fluency?

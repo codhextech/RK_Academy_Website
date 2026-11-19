@@ -1,24 +1,24 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Phone, Mail, MapPin, Clock, ArrowRight, ShieldCheck, ExternalLink } from 'lucide-react';
+import { Phone, Mail, MapPin, Clock, ArrowRight, ShieldCheck, ExternalLink, Lock } from 'lucide-react';
 import WhatsAppIcon from '@/components/common/WhatsAppIcon';
-import { ACADEMY_INFO } from '@/lib/constants';
+import { ACADEMY_INFO, R2_MEDIA } from '@/lib/constants';
 
 export default function Footer() {
   return (
     <footer className="bg-[#062343] text-slate-300 pt-8 sm:pt-10 pb-16 md:pb-6 border-t-4 border-[#0098DA]">
-      <div className="max-w-screen-2xl mx-auto px-4 sm:px-8 lg:px-12 xl:px-16">
+      <div className="site-container">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 items-start">
           {/* Col 1: Brand & Identity (4 cols) */}
           <div className="lg:col-span-4 space-y-3.5">
             <div className="bg-white p-3.5 sm:p-4 rounded-2xl inline-block shadow-md">
               <Image
-                src="/images/logo/rk-logo.png"
+                src={R2_MEDIA.brand.logo}
                 alt="RK International Language Academy"
-                width={300}
-                height={60}
-                style={{ width: 'auto', height: 'auto', maxHeight: '55px', maxWidth: '280px' }}
+                width={240}
+                height={180}
+                style={{ width: 'auto', height: 'auto', maxHeight: '75px', maxWidth: '240px' }}
                 className="object-contain"
               />
             </div>
@@ -100,12 +100,17 @@ export default function Footer() {
                   </address>
                 </div>
 
-                <div className="space-y-1 pt-0.5">
-                  <div className="flex items-center gap-1.5 sm:gap-2">
-                    <Phone className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#0098DA] shrink-0" />
-                    <a href={`tel:${ACADEMY_INFO.phone}`} className="hover:text-white font-semibold">
-                      {ACADEMY_INFO.phoneFormatted}
-                    </a>
+                <div className="space-y-1.5 pt-0.5">
+                  <div className="flex items-start gap-1.5 sm:gap-2">
+                    <Phone className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#0098DA] shrink-0 mt-0.5" />
+                    <div className="flex flex-col space-y-0.5">
+                      <a href={`tel:${ACADEMY_INFO.phone1Raw}`} className="hover:text-white font-semibold hover:underline">
+                        {ACADEMY_INFO.phone1Formatted}
+                      </a>
+                      <a href={`tel:${ACADEMY_INFO.phone2Raw}`} className="hover:text-white font-semibold hover:underline">
+                        {ACADEMY_INFO.phone2Formatted}
+                      </a>
+                    </div>
                   </div>
                   <div className="flex items-center gap-1.5 pl-5 sm:pl-6">
                     <a
@@ -170,6 +175,11 @@ export default function Footer() {
             <Link href="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
             <span className="text-slate-600">•</span>
             <Link href="/terms" className="hover:text-white transition-colors">Terms & Conditions</Link>
+            <span className="text-slate-600">•</span>
+            <Link href="/admin/login" className="hover:text-sky-300 transition-colors inline-flex items-center gap-1 text-[11px] text-slate-400">
+              <Lock className="w-3 h-3 text-sky-400" />
+              <span>Staff Portal</span>
+            </Link>
           </div>
         </div>
       </div>

@@ -8,7 +8,7 @@ import { ACADEMY_INFO } from '@/lib/constants';
 export default function ContactMapSection() {
   return (
     <section className="py-8 md:py-14 bg-white border-t border-slate-100" id="contact">
-      <div className="max-w-screen-2xl mx-auto px-4 sm:px-8 lg:px-12 xl:px-16 space-y-8">
+      <div className="site-container space-y-8">
         {/* 4 Contact Channels */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {/* Address Card */}
@@ -25,7 +25,7 @@ export default function ContactMapSection() {
                 </p>
               </div>
             </div>
-            <div className="mt-auto pt-3 border-t border-slate-100">
+            <div className="mt-auto pt-3 border-t border-slate-100 h-9 flex items-center">
               <a
                 href="https://maps.google.com/?q=Theresamma+Church+Kilinochchi"
                 target="_blank"
@@ -46,12 +46,14 @@ export default function ContactMapSection() {
               </div>
               <div>
                 <h3 className="font-bold text-[#0A3663] text-sm mb-1">Call / WhatsApp</h3>
-                <a
-                  href={`tel:${ACADEMY_INFO.phone}`}
-                  className="text-xs text-slate-800 font-bold hover:text-[#0098DA] block mb-1"
-                >
-                  Hotline: {ACADEMY_INFO.phoneFormatted}
-                </a>
+                <div className="space-y-0.5 mb-1.5">
+                  <a
+                    href={`tel:${ACADEMY_INFO.phone1Raw}`}
+                    className="text-xs text-slate-800 font-bold hover:text-[#0098DA] block hover:underline"
+                  >
+                    Hotline: {ACADEMY_INFO.phone1Formatted}
+                  </a>
+                </div>
                 <a
                   href={`https://wa.me/${ACADEMY_INFO.whatsappNumber}?text=${ACADEMY_INFO.whatsappPreFilledMsg}`}
                   target="_blank"
@@ -63,9 +65,9 @@ export default function ContactMapSection() {
                 </a>
               </div>
             </div>
-            <div className="mt-auto pt-3 border-t border-slate-100">
+            <div className="mt-auto pt-3 border-t border-slate-100 h-9 flex items-center">
               <a
-                href={`tel:${ACADEMY_INFO.phone}`}
+                href={`tel:${ACADEMY_INFO.phone1Raw}`}
                 className="inline-flex items-center gap-1.5 text-xs text-[#0098DA] hover:underline font-bold"
               >
                 <span>Call Admissions Desk</span>
@@ -90,7 +92,7 @@ export default function ContactMapSection() {
                 </a>
               </div>
             </div>
-            <div className="mt-auto pt-3 border-t border-slate-100">
+            <div className="mt-auto pt-3 border-t border-slate-100 h-9 flex items-center">
               <a
                 href={`mailto:${ACADEMY_INFO.email}`}
                 className="inline-flex items-center gap-1.5 text-xs text-[#0098DA] hover:underline font-bold"
@@ -103,7 +105,7 @@ export default function ContactMapSection() {
 
           {/* Opening Hours Card */}
           <div className="p-5 sm:p-6 rounded-2xl bg-white border-2 border-slate-200/90 hover:border-[#0098DA] shadow-xs hover:shadow-md transition-all flex flex-col h-full">
-            <div className="flex-1 flex items-start gap-3.5">
+            <div className="flex-1 flex items-start gap-3.5 mb-3">
               <div className="p-2.5 rounded-xl bg-sky-50 text-[#0098DA] border border-sky-100 shadow-2xs shrink-0">
                 <Clock className="w-5 h-5" />
               </div>
@@ -115,6 +117,12 @@ export default function ContactMapSection() {
                   <span className="text-slate-400">Sunday: Closed</span>
                 </p>
               </div>
+            </div>
+            <div className="mt-auto pt-3 border-t border-slate-100 h-9 flex items-center">
+              <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-emerald-600">
+                <span className="w-2 h-2 rounded-full bg-emerald-500 shrink-0 inline-block animate-pulse" />
+                <span>Admissions Desk Open</span>
+              </span>
             </div>
           </div>
         </div>

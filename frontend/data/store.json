@@ -1,0 +1,1472 @@
+{
+  "users": [
+    {
+      "id": "user_superadmin_01",
+      "username": "superadmin",
+      "name": "Academy Director (Super Admin)",
+      "passwordHash": "$2b$10$r8OQ9noOdnyxd5ANYyx10eDejoBAROdoVELuNh3zT5s8oMAXWwEcO",
+      "role": "superadmin",
+      "permissions": {
+        "enquiries": true,
+        "courses": true,
+        "blog": true,
+        "settings": true,
+        "testimonials": true
+      },
+      "active": true,
+      "createdAt": "2026-11-06T08:21:43.156Z",
+      "updatedAt": "2026-11-06T08:21:43.156Z"
+    },
+    {
+      "id": "user_staff_01",
+      "username": "staff",
+      "name": "Front Desk Counselor",
+      "passwordHash": "$2b$10$ZkeA8luxVaYvU8T.UGaULOBH.vquKzNWqQoM8UkR/rPOuO0lHpDNW",
+      "role": "staff",
+      "permissions": {
+        "enquiries": true,
+        "courses": false,
+        "blog": false,
+        "settings": false,
+        "testimonials": false
+      },
+      "active": true,
+      "createdAt": "2026-11-06T08:21:43.383Z",
+      "updatedAt": "2026-11-06T08:21:43.383Z"
+    }
+  ],
+  "settings": {
+    "maxAdmins": 5,
+    "academyName": "RK International Language Academy",
+    "tagline": "The Way of Success - IELTS & English Academy",
+    "phone": "074 0224 355 / 076 744 5019",
+    "whatsapp": "94740224355",
+    "email": "rkacademykili@gmail.com",
+    "address": "A-9 Road, Near Theresamma Kovil, Kilinochchi",
+    "officeHours": "Monday – Saturday: 8:30 AM – 6:00 PM",
+    "announcement": "Admissions open for next weekend & weekday IELTS batches! Register online for special fee discount.",
+    "phone1": "074 0224 355",
+    "phone2": "076 744 5019",
+    "logoUrl": "https://pub-ff33384a505c4c0ab3bda1c1e0b82151.r2.dev/uploads/rk-logo.png",
+    "watermarkUrl": "https://pub-ff33384a505c4c0ab3bda1c1e0b82151.r2.dev/uploads/rk-logo.png",
+    "heroClassroomUrl": "https://pub-ff33384a505c4c0ab3bda1c1e0b82151.r2.dev/uploads/campus-hero-classroom.jpg",
+    "campusImageUrl": "https://pub-ff33384a505c4c0ab3bda1c1e0b82151.r2.dev/uploads/campus-kilinochchi-workshop.jpg"
+  },
+  "enquiries": [
+    {
+      "id": "enq_01",
+      "type": "register",
+      "fullName": "Kabilan Selvarajah",
+      "phone": "077 1234567",
+      "whatsapp": "94771234567",
+      "email": "kabilan.s@gmail.com",
+      "coursePreference": "IELTS Academic Intensive (Target 7.5+)",
+      "preferredMode": "offline",
+      "message": "Looking for upcoming weekend batch starting next month.",
+      "status": "contacted",
+      "notes": [],
+      "createdAt": "2026-11-06T06:21:43.383Z"
+    },
+    {
+      "id": "enq_02",
+      "type": "contact",
+      "fullName": "Tharshi Sivanathan",
+      "phone": "076 9876543",
+      "whatsapp": "94769876543",
+      "email": "tharshi99@gmail.com",
+      "coursePreference": "PTE Academic Fast-Track",
+      "preferredMode": "online",
+      "message": "Need urgent 1-on-1 coaching for Australia visa application.",
+      "status": "contacted",
+      "notes": [
+        {
+          "id": "note_1",
+          "text": "Called student. Explained online schedule. Sent syllabus on WhatsApp.",
+          "author": "staff",
+          "createdAt": "2026-11-05T08:21:43.383Z"
+        }
+      ],
+      "createdAt": "2026-11-05T06:21:43.383Z"
+    },
+    {
+      "id": "enq_03",
+      "type": "quick-lead",
+      "fullName": "Aravind Kumar",
+      "phone": "074 4455667",
+      "whatsapp": "94744455667",
+      "coursePreference": "Basic Diploma in English",
+      "preferredMode": "offline",
+      "message": "Interested in physical classes in Kilinochchi.",
+      "status": "enrolled",
+      "notes": [
+        {
+          "id": "note_2",
+          "text": "Enrolled in Batch 14. Registration fee paid.",
+          "author": "superadmin",
+          "createdAt": "2026-11-04T08:21:43.383Z"
+        }
+      ],
+      "createdAt": "2026-11-04T06:21:43.383Z"
+    },
+    {
+      "regNo": "RK-2026-1088",
+      "city": "Kilinochchi",
+      "courseCategory": "English",
+      "coursePreference": "IELTS & UKVI (Academic & General Training)",
+      "createdAt": "2026-11-07T13:44:15.910Z",
+      "details": "Targeting IELTS Academic Band 7.5 for UK Master of Science admission in September.",
+      "dob": "2001-08-14",
+      "duration": "8 Weeks (60+ Hours)",
+      "email": "kandeeban.r@gmail.com",
+      "firstName": "Kandeeban",
+      "fullName": "Kandeeban Rajaratnam",
+      "id": "enq_1794059055907",
+      "lastName": "Rajaratnam",
+      "notes": [
+        {
+          "id": "note_1794059055907",
+          "text": "Official registration form submitted. Assigned Registration No: RK-2026-1088.",
+          "author": "System",
+          "createdAt": "2026-11-07T13:44:15.907Z"
+        }
+      ],
+      "paymentMethod": "Cash",
+      "phone": "077 123 4567",
+      "preferredMode": "offline",
+      "referral": "Friends",
+      "signature": "Kandeeban Rajaratnam",
+      "signatureDate": "2026-11-07",
+      "stateProvince": "Northern Province",
+      "status": "new",
+      "streetAddress": "No 12, Kandy Road, Paranthan",
+      "termsAccepted": true,
+      "totalFee": "45,000 LKR",
+      "type": "register",
+      "whatsapp": "94771234567",
+      "zipCode": "44000"
+    }
+  ],
+  "courses": [
+    {
+      "id": "c-ielts-ukvi",
+      "slug": "ielts-ukvi",
+      "title": "IELTS & UKVI (Academic & General Training)",
+      "shortTitle": "IELTS / UKVI",
+      "category": "English & Exams",
+      "tag": "UKVI & Global University / PR Recognized",
+      "duration": "8 Weeks (60+ Hours)",
+      "modes": "In-Person (Kilinochchi) & Live Online",
+      "targetAudience": "Students pursuing university degrees abroad, professionals seeking PR/work visas in UK, Canada, Australia, and UKVI applicants.",
+      "description": "Complete coaching for IELTS Academic, General Training, and UKVI test-takers with official British Council preparation materials, mock speaking interviews, and Life Skills A1/B1 support.",
+      "active": true,
+      "updatedAt": "2026-11-09T16:26:12.339Z",
+      "image": "https://pub-ff33384a505c4c0ab3bda1c1e0b82151.r2.dev/uploads/course-ielts-ukvi.jpg",
+      "longDescription": "Our IELTS & UKVI preparation program is Northern Sri Lanka’s highest-rated training track. We cover all four core sub-tests with personalized feedback, real examination simulations, and dedicated British Council registration assistance.",
+      "admissionsStatus": "Now Enrolling",
+      "campus": "A-9 Road, Kilinochchi",
+      "curriculumHighlights": [
+        "Academic vs. General Training Distinction: Tailored tracks specifically designed for university admission (Academic) vs. immigration & PR work permits (General Training).",
+        "Academic Writing Task 1: Synthesizing and describing visual data including bar charts, line graphs, pie charts, comparative tables, maps, and industrial process diagrams in 150+ words.",
+        "General Training Writing Task 1: Real-world letter writing (formal, semi-formal, and informal/personal) with correct register, bullet point addressing, and authentic salutations in 150+ words.",
+        "Writing Task 2 (Both Tracks): Band 8.0+ formal discursive essay architecture covering opinion essays, discussion of both views, problem-solution, and direct-question formats.",
+        "Academic Reading Mastery: 3 authentic, long academic texts from scientific journals, research papers, and university textbooks with advanced critical analysis.",
+        "General Training Reading Mastery: Everyday workplace survival texts, company handbooks, staff notices, employment contracts, and social articles with rapid skimming/scanning.",
+        "Shared Listening Lab Training: 40 questions across 4 recorded sections (dialogues, community monologues, academic tutorials, university lectures) featuring native British, Australian, and Canadian accents.",
+        "Face-to-Face Speaking Drills: One-on-one simulated interviews covering Part 1 warm-up, Part 2 Cue Card sustained speeches, and Part 3 analytical two-way discussions with recorded diagnostic feedback.",
+        "UKVI Biometric Compliance: Comprehensive guidance on UK Visas and Immigration (UKVI) test center rules, passport authentication, and Secure English Language Test (SELT) standards.",
+        "Life Skills A1 & B1 Coaching: Dedicated speaking and listening training for UK spouse/family visas (A1) and indefinite leave to remain/settlement (B1).",
+        "Official British Council & IDP Test Support: Free exam date booking, candidate verification, and TRF result collection assistance directly at our A-9 Road Kilinochchi center."
+      ],
+      "modules": [
+        {
+          "number": "Module 1",
+          "title": "Introduction to IELTS & UKVI",
+          "description": "Comprehensive understanding of the exam format, scoring criteria (Band 0–9), test registration, and differences between standard IELTS and UKVI.",
+          "topics": [
+            "Band descriptors for Band 7.0 – 9.0",
+            "UKVI security & biometric standards",
+            "Test room protocols and time management strategies"
+          ]
+        },
+        {
+          "number": "Module 2",
+          "title": "Listening Module (Academic & General Training)",
+          "description": "Same format for both tracks: 4 recorded sections featuring native English accents (British, Australian, American, and Canadian).",
+          "topics": [
+            "Section 1: Everyday social conversations",
+            "Section 2: Monologues on general community contexts",
+            "Section 3: Academic discussions among students/tutors",
+            "Section 4: University-level academic lecture"
+          ]
+        },
+        {
+          "number": "Module 3",
+          "title": "Reading Module (Track-Specific)",
+          "description": "Targeted reading comprehension with rapid skimming, scanning, and detail-analysis techniques.",
+          "topics": [
+            "Academic IELTS/UKVI: 3 long academic texts from scientific journals, books, and analytical papers",
+            "General Training IELTS/UKVI: Workplace notices, contracts, travel brochures, and everyday social articles",
+            "Question types: True/False/Not Given, Headings Matching, Summary Completion"
+          ]
+        },
+        {
+          "number": "Module 4",
+          "title": "Writing Module (Task 1 & Task 2)",
+          "description": "Mastery of time allocation, structure, and lexical resource for high-scoring responses.",
+          "topics": [
+            "Academic Task 1: Describing graphs, bar charts, pie charts, tables, maps, and technical process diagrams (150 words)",
+            "General Training Task 1: Writing formal, semi-formal, and informal letters (150 words)",
+            "Task 2 (Both Tracks): Writing formal discursive and argumentative essays (250 words)"
+          ]
+        },
+        {
+          "number": "Module 5",
+          "title": "Speaking Module (One-on-One Interview)",
+          "description": "Face-to-face interactive interview training simulating official test center conditions.",
+          "topics": [
+            "Part 1: Introduction and familiar everyday topics (4–5 minutes)",
+            "Part 2: Individual long turn / Cue Card speaking with 1-minute prep (3–4 minutes)",
+            "Part 3: Two-way abstract and analytical discussion (4–5 minutes)"
+          ]
+        },
+        {
+          "number": "Module 6",
+          "title": "Grammar & Vocabulary for IELTS",
+          "description": "Systematic expansion of lexical resource and grammatical range and accuracy.",
+          "topics": [
+            "Academic Word List (AWL) mastery",
+            "Complex sentence constructions & conditional clauses",
+            "Collocations, idiomatic phrasing, and cohesive linkers"
+          ]
+        },
+        {
+          "number": "Module 7",
+          "title": "Exam Techniques & Time Management",
+          "description": "Proven strategies to eliminate examiner traps, manage strict time limits, and maximize points.",
+          "topics": [
+            "Pacing per section",
+            "Spelling rules and hyphenation in listening/reading",
+            "Proofreading strategies for writing tasks"
+          ]
+        },
+        {
+          "number": "Module 8",
+          "title": "Mock Tests & Personalized Feedback",
+          "description": "Simulated full-length mock examinations under real test conditions followed by diagnostic report cards.",
+          "topics": [
+            "Full exam simulations under test hall pressure",
+            "Individual speaking audio evaluation",
+            "Line-by-line essay corrections with target band action plans"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c-pte-academic",
+      "slug": "pte-academic",
+      "title": "PTE Academic Exam Preparation",
+      "shortTitle": "PTE Academic",
+      "category": "English & Exams",
+      "tag": "Computer-Based Exam (Fast AI Scoring)",
+      "duration": "6 – 8 Weeks",
+      "modes": "Kilinochchi Computer Lab & Live Online",
+      "targetAudience": "Candidates seeking fast results (within 48 hours) for study and work visas in Australia, New Zealand, the UK, and Canada.",
+      "description": "Complete Pearson Test of English training in our computer lab. Learn the AI scoring algorithm secrets for Describe Image, Repeat Sentence, Retell Lecture, and Write from Dictation.",
+      "active": true,
+      "updatedAt": "2026-11-09T16:26:12.339Z",
+      "image": "https://pub-ff33384a505c4c0ab3bda1c1e0b82151.r2.dev/uploads/course-pte-academic.jpg",
+      "longDescription": "PTE Academic is a 100% computer-delivered test scored by Pearson’s advanced AI algorithms. Our specialized curriculum and state-of-the-art computer lab in Kilinochchi teach you the exact scoring criteria, speaking templates, and time-management techniques needed to achieve 65+ (IELTS 7.0 equivalent) and 79+ (IELTS 8.0 equivalent).",
+      "admissionsStatus": "Now Enrolling",
+      "campus": "A-9 Road, Kilinochchi",
+      "curriculumHighlights": [
+        "Comprehensive breakdown of Speaking & Writing (Part 1), Reading (Part 2), and Listening (Part 3)",
+        "High-scoring templates for Describe Image, Retell Lecture, and 20-minute Essay",
+        "AI algorithm scoring hacks for Oral Fluency, Pronunciation, and Content",
+        "Write from Dictation and Repeat Sentence daily speed drills",
+        "Full computer lab simulations matching official Pearson exam center software"
+      ],
+      "modules": [
+        {
+          "number": "Part 1",
+          "title": "Speaking & Writing Module (54 – 67 Minutes)",
+          "description": "Integrated speaking and writing tasks assessed by automated voice and language processing.",
+          "topics": [
+            "Read Aloud: Pronunciation, syllable stress, and natural rhythm",
+            "Repeat Sentence: Memory retention and chunking techniques",
+            "Describe Image: Proven structured templates for graphs, maps, charts, and life cycles",
+            "Re-tell Lecture: Note-taking strategies and fluent spoken summaries",
+            "Answer Short Questions: Quick vocabulary and common knowledge responses",
+            "Summarize Written Text: Crafting one single grammatical sentence between 5 and 75 words",
+            "Write Essay: Standard 200–300 word formal argumentative essay template"
+          ]
+        },
+        {
+          "number": "Part 2",
+          "title": "Reading Module (29 – 30 Minutes)",
+          "description": "Fast-paced academic reading comprehension and vocabulary in context.",
+          "topics": [
+            "Reading & Writing: Fill in the Blanks (Highest weighted reading section)",
+            "Multiple Choice, Multiple Answers",
+            "Re-order Paragraphs: Identifying topic sentences, referencing pronouns, and logical sequence",
+            "Reading: Fill in the Blanks (Drag and drop vocabulary collocation mastery)",
+            "Multiple Choice, Single Answer"
+          ]
+        },
+        {
+          "number": "Part 3",
+          "title": "Listening Module (30 – 43 Minutes)",
+          "description": "Audio and video clips with international English accents tested via diverse response types.",
+          "topics": [
+            "Summarize Spoken Text: 50–70 word written summary of an audio lecture (contributes to Writing & Listening)",
+            "Multiple Choice, Multiple Answers & Single Answer",
+            "Fill in the Blanks: Typing missing words while listening in real time",
+            "Highlight Correct Summary & Select Missing Word",
+            "Highlight Incorrect Words: Catching transcription discrepancies while audio plays",
+            "Write from Dictation: The most critical high-scoring task in the entire PTE test"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c-basic-diploma-english",
+      "slug": "basic-diploma-english",
+      "title": "Basic Diploma in English",
+      "shortTitle": "Diploma in English",
+      "category": "English & Exams",
+      "tag": "Comprehensive Foundation & Fluency",
+      "duration": "12 – 16 Weeks (3 – 4 Months)",
+      "modes": "In-Person (Kilinochchi) & Live Online",
+      "targetAudience": "School leavers, university entrants, job seekers, and working professionals who want to build complete English language fluency and formal certification.",
+      "description": "An accredited diploma program covering grammar, vocabulary, reading, writing, active listening, public speaking, and study skills for workplace and academic success.",
+      "active": true,
+      "updatedAt": "2026-11-09T16:26:12.339Z",
+      "image": "https://pub-ff33384a505c4c0ab3bda1c1e0b82151.r2.dev/uploads/course-diploma-english.jpg",
+      "longDescription": "The Basic Diploma in English at RK International Language Academy transforms hesitant speakers into confident, articulate communicators. Designed around practical everyday usage and corporate standards, students receive an official RK Academy Diploma upon completion.",
+      "admissionsStatus": "Now Enrolling",
+      "campus": "A-9 Road, Kilinochchi",
+      "curriculumHighlights": [
+        "Comprehensive grammar overhaul: Master all 12 tenses, voice, and sentence mechanics",
+        "Expansive vocabulary building for social, professional, and academic contexts",
+        "Professional correspondence: Business emails, formal letters, and workplace reports",
+        "Daily speech circles, impromptu speaking, debates, and slide presentations",
+        "Official RK International Language Academy Diploma awarded upon graduation"
+      ],
+      "modules": [
+        {
+          "number": "Module 1",
+          "title": "Grammar and Sentence Structure",
+          "description": "Solid foundational grammar essentials with zero ambiguity.",
+          "topics": [
+            "Parts of speech in depth",
+            "Mastery of all 12 English tenses with real-world applications",
+            "Active vs. Passive voice",
+            "Complex and compound sentences, conditional clauses, and conjunctions"
+          ]
+        },
+        {
+          "number": "Module 2",
+          "title": "Vocabulary Building",
+          "description": "Systematic expansion of active and passive word power.",
+          "topics": [
+            "Root words, prefixes, and suffixes",
+            "Everyday collocations and phrasal verbs",
+            "Idioms, figures of speech, and workplace terminology",
+            "Synonyms, antonyms, and precision word choice"
+          ]
+        },
+        {
+          "number": "Module 3",
+          "title": "Reading Skills & Comprehension",
+          "description": "Developing critical reading habits for articles, reports, and books.",
+          "topics": [
+            "Skimming for the general gist and scanning for specific facts",
+            "Contextual inference and deducing unfamiliar word meanings",
+            "Reading news articles, short stories, and academic summaries"
+          ]
+        },
+        {
+          "number": "Module 4",
+          "title": "Writing Skills & Composition",
+          "description": "From sentence structuring to complete essays and professional documents.",
+          "topics": [
+            "Paragraph structuring (topic sentence, supporting ideas, conclusion)",
+            "Formal and informal letter writing",
+            "Professional workplace emails and office memos",
+            "Creative narrative writing and opinion essays"
+          ]
+        },
+        {
+          "number": "Module 5",
+          "title": "Listening Skills & Audio Comprehension",
+          "description": "Sharpening listening accuracy across different speeds and accents.",
+          "topics": [
+            "Active listening techniques and note-taking",
+            "Comprehending phone calls, announcements, and instructions",
+            "Following English news broadcasts and documentary podcasts"
+          ]
+        },
+        {
+          "number": "Module 6",
+          "title": "Speaking Skills & Conversational Fluency",
+          "description": "Overcoming stage fear and eliminating hesitation in spoken dialogue.",
+          "topics": [
+            "Clear English pronunciation and phonetics",
+            "Word and sentence stress, rhythm, and intonation",
+            "Social conversation, small talk, and telephone etiquette",
+            "Real-world role plays: Job interviews, meetings, and customer interactions"
+          ]
+        },
+        {
+          "number": "Module 7",
+          "title": "Presentation & Public Speaking",
+          "description": "Mastering the stage and delivering persuasive formal presentations.",
+          "topics": [
+            "Structuring a speech: Introduction, body points, and memorable closing",
+            "Body language, eye contact, and vocal modulation",
+            "Slide deck presentation delivery and Q&A handling",
+            "Classroom debates and panel discussions"
+          ]
+        },
+        {
+          "number": "Module 8",
+          "title": "Basic Study Skills & Exam Preparation",
+          "description": "Equipping learners for academic excellence and future international test tracks.",
+          "topics": [
+            "Effective note-taking methods (Cornell and Mind Mapping)",
+            "Time management and self-study revision routines",
+            "Exam answering techniques and foundation pathway directly to IELTS / PTE"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c-diploma-it",
+      "slug": "diploma-in-it",
+      "title": "Diploma in Information Technology (IT)",
+      "shortTitle": "Diploma in IT",
+      "category": "Information Technology",
+      "tag": "Practical Computing & Software Skills",
+      "duration": "16 Weeks (4 Months)",
+      "modes": "In-Person (Kilinochchi Computer Lab) & Live Online",
+      "targetAudience": "Students, job seekers, and professionals looking to launch careers in software development, web design, IT support, or office automation.",
+      "description": "Comprehensive IT diploma covering Computer Fundamentals, Programming, Web Design, DBMS, Computer Networking, Software Applications, IT Troubleshooting, and a hands-on Capstone Project.",
+      "active": true,
+      "updatedAt": "2026-11-09T16:26:12.339Z",
+      "image": "https://pub-ff33384a505c4c0ab3bda1c1e0b82151.r2.dev/uploads/course-diploma-it.jpg",
+      "longDescription": "The Diploma in Information Technology at RK International Academy provides practical, industry-aligned tech education in Kilinochchi. With individual computer workstations and project-based learning, students gain hands-on proficiency in programming, website development, networking, and system maintenance.",
+      "admissionsStatus": "Now Enrolling",
+      "campus": "A-9 Road, Kilinochchi",
+      "curriculumHighlights": [
+        "Hands-on computer lab training with individual high-speed workstations",
+        "From fundamentals to programming logic (Python / C++ basics)",
+        "Modern web design: HTML5, CSS3, JavaScript, and responsive design",
+        "Database systems: Relational design and practical SQL database queries",
+        "Computer networking, hardware assembly, and OS troubleshooting",
+        "End-of-course real-world Capstone Project portfolio for employers"
+      ],
+      "modules": [
+        {
+          "number": "Module 1",
+          "title": "Computer Fundamentals",
+          "description": "Hardware architecture, system software, and digital device operations.",
+          "topics": [
+            "Internal PC hardware: CPU, RAM, storage, motherboards, and power supplies",
+            "Operating systems: Windows 11 & Linux distributions",
+            "File management, system settings, and computer maintenance"
+          ]
+        },
+        {
+          "number": "Module 2",
+          "title": "Programming Fundamentals",
+          "description": "Core logic, algorithmic thinking, and modern programming fundamentals.",
+          "topics": [
+            "Algorithm design, pseudo-code, and flowcharts",
+            "Variables, data types, and arithmetic/logical operators",
+            "Control structures (if/else conditionals, loops)",
+            "Functions, arrays, and introduction to Python / C++"
+          ]
+        },
+        {
+          "number": "Module 3",
+          "title": "Web Design and Development",
+          "description": "Building modern, responsive, and engaging websites.",
+          "topics": [
+            "Semantic HTML5 structure and web page elements",
+            "Modern CSS3 styling, Flexbox, Grid, and mobile responsiveness",
+            "JavaScript fundamentals for interactive web elements",
+            "Deploying websites to live hosting servers"
+          ]
+        },
+        {
+          "number": "Module 4",
+          "title": "Database Management Systems (DBMS)",
+          "description": "Organizing, querying, and managing structured enterprise data.",
+          "topics": [
+            "Relational database concepts and entity relationship (ER) diagrams",
+            "Structured Query Language (SQL): SELECT, INSERT, UPDATE, DELETE",
+            "Table joins, primary/foreign keys, and data normalization",
+            "Practical management with MySQL and phpMyAdmin"
+          ]
+        },
+        {
+          "number": "Module 5",
+          "title": "Computer Networking",
+          "description": "Understanding how computers and networks communicate securely.",
+          "topics": [
+            "Network topologies: LAN, WAN, WLAN",
+            "OSI 7-Layer model and TCP/IP protocol suite",
+            "IP addressing (IPv4 & IPv6), Subnetting, and DNS/DHCP",
+            "Configuring routers, switches, Wi-Fi access points, and network security"
+          ]
+        },
+        {
+          "number": "Module 6",
+          "title": "Software Applications & Office Productivity",
+          "description": "Advanced proficiency in workplace software suites.",
+          "topics": [
+            "Advanced Microsoft Excel / Google Sheets (Formulas, VLOOKUP, Pivot Tables)",
+            "Professional document formatting with Microsoft Word",
+            "Executive presentation design with PowerPoint",
+            "Cloud collaboration tools and digital productivity workflows"
+          ]
+        },
+        {
+          "number": "Module 7",
+          "title": "IT Support and Troubleshooting",
+          "description": "Diagnosing, repairing, and supporting computer systems.",
+          "topics": [
+            "Hardware diagnostics and component replacement",
+            "Software conflict resolution, driver installations, and OS formatting",
+            "Antivirus management, malware cleanup, and data recovery techniques",
+            "Helpdesk ticketing and user support procedures"
+          ]
+        },
+        {
+          "number": "Module 8",
+          "title": "Information Systems & Ethics",
+          "description": "Cyber security awareness, data privacy, and ethical computing.",
+          "topics": [
+            "Cyber threats, phishing, and digital security best practices",
+            "Data protection regulations and privacy policies",
+            "Intellectual property, software licensing, and professional IT ethics"
+          ]
+        },
+        {
+          "number": "Module 9",
+          "title": "Project Management & Capstone Project",
+          "description": "Synthesizing all acquired skills into a production-grade portfolio project.",
+          "topics": [
+            "Project scoping, milestone planning, and requirements analysis",
+            "Building a functional web application, database system, or network setup",
+            "Project documentation, code walkthrough, and live demonstration"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c-diploma-sinhala",
+      "slug": "diploma-in-sinhala",
+      "title": "Diploma in Sinhala Language",
+      "shortTitle": "Diploma in Sinhala",
+      "category": "Foreign Languages",
+      "tag": "National Language Proficiency (සිංහල ඩිප්ලෝමාව)",
+      "duration": "12 Weeks (3 Months)",
+      "modes": "In-Person (Kilinochchi) & Live Online",
+      "targetAudience": "Government employees, NGO workers, bank officers, students, and professionals needing official Sinhala language certification for careers in Sri Lanka.",
+      "description": "Learn to read, write, and speak fluent Sinhala with proper grammar (ව්‍යාකරණ), official terminology, conversational fluency, and optional translation units.",
+      "active": true,
+      "updatedAt": "2026-11-09T16:26:12.339Z",
+      "image": "https://pub-ff33384a505c4c0ab3bda1c1e0b82151.r2.dev/uploads/course-diploma-sinhala.jpg",
+      "longDescription": "The Diploma in Sinhala Language at RK International Language Academy bridge language gaps and opens government, corporate, and civil service career opportunities across Sri Lanka. Taught by bilingual, certified Sinhala language instructors in a friendly, supportive learning atmosphere.",
+      "admissionsStatus": "Now Enrolling",
+      "campus": "A-9 Road, Kilinochchi",
+      "curriculumHighlights": [
+        "Master the complete Sinhala alphabet (හෝඩිය) and writing script from ground up",
+        "Systematic grammar rules (ව්‍යාකරණය): Nouns, verbs, tenses, and sentence building",
+        "Practical spoken Sinhala for office, banking, medical, and public service settings",
+        "Reading comprehension of newspapers, official letters, and circulars",
+        "Optional advanced unit in Tamil-to-Sinhala and English-to-Sinhala translation"
+      ],
+      "modules": [
+        {
+          "number": "Module 1",
+          "title": "Introduction to Sinhala Language & Script",
+          "description": "Fundamentals of the Sinhala writing system, letter formation, and sounds.",
+          "topics": [
+            "Sinhala Alphabet (හෝඩිය): Vowels (ස්වර) and Consonants (ව්‍යඤ්ජන)",
+            "Vowel modifiers (පිල්ලම්) and character combination rules",
+            "Correct pronunciation, phonetics, and script calligraphy"
+          ]
+        },
+        {
+          "number": "Module 2",
+          "title": "Sinhala Grammar (ව්‍යාකරණය)",
+          "description": "Comprehensive grammatical principles for accurate written and spoken expression.",
+          "topics": [
+            "Nouns (නාම පද) and gender classifications",
+            "Verbs (ක්‍රියා පද) and conjugation across past, present, and future tenses",
+            "Sentence structures (වාක්‍ය රටා): Subject, object, and verb agreement",
+            "Pluralization, pronouns, and prepositions"
+          ]
+        },
+        {
+          "number": "Module 3",
+          "title": "Listening & Speaking Skills",
+          "description": "Developing immediate conversational confidence in everyday and office situations.",
+          "topics": [
+            "Day-to-day greetings, polite inquiries, and social conversation",
+            "Spoken dialogue for public services, hospitals, banks, and markets",
+            "Listening comprehension from spoken audio and native speech dialogues"
+          ]
+        },
+        {
+          "number": "Module 4",
+          "title": "Reading Skills & Document Comprehension",
+          "description": "Building fluency in reading authentic Sinhala printed materials.",
+          "topics": [
+            "Reading news headlines, articles, and public notices",
+            "Understanding government forms, announcements, and circulars",
+            "Reading simple Sinhala essays, stories, and instructional manuals"
+          ]
+        },
+        {
+          "number": "Module 5",
+          "title": "Writing Skills & Composition",
+          "description": "Composing clear and grammatically sound written texts in Sinhala.",
+          "topics": [
+            "Crafting coherent paragraphs and short essays",
+            "Official and informal letter drafting",
+            "Writing notices, announcements, and office reports in Sinhala"
+          ]
+        },
+        {
+          "number": "Module 6",
+          "title": "Sinhala Literature, Culture & Idioms",
+          "description": "Exploring the rich cultural contexts and idiomatic nuances of the language.",
+          "topics": [
+            "Common Sinhala idioms (ප්‍රස්ථාව පිරුළු) and polite honorifics",
+            "Cultural norms, traditions, and festival vocabulary",
+            "Appreciation of simple classical and modern Sinhala literary prose"
+          ]
+        },
+        {
+          "number": "Module 7",
+          "title": "Translation & Interpretation (Optional Advanced Unit)",
+          "description": "Professional translation between Sinhala and Tamil / English.",
+          "topics": [
+            "Techniques for translating official documents and correspondence",
+            "Interpreting conversations in bilingual workplaces and government desks",
+            "Avoiding common translation pitfalls and false cognates"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c-french-delf",
+      "slug": "french-delf",
+      "title": "French DELF Exam Preparation (A1 & A2)",
+      "shortTitle": "French DELF (A1/A2)",
+      "category": "Foreign Languages",
+      "tag": "Official French Ministry Certification (France & Canada)",
+      "duration": "10 – 12 Weeks",
+      "modes": "Kilinochchi Campus & Live Online",
+      "targetAudience": "Students and professionals planning to study in France/Europe, applicants seeking Canada Express Entry French CRS bonus points, and language enthusiasts.",
+      "description": "Comprehensive preparation for DELF A1 and A2 examinations covering Listening (Compréhension orale), Speaking (Production orale), Reading (Compréhension écrite), and Writing (Production écrite).",
+      "active": true,
+      "updatedAt": "2026-11-09T16:26:12.339Z",
+      "image": "https://pub-ff33384a505c4c0ab3bda1c1e0b82151.r2.dev/uploads/course-french-delf.jpg",
+      "longDescription": "The DELF (Diplôme d’Études en Langue Française) is the official French language certification awarded by the French Ministry of National Education. Valid for life and recognized worldwide, our Kilinochchi French coaching program prepares candidates for both the A1 (Discovery) and A2 (Survival) certifications with authentic past paper drills and native audio simulations.",
+      "admissionsStatus": "Now Enrolling",
+      "campus": "A-9 Road, Kilinochchi",
+      "curriculumHighlights": [
+        "Dual preparation for DELF A1 and A2 certification standards",
+        "Systematic training across all 4 mandatory exam components",
+        "Essential French grammar: Conjugations, gender agreement, articles, and tenses",
+        "Audio listening lab practice with authentic Parisian and international French accents",
+        "One-on-one simulated oral exam interviews with certified language trainers",
+        "Full past paper timed simulations matching official Alliance Française standards"
+      ],
+      "modules": [
+        {
+          "number": "DELF A1",
+          "title": "DELF A1 Exam Content & Skills (Discovery Level)",
+          "description": "Basic language capability to interact in simple everyday situations.",
+          "topics": [
+            "Listening (Compréhension orale - 20 mins): Understanding basic daily instructions, phone numbers, and brief announcements",
+            "Speaking (Production orale - 5–7 mins): Guided interview, basic information exchange, and simple role-play simulation",
+            "Reading (Compréhension écrite - 30 mins): Comprehending short road signs, restaurant menus, timetables, and personal notes",
+            "Writing (Production écrite - 30 mins): Filling out personal registration forms, writing simple postcards, and composing brief messages"
+          ]
+        },
+        {
+          "number": "DELF A2",
+          "title": "DELF A2 Exam Content & Skills (Survival Level)",
+          "description": "Ability to perform simple social exchanges, describe background, and communicate in routine tasks.",
+          "topics": [
+            "Listening (Compréhension orale - 25 mins): Catching the main points in short radio announcements, messages, and everyday conversations",
+            "Speaking (Production orale - 6–8 mins): Describing activities, background, hobbies, and engaging in collaborative role-play",
+            "Reading (Compréhension écrite - 30 mins): Reading personal letters, brochures, advertisements, and practical informational texts",
+            "Writing (Production écrite - 45 mins): Writing friendly letters, email invitations, short descriptions of past events, and personal opinions"
+          ]
+        },
+        {
+          "number": "Component 1",
+          "title": "French Grammar & Core Vocabulary Mastery",
+          "description": "Rigorous grammatical foundation across both A1 and A2 levels.",
+          "topics": [
+            "Present tense (Le Présent) of regular and irregular verbs",
+            "Passé Composé (past events) and Futur Proche (near future)",
+            "Definite, indefinite, and partitive articles",
+            "Adjective agreement, pronouns, and prepositions of location"
+          ]
+        },
+        {
+          "number": "Component 2",
+          "title": "Exam Strategies & Practice Tests",
+          "description": "Timed full past-paper testing under strict examination conditions.",
+          "topics": [
+            "Official Alliance Française past exam papers",
+            "Marking criteria and scoring benchmarks (Minimum 50/100 to pass, minimum 5/25 in each skill)",
+            "Oral interview anxiety management and time distribution"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c-dutch-deutsch",
+      "slug": "dutch-deutsch",
+      "title": "Dutch & Deutsch (German) Language Preparations",
+      "shortTitle": "Dutch & Deutsch",
+      "category": "Foreign Languages",
+      "tag": "European Career & Migration Preparation",
+      "duration": "10 – 12 Weeks (Structured 40+ Hours)",
+      "modes": "Kilinochchi Campus & Live Online",
+      "targetAudience": "Healthcare professionals (nurses, caregivers), university students, and job seekers aiming for study, Ausbildung, or work migration in Germany, Austria, and the Netherlands.",
+      "description": "Structured dual European language coaching covering Basic Dutch and Basic German (Deutsch) with side-by-side vocabulary comparisons, pronunciation, grammar, and 9 comprehensive modules.",
+      "active": true,
+      "updatedAt": "2026-11-09T16:26:12.339Z",
+      "image": "https://pub-ff33384a505c4c0ab3bda1c1e0b82151.r2.dev/uploads/course-dutch-deutsch.jpg",
+      "longDescription": "Both Dutch (Nederlands) and German (Deutsch) belong to the Germanic language family and share immense grammatical and lexical similarities. At RK International Language Academy, our specialized curriculum prepares students for European integration exams (Inburgering for the Netherlands, Goethe/Telc A1/A2 for Germany) through a clear 9-module framework.",
+      "admissionsStatus": "Now Enrolling",
+      "campus": "A-9 Road, Kilinochchi",
+      "curriculumHighlights": [
+        "Preparation for Basic Dutch (Inburgering exam A1/A2 readiness)",
+        "Preparation for Basic German (Goethe / Telc / ÖSD A1/A2 certification readiness)",
+        "Leverage cognates and shared root structures between Dutch, German, and English",
+        "Sample beginner phrases side-by-side to accelerate comprehension and retention",
+        "Structured 9-module curriculum totaling 44 intensive instructional hours"
+      ],
+      "modules": [
+        {
+          "number": "Module 1",
+          "title": "Introduction & Basics",
+          "description": "Alphabet, basic phonetics, greetings, and self-introduction.",
+          "topics": [
+            "Dutch and German alphabets, diphthongs, and special characters (ä, ö, ü, ß)",
+            "Basic greetings, farewells, and polite introductions",
+            "Personal pronouns and country/nationality vocabulary"
+          ],
+          "durationHours": 4
+        },
+        {
+          "number": "Module 2",
+          "title": "Pronunciation & Intonation",
+          "description": "Mastering the distinctive sounds and vocal mechanics of both languages.",
+          "topics": [
+            "Dutch guttural \"g/ch\" and long/short vowels",
+            "German consonant clusters and glottal stops",
+            "Sentence stress, pitch, and natural spoken rhythm"
+          ],
+          "durationHours": 6
+        },
+        {
+          "number": "Module 3",
+          "title": "Building Vocabulary",
+          "description": "Crucial everyday vocabulary and lexical acquisition techniques.",
+          "topics": [
+            "Numbers, counting, dates, days of the week, and telling time",
+            "Family members, relationships, and home environments",
+            "Food, grocery shopping, market exchanges, and clothing"
+          ],
+          "durationHours": 5
+        },
+        {
+          "number": "Module 4",
+          "title": "Grammar for Speaking",
+          "description": "Functional grammar rules required for constructing accurate spoken sentences.",
+          "topics": [
+            "Verb conjugations in the present tense (sein/haben in German, zijn/hebben in Dutch)",
+            "Word order: Subject-Verb-Object (SVO) and inversion rules in questions",
+            "Definite and indefinite articles (der/die/das in German, de/het in Dutch)",
+            "Basic case introductions (Nominative and Accusative)"
+          ],
+          "durationHours": 5
+        },
+        {
+          "number": "Module 5",
+          "title": "Everyday Conversations",
+          "description": "Navigating daily practical scenarios in Amsterdam, Berlin, or Vienna.",
+          "topics": [
+            "Ordering at cafes and restaurants",
+            "Asking for and giving directions on public transit",
+            "Scheduling appointments, buying train tickets, and hotel check-in"
+          ],
+          "durationHours": 6
+        },
+        {
+          "number": "Module 6",
+          "title": "Listening & Responding",
+          "description": "Understanding spoken dialogues and forming immediate, natural responses.",
+          "topics": [
+            "Comprehending train station announcements and phone messages",
+            "Following everyday conversations at native conversational speeds",
+            "Answering questions clearly without translation hesitation"
+          ],
+          "durationHours": 4
+        },
+        {
+          "number": "Module 7",
+          "title": "Speaking Fluency & Confidence",
+          "description": "Building sustained conversational stamina and eliminating stage anxiety.",
+          "topics": [
+            "Role-plays: Visiting the doctor, pharmacy, and post office",
+            "Talking about hobbies, weekend plans, and personal background",
+            "Short impromptu speeches with trainer feedback"
+          ],
+          "durationHours": 5
+        },
+        {
+          "number": "Module 8",
+          "title": "Professional & Academic Speaking",
+          "description": "Language skills for European workplaces, hospitals, and universities.",
+          "topics": [
+            "Workplace introductions and formal communication etiquette (Sie vs. du, U vs. je)",
+            "Medical and nursing vocabulary overview for healthcare candidates",
+            "Drafting basic formal emails and CV introductory notes"
+          ],
+          "durationHours": 5
+        },
+        {
+          "number": "Module 9",
+          "title": "Revision & Final Practice",
+          "description": "Comprehensive review, mock testing, and diagnostic evaluation.",
+          "topics": [
+            "Goethe/Telc A1 & Dutch Inburgering mock test simulations",
+            "One-on-one oral assessment and personalized evaluation report",
+            "Guidance on official test registration and European visa documentation"
+          ],
+          "durationHours": 4
+        }
+      ]
+    }
+  ],
+  "trainers": [
+    {
+      "id": "nepethika-nesakumaran",
+      "name": "Nepethika Nesakumaran",
+      "role": "Admin Officer",
+      "badge": "Administration & Admissions",
+      "image": "https://pub-ff33384a505c4c0ab3bda1c1e0b82151.r2.dev/uploads/nepethika-nesakumaran.jpg",
+      "organizationOrUniversity": "RK International Language Academy",
+      "qualifications": [
+        "Administrative & Academy Operations Lead",
+        "Student Admissions & Enrollment Coordinator",
+        "Official Exam Registration Counseling (British Council & Pearson)"
+      ],
+      "specialties": [
+        "Student Inquiries & Course Guidance",
+        "Batch Scheduling & Attendance Management",
+        "Exam Booking & Verification Assistance"
+      ],
+      "active": true,
+      "updatedAt": "2026-11-09T16:26:12.339Z"
+    },
+    {
+      "id": "senior-lecturer-language",
+      "name": "Senior Lecturer",
+      "role": "Lecturer & Language Specialist",
+      "badge": "English, IELTS, PTE & Diplomas",
+      "image": "https://pub-ff33384a505c4c0ab3bda1c1e0b82151.r2.dev/uploads/ielts-senior-lecturer.jpg",
+      "organizationOrUniversity": "RK International Language Academy",
+      "qualifications": [
+        "Senior English Language & Examination Lecturer",
+        "IELTS, PTE & Pearson English Preparation Coach",
+        "Diploma in English & Spoken Fluency Curriculum Lead"
+      ],
+      "specialties": [
+        "IELTS, PTE & Pearson Exam Strategies",
+        "Diploma in English & Spoken Fluency",
+        "Grammar, Vocabulary & Writing Foundations"
+      ],
+      "active": true,
+      "updatedAt": "2026-11-09T16:26:12.339Z"
+    },
+    {
+      "id": "kamshaliny-raju",
+      "name": "Kamshaliny Raju, BSc",
+      "role": "English Lecturer",
+      "badge": "BSc (Univ. of Peradeniya)",
+      "image": "https://pub-ff33384a505c4c0ab3bda1c1e0b82151.r2.dev/uploads/kamshaliny-raju-peradeniya.jpg",
+      "organizationOrUniversity": "RK International Language Academy",
+      "qualifications": [
+        "English Lecturer – RK International Language Academy",
+        "Bachelor of Science (BSc) – University of Peradeniya",
+        "English Language & Academic Communication Specialist"
+      ],
+      "specialties": [
+        "Structured English Grammar & Writing",
+        "Comprehension & Academic Reading Analysis",
+        "Interactive Student Mentorship & Fluency Drills"
+      ],
+      "active": true,
+      "updatedAt": "2026-11-09T16:26:12.339Z"
+    },
+    {
+      "id": "paskaran-ezhilsanth",
+      "name": "Paskaran Ezhilsanth",
+      "role": "IT Lecturer",
+      "badge": "Information Technology (IT)",
+      "image": "https://pub-ff33384a505c4c0ab3bda1c1e0b82151.r2.dev/uploads/paskaran-ezhilsanth.jpg",
+      "organizationOrUniversity": "RK International Language Academy",
+      "qualifications": [
+        "IT Lecturer – RK International Language Academy",
+        "Child Development Coordinator – Child Action Lanka",
+        "BSc in Software Engineering (2nd Year) | Diploma in Social Science"
+      ],
+      "specialties": [
+        "Diploma in Information Technology (IT)",
+        "Computer Applications & Modern Productivity Tools",
+        "Practical Software Basics & Digital Literacy"
+      ],
+      "active": true,
+      "updatedAt": "2026-11-09T16:26:12.339Z"
+    }
+  ],
+  "blogs": [
+    {
+      "slug": "pte-vs-ielts-sri-lanka",
+      "title": "PTE vs. IELTS: Which is Easier for Australia, Canada & UK Migration from Sri Lanka?",
+      "category": "Exam Comparisons",
+      "date": "April 2026",
+      "readTime": "7 min read",
+      "author": "S. Ketheeswaran",
+      "authorRole": "Senior IELTS & PTE Master Trainer",
+      "image": "https://pub-ff33384a505c4c0ab3bda1c1e0b82151.r2.dev/uploads/course-ielts-ukvi.jpg",
+      "excerpt": "Confused between taking IELTS or PTE? Discover how AI computer grading compares to human examiners, test duration differences, and which exam gives you the fastest score for Australia and the UK.",
+      "content": "Confused between taking IELTS or PTE? Discover how AI computer grading compares to human examiners, test duration differences, and which exam gives you the fastest score for Australia and the UK.",
+      "published": true,
+      "updatedAt": "2026-11-09T16:26:12.339Z"
+    },
+    {
+      "slug": "ielts-academic-vs-general-training",
+      "title": "IELTS Academic vs. IELTS General Training: Complete Guide for Sri Lankan Students",
+      "category": "Exam Comparisons",
+      "date": "April 2026",
+      "readTime": "6 min read",
+      "author": "K. Nimalan",
+      "authorRole": "IELTS Writing Specialist (Band 8.5)",
+      "image": "https://pub-ff33384a505c4c0ab3bda1c1e0b82151.r2.dev/uploads/blog-ielts-academic-vs-general.jpg",
+      "excerpt": "Do you need IELTS Academic or General Training? Discover the format differences in Reading and Writing Task 1, scoring variations, and country visa prerequisites.",
+      "content": "Do you need IELTS Academic or General Training? Discover the format differences in Reading and Writing Task 1, scoring variations, and country visa prerequisites.",
+      "published": true,
+      "updatedAt": "2026-11-09T16:26:12.339Z"
+    },
+    {
+      "slug": "british-council-vs-idp-sri-lanka",
+      "title": "British Council vs. IDP IELTS in Sri Lanka: Fees, Venues & Test Dates (2026)",
+      "category": "Exam Comparisons",
+      "date": "March 2026",
+      "readTime": "6 min read",
+      "author": "Admissions Desk",
+      "authorRole": "Official Registration Coordinator",
+      "image": "https://pub-ff33384a505c4c0ab3bda1c1e0b82151.r2.dev/uploads/campus-hero-classroom.jpg",
+      "excerpt": "Is the British Council stricter than IDP? Learn the truth about examiner marking, official test venues in Northern Sri Lanka, fee structures, and registration assistance.",
+      "content": "Is the British Council stricter than IDP? Learn the truth about examiner marking, official test venues in Northern Sri Lanka, fee structures, and registration assistance.",
+      "published": true,
+      "updatedAt": "2026-11-09T16:26:12.339Z"
+    },
+    {
+      "slug": "uk-student-visa-ielts-requirements",
+      "title": "UK Student Visa (Tier 4) & UKVI Requirements for Sri Lankan Students (2026)",
+      "category": "Visa & Scores",
+      "date": "March 2026",
+      "readTime": "8 min read",
+      "author": "Faculty of Overseas Higher Education",
+      "authorRole": "Visa Guidance & University Placement",
+      "image": "https://pub-ff33384a505c4c0ab3bda1c1e0b82151.r2.dev/uploads/blog-uk-student-visa.jpg",
+      "excerpt": "Planning to study in the United Kingdom? Review the exact minimum band scores required for undergraduate and master’s degrees, CAS issuance, and UKVI test rules.",
+      "content": "Planning to study in the United Kingdom? Review the exact minimum band scores required for undergraduate and master’s degrees, CAS issuance, and UKVI test rules.",
+      "published": true,
+      "updatedAt": "2026-11-09T16:26:12.339Z"
+    },
+    {
+      "slug": "canada-pr-express-entry-clb9-guide",
+      "title": "How to Achieve CLB 9 in IELTS General for Canada Express Entry PR",
+      "category": "Visa & Scores",
+      "date": "February 2026",
+      "readTime": "7 min read",
+      "author": "S. Tharani",
+      "authorRole": "Immigration & General Training Specialist",
+      "image": "https://pub-ff33384a505c4c0ab3bda1c1e0b82151.r2.dev/uploads/student-tharani-canada.jpg",
+      "excerpt": "Discover why CLB 9 is known as the \"golden score\" for Canadian Express Entry, adding up to 50+ extra CRS points, and the exact section scores required to achieve it.",
+      "content": "Discover why CLB 9 is known as the \"golden score\" for Canadian Express Entry, adding up to 50+ extra CRS points, and the exact section scores required to achieve it.",
+      "published": true,
+      "updatedAt": "2026-11-09T16:26:12.339Z"
+    },
+    {
+      "slug": "australia-migration-ielts-pte-scores",
+      "title": "Australia Student & Skilled Migration: Required IELTS & PTE Scores (2026)",
+      "category": "Visa & Scores",
+      "date": "February 2026",
+      "readTime": "6 min read",
+      "author": "J. Pratheepan",
+      "authorRole": "PTE 79+ Specialist",
+      "image": "https://pub-ff33384a505c4c0ab3bda1c1e0b82151.r2.dev/uploads/student-pratheepan-australia.jpg",
+      "excerpt": "Detailed breakdown of Competent, Proficient, and Superior English bands for Australian PR Subclass 189/190/491 visas, and why PTE Academic is popular for points.",
+      "content": "Detailed breakdown of Competent, Proficient, and Superior English bands for Australian PR Subclass 189/190/491 visas, and why PTE Academic is popular for points.",
+      "published": true,
+      "updatedAt": "2026-11-09T16:26:12.339Z"
+    },
+    {
+      "slug": "ielts-classes-in-jaffna-kilinochchi",
+      "title": "Top IELTS & PTE Classes for Students in Jaffna, Kilinochchi & Northern Province",
+      "category": "Local Guides",
+      "date": "January 2026",
+      "readTime": "6 min read",
+      "author": "Campus Director",
+      "authorRole": "RK International Language Academy",
+      "image": "https://pub-ff33384a505c4c0ab3bda1c1e0b82151.r2.dev/uploads/course-diploma-english.jpg",
+      "excerpt": "Why students across Jaffna and Northern Sri Lanka travel to our central A-9 campus or attend our interactive Zoom cohorts for Band 7.5+ and PTE 65+ results.",
+      "content": "Why students across Jaffna and Northern Sri Lanka travel to our central A-9 campus or attend our interactive Zoom cohorts for Band 7.5+ and PTE 65+ results.",
+      "published": true,
+      "updatedAt": "2026-11-09T16:26:12.339Z"
+    },
+    {
+      "slug": "ielts-writing-task-2-template-band-8",
+      "title": "IELTS Writing Task 2: Band 8.0 Essay Template & Vocabulary Formula",
+      "category": "Tips & Strategy",
+      "date": "January 2026",
+      "readTime": "8 min read",
+      "author": "K. Nimalan",
+      "authorRole": "IELTS Writing Specialist",
+      "image": "https://pub-ff33384a505c4c0ab3bda1c1e0b82151.r2.dev/uploads/blog-writing-task2-template.jpg",
+      "excerpt": "Learn the exact 4-paragraph essay formula our trainers use to help students score 7.5 to 8.5 in Academic and General Task 2 writing.",
+      "content": "Learn the exact 4-paragraph essay formula our trainers use to help students score 7.5 to 8.5 in Academic and General Task 2 writing.",
+      "published": true,
+      "updatedAt": "2026-11-09T16:26:12.339Z"
+    },
+    {
+      "slug": "pte-write-from-dictation-hacks",
+      "title": "Top 10 PTE Write from Dictation & Repeat Sentence AI Hacks",
+      "category": "Tips & Strategy",
+      "date": "January 2026",
+      "readTime": "6 min read",
+      "author": "J. Pratheepan",
+      "authorRole": "PTE 79+ Specialist",
+      "image": "https://pub-ff33384a505c4c0ab3bda1c1e0b82151.r2.dev/uploads/course-pte-academic.jpg",
+      "excerpt": "Master the highest-weighted questions in PTE Academic. Learn how to capture 100% of Write from Dictation points and speak with flawless AI oral fluency.",
+      "content": "Master the highest-weighted questions in PTE Academic. Learn how to capture 100% of Write from Dictation points and speak with flawless AI oral fluency.",
+      "published": true,
+      "updatedAt": "2026-11-09T16:26:12.339Z"
+    },
+    {
+      "slug": "how-to-overcome-fear-of-speaking-english",
+      "title": "How to Overcome Fear of Speaking English: 7 Practical Fluency Exercises",
+      "category": "Tips & Strategy",
+      "date": "January 2026",
+      "readTime": "5 min read",
+      "author": "M. Dilakshan",
+      "authorRole": "Spoken English & Fluency Coordinator",
+      "image": "https://pub-ff33384a505c4c0ab3bda1c1e0b82151.r2.dev/uploads/blog-spoken-english-confidence.jpg",
+      "excerpt": "Afraid of speaking English in public or interviews? Discover 7 practical techniques used in our Diploma in English classes to build instant conversational confidence.",
+      "content": "Afraid of speaking English in public or interviews? Discover 7 practical techniques used in our Diploma in English classes to build instant conversational confidence.",
+      "published": true,
+      "updatedAt": "2026-11-09T16:26:12.339Z"
+    }
+  ],
+  "examResults": [
+    {
+      "id": "res-01",
+      "studentName": "D****n T.",
+      "examType": "IELTS General",
+      "overallScore": "Band 5.5",
+      "scores": "L: 5.5 | R: 5.5 | W: 5.5 | S: 6.0",
+      "destination": "Canada Work Permit & Express Entry Pathway",
+      "avatar": "https://pub-ff33384a505c4c0ab3bda1c1e0b82151.r2.dev/uploads/student-dilakshan-avatar.jpg",
+      "scorecardImage": "/images/results/scorecard-01.jpg",
+      "date": "April 2025",
+      "verified": true,
+      "quote": "Achieved Band 5.5 with balanced scores across all 4 modules. The daily speaking mock test drills in Kilinochchi gave me the exact foundation I needed."
+    },
+    {
+      "id": "res-02",
+      "studentName": "R****i K.",
+      "examType": "PTE Academic",
+      "overallScore": "PTE 64 (Band 7.0+ Eqv)",
+      "scores": "Writing: 74 | Speaking: 63 | Listening: 62 | Reading: 59",
+      "destination": "Australia Skilled Migration Visa",
+      "avatar": "https://pub-ff33384a505c4c0ab3bda1c1e0b82151.r2.dev/uploads/student-tharani-canada.jpg",
+      "scorecardImage": "/images/results/scorecard-02.jpg",
+      "date": "December 2025",
+      "verified": true,
+      "quote": "Scored 74 in Writing and 64 overall in PTE Academic! RK Academy's computerized mock test lab and prompt essay corrections made this high score possible."
+    },
+    {
+      "id": "res-03",
+      "studentName": "K****n M.",
+      "examType": "PTE Academic",
+      "overallScore": "PTE 57 (Band 6.0+ Eqv)",
+      "scores": "Writing: 67 | Reading: 63 | Listening: 54 | Speaking: 51",
+      "destination": "UK & New Zealand Study / Work Visa",
+      "avatar": "https://pub-ff33384a505c4c0ab3bda1c1e0b82151.r2.dev/uploads/student-nimalan-avatar.jpg",
+      "scorecardImage": "/images/results/scorecard-03.jpg",
+      "date": "March 2026",
+      "verified": true,
+      "quote": "PTE score 57 achieved on first try! The targeted writing templates and reading techniques at RK Academy helped me exceed my visa requirement."
+    },
+    {
+      "id": "res-04",
+      "studentName": "S****a P.",
+      "examType": "IELTS Life Skills",
+      "overallScore": "A1 PASS (CEFR A1)",
+      "scores": "Speaking & Listening: PASS (First Attempt)",
+      "destination": "UK Spouse / Settlement Visa",
+      "avatar": "https://pub-ff33384a505c4c0ab3bda1c1e0b82151.r2.dev/uploads/student-vaishnavi-avatar.jpg",
+      "scorecardImage": "/images/results/scorecard-04.jpg",
+      "date": "October 2026",
+      "verified": true,
+      "quote": "Passed IELTS Life Skills A1 with flying colors! British Council exam room confidence coaching in Kilinochchi eliminated all exam anxiety."
+    },
+    {
+      "id": "res-05",
+      "studentName": "T****i S.",
+      "examType": "PTE Academic",
+      "overallScore": "PTE 53 (Band 6.0 Eqv)",
+      "scores": "Speaking: 60 | Writing: 57 | Reading: 53 | Listening: 50",
+      "destination": "Global Career & Skilled Migration",
+      "avatar": "https://pub-ff33384a505c4c0ab3bda1c1e0b82151.r2.dev/uploads/student-pratheepan-australia.jpg",
+      "scorecardImage": "/images/results/scorecard-05.jpg",
+      "date": "January 2026",
+      "verified": true,
+      "quote": "Cleared PTE Academic with Score 60 in Speaking and 53 overall. The continuous support and feedback from trainers at RK Academy made the journey smooth."
+    },
+    {
+      "id": "res-06",
+      "studentName": "P****n S.",
+      "examType": "IELTS General",
+      "overallScore": "Band 4.5 (Writing 5.5)",
+      "scores": "Writing: 5.5 | Speaking: 4.5 | Reading: 4.0 | Listening: 3.5",
+      "destination": "Vocational Training & Skilled Employment",
+      "avatar": "https://pub-ff33384a505c4c0ab3bda1c1e0b82151.r2.dev/uploads/student-ketheeswaran-avatar.jpg",
+      "scorecardImage": "/images/results/scorecard-06.jpg",
+      "date": "June 2025",
+      "verified": true,
+      "quote": "Secured Band 5.5 in Writing and cleared the IELTS requirements for my overseas vocational pathway with RK Academy's structured guidance."
+    },
+    {
+      "id": "res-07",
+      "studentName": "A****o K.",
+      "examType": "Skills for English",
+      "overallScore": "A1 PASS (SELT UKVI)",
+      "scores": "A1 Listening: PASS | A1 Speaking: PASS",
+      "destination": "UKVI Approved Visa Requirement",
+      "avatar": "https://pub-ff33384a505c4c0ab3bda1c1e0b82151.r2.dev/uploads/student-default-avatar.jpg",
+      "scorecardImage": "/images/results/scorecard-07.jpg",
+      "date": "September 2026",
+      "verified": true,
+      "quote": "Passed the official PSI Skills for English SELT exam in Colombo with A1 Speaking and Listening pass marks. Truly grateful to the RK Academy team."
+    }
+  ],
+  "events": [
+    {
+      "id": "evt-1",
+      "badgeText": "Official Orientation",
+      "category": "Workshop",
+      "date": "November 2026",
+      "description": "Official exam orientation detailing test-day procedures, ID verification requirements, and mock speaking test simulation for upcoming test takers.",
+      "featured": true,
+      "image": "https://pub-ff33384a505c4c0ab3bda1c1e0b82151.r2.dev/uploads/campus-kilinochchi-workshop.jpg",
+      "location": "RK International Kilinochchi Campus",
+      "title": "British Council & Pearson Test Day Orientation Workshop"
+    },
+    {
+      "id": "evt-2",
+      "badgeText": "Award Ceremony",
+      "category": "Ceremony",
+      "date": "October 2026",
+      "description": "Honoring our students who scored Band 7.5+ and PTE 70+ in recent exam sessions, joined by faculty lecturers and parents.",
+      "featured": true,
+      "image": "https://pub-ff33384a505c4c0ab3bda1c1e0b82151.r2.dev/uploads/campus-hero-classroom.jpg",
+      "location": "Main Auditorium, Kilinochchi",
+      "title": "High Achievers Certificate Distribution Ceremony"
+    },
+    {
+      "id": "evt-3",
+      "badgeText": "Exam Simulation",
+      "category": "Mock Exam",
+      "date": "September 2026",
+      "description": "Simulated exam conditions with official timer, headphone-equipped audio listening, and immediate one-on-one examiner feedback.",
+      "featured": false,
+      "image": "https://pub-ff33384a505c4c0ab3bda1c1e0b82151.r2.dev/uploads/course-pte-academic.jpg",
+      "location": "RK Computer & Audio Lab",
+      "title": "Free Full-Length IELTS Mock Exam Simulation Hall"
+    },
+    {
+      "id": "evt-4",
+      "badgeText": "Student Showcase",
+      "category": "Campus Life",
+      "date": "August 2026",
+      "description": "Diploma and spoken English students delivering presentations on global topics to build public speaking confidence.",
+      "featured": false,
+      "image": "https://pub-ff33384a505c4c0ab3bda1c1e0b82151.r2.dev/uploads/event-public-speaking-showcase.jpg",
+      "location": "RK Kilinochchi Campus",
+      "title": "Spoken English & Public Speaking Presentation Day"
+    }
+  ],
+  "stories": [
+    {
+      "id": "fb-01",
+      "name": "K****n M.",
+      "course": "Comprehensive English Coaching",
+      "destination": "Higher Studies & Career Growth",
+      "overallScore": "Teacher Kamshalini Mentorship",
+      "rating": 5,
+      "avatar": "/images/trainers/kamshalini-raju.jpg",
+      "date": "October 2026",
+      "comment": "I am truly blessed to study under Teacher Kamshalini. To someone like me who didn't even know what English was, she taught me what English really is — I am forever indebted to her. Having such a dedicated teacher is a true gift, and I thank God for this opportunity. I wish to continue studying under Teacher Kamshalini in all my future courses.",
+      "originalTamil": "Kamshalini teacher ஆசிரியரிடம் நான் படிப்பதற்கு உண்மையிலேயே கொடுத்து வைத்திருக்கணும். English என்றால் என்னவென்று தெரியாத எனக்கு இதுதான் English என்று சொல்லி தந்த எனது ஆசிரியருக்கு என்றும் நான் கடமைப்பட்டிருக்கிறேன். இவ்வாறான ஆசிரியர் கிடைப்பது மிக மிக அந்த வரத்தை எனக்கு கொடுத்த இறைவனுக்கு நன்றி. இனிவரும் நாட்களிலும் Kamshalini ஆசிரியரிடம் நான் கல்வி கற்க விரும்புகிறேன்.",
+      "handwrittenImage": "/images/feedback/feedback-01.jpg",
+      "verified": true
+    },
+    {
+      "id": "fb-02",
+      "name": "D****h K.",
+      "course": "Spoken & Written English Course",
+      "destination": "Confidence in Speaking & Writing",
+      "overallScore": "4 Skills Mastery",
+      "rating": 5,
+      "avatar": "https://pub-ff33384a505c4c0ab3bda1c1e0b82151.r2.dev/uploads/student-nimalan-avatar.jpg",
+      "date": "October 2026",
+      "comment": "I am very happy to have attended this English course. The classes were very interesting, useful, and easy to understand. The teacher explained every lesson clearly and encouraged us to speak in English with confidence. This course helped me improve my speaking, listening, reading, and writing skills. Thank you to the teacher for your hard work and support.",
+      "handwrittenImage": "/images/feedback/feedback-02.jpg",
+      "verified": true
+    },
+    {
+      "id": "fb-03",
+      "name": "N****n S.",
+      "course": "Diploma in English",
+      "destination": "Academic & Professional Presentations",
+      "overallScore": "Presentation Mastered",
+      "rating": 5,
+      "avatar": "https://pub-ff33384a505c4c0ab3bda1c1e0b82151.r2.dev/uploads/student-ketheeswaran-avatar.jpg",
+      "date": "September 2026",
+      "comment": "I have learned a lot of new things in the English Diploma. I prefer to study at RK English Language Academy. Doing a presentation in English was my first time ever, but after completing it, I fully understood how to present with clarity and confidence. I am very happy to study in the class of RK International Language Academy.",
+      "handwrittenImage": "/images/feedback/feedback-03.jpg",
+      "verified": true
+    },
+    {
+      "id": "fb-04",
+      "name": "A****i T.",
+      "course": "English Language & Presentation Skills",
+      "destination": "Public Speaking Confidence",
+      "overallScore": "First Presentation Success",
+      "rating": 5,
+      "avatar": "https://pub-ff33384a505c4c0ab3bda1c1e0b82151.r2.dev/uploads/student-tharani-canada.jpg",
+      "date": "September 2026",
+      "comment": "I have learned many valuable things here. Doing a presentation in English was the first time in my life, and the guidance helped me overcome my fear. Thank you miss for encouraging me.",
+      "handwrittenImage": "/images/feedback/feedback-04.jpg",
+      "verified": true
+    },
+    {
+      "id": "fb-05",
+      "name": "S****n B.",
+      "course": "Practical English & Grammar",
+      "destination": "Grammar & Fluency Building",
+      "overallScore": "Core Skills Solidified",
+      "rating": 5,
+      "avatar": "https://pub-ff33384a505c4c0ab3bda1c1e0b82151.r2.dev/uploads/student-pratheepan-australia.jpg",
+      "date": "June 2024",
+      "comment": "I am writing to provide feedback on my experience in the class. They have made complex topics so much easier to understand. Additionally, the practice exercises have been valuable in reinforcing what we've learned in class. Overall, I am very satisfied with the progress I am making and look forward to continuing to build my English skills.",
+      "handwrittenImage": "/images/feedback/feedback-05.jpg",
+      "verified": true
+    },
+    {
+      "id": "fb-06",
+      "name": "K****r R.",
+      "course": "English & IT Dual Diploma",
+      "destination": "Dual Diploma Career Path",
+      "overallScore": "Vocabulary & Tech English",
+      "rating": 5,
+      "avatar": "https://pub-ff33384a505c4c0ab3bda1c1e0b82151.r2.dev/uploads/student-nimalan-avatar.jpg",
+      "date": "October 2026",
+      "comment": "In RK International Language Academy, the classes are very useful and I can understand every lesson through easy methods. Within a few days of joining the class, I learned more vocabulary and new concepts. Everything is comfortable to study. I prefer to study here for a long time. I am learning English and IT Diploma, and I trust I will be well educated after finishing my courses.",
+      "handwrittenImage": "/images/feedback/feedback-06.jpg",
+      "verified": true
+    },
+    {
+      "id": "fb-07",
+      "name": "S****a M.",
+      "course": "English Level - II (IELTS Foundation)",
+      "destination": "Preparing for IELTS Examination",
+      "overallScore": "Level II Completed",
+      "rating": 5,
+      "avatar": "https://pub-ff33384a505c4c0ab3bda1c1e0b82151.r2.dev/uploads/student-tharani-canada.jpg",
+      "date": "September 2026",
+      "comment": "When I first joined, my knowledge regarding English was minimal. Now I have successfully completed Level - II. The teacher instructed us in a wonderful manner, which gave me immense interest and enthusiasm for English. I am confident that continuing to study here will prepare me exceptionally well for my IELTS examination.",
+      "originalTamil": "நான் வரும் போது English சம்பந்தமான அறிவு குறைவாகவே இருந்தது. தற்போது Level - II வரை நிறைவு செய்துள்ளேன். எனக்கு கற்பித்த ஆசிரியர் மிகவும் நல்ல முறையில் கற்பித்தார். இவருடைய கற்பித்தலால் English பாடத்தில் எனக்கு ஆர்வமும் விருப்பமும் ஏற்பட்டது. தொடர்ந்து இவரிடம் கற்பதால் IELTSக்கு என்னை நல்ல முறையில் தயார்படுத்த முடியும் என நம்புகிறேன்.",
+      "handwrittenImage": "/images/feedback/feedback-07.jpg",
+      "verified": true
+    },
+    {
+      "id": "fb-08",
+      "name": "V****a K.",
+      "course": "Comprehensive English Coaching",
+      "destination": "Personalized Language Growth",
+      "overallScore": "Step-by-Step Guidance",
+      "rating": 5,
+      "avatar": "https://pub-ff33384a505c4c0ab3bda1c1e0b82151.r2.dev/uploads/student-vaishnavi-avatar.jpg",
+      "date": "August 2026",
+      "comment": "Before joining here, I had only basic knowledge of English. But after studying here, I can clearly feel my English proficiency growing. The main reason is our teacher Miss Kamshalini. She understands each student's starting level and tailors her guidance to help us progress step-by-step.",
+      "originalTamil": "நான் இங்கு வரும் போது முன்னைய ஆங்கிலத்தில் ஓரளவு அறிவுடன் கற்றிருந்தேன். ஆனால் இங்கு வந்த பின்னர் ஆங்கிலம் தொடர்பான அறிவு சற்று அதிகரித்துள்ளதை என்னால் உணர முடிகிறது. இதற்கு காரணம் எனது வகுப்பாசிரியர் கம்சாலினி Miss அவர்கள். அவர் நான் எந்த நிலையில் இங்கு வந்திருக்கின்றேன் என்று புரிந்து கொண்டும் எப்படி வழிநடத்தலாம் என்று தெரிந்து கொண்டும் அதற்கேற்றவாறு கற்பிப்பார்.",
+      "handwrittenImage": "/images/feedback/feedback-08.jpg",
+      "verified": true
+    },
+    {
+      "id": "fb-09",
+      "name": "J****h T.",
+      "course": "English & Assessment Track",
+      "destination": "Rigorous Test Readiness",
+      "overallScore": "Practice Exam Excellence",
+      "rating": 5,
+      "avatar": "https://pub-ff33384a505c4c0ab3bda1c1e0b82151.r2.dev/uploads/student-ketheeswaran-avatar.jpg",
+      "date": "September 2026",
+      "comment": "You conducted many practice exams for us — some were simple and others were challenging. Please continue holding regular exams as it pushes us to master new skills and concepts. All the faculty members taught us with outstanding dedication.",
+      "originalTamil": "நீங்கள் எங்களுக்கு பல பரீட்சைகள் நடாத்தினீர்கள். அவை இலகுவாகவும் சில கடினமாகவும் இருந்தது. நீங்கள் தொடர்ந்து பரீட்சை வையுங்கள் அது எங்களுக்கு புது விடயங்களை கற்றுக்கொள்வதற்கு உதவியாக இருக்கும். கற்பித்த அனைத்து ஆசிரியர்களும் சிறப்பாக கற்பித்தீர்கள்.",
+      "handwrittenImage": "/images/feedback/feedback-09.jpg",
+      "verified": true
+    },
+    {
+      "id": "fb-10",
+      "name": "R****i S.",
+      "course": "English Language Immersion",
+      "destination": "Independent English Speaking",
+      "overallScore": "Overcoming Language Fear",
+      "rating": 5,
+      "avatar": "https://pub-ff33384a505c4c0ab3bda1c1e0b82151.r2.dev/uploads/student-tharani-canada.jpg",
+      "date": "August 2026",
+      "comment": "Compared to studying elsewhere for 3 months, only after joining this class under Teacher Kamshalini did English become truly accessible to me. I once thought I would never be able to learn English. But her teaching gave me the confidence that I could do it, and now I am able to speak independently with much greater ease.",
+      "originalTamil": "நான் முதல் 03 மாதங்களும் வேறு class ல படிச்சதை விட இந்த class ல வந்து Kamshaliny ஆசிரியரிடம் படித்ததற்கு பிறகு தான் எனக்கு English பாடம் எல்லாம் இலகுவாக படிக்க முடிந்தது. என்னால் இந்த English பாடத்தை படிக்கவே முடியாது என்று நான் நினைத்துக் கொண்டிருந்தேன். ஆனால் இந்த class ல Kamshaliny ஆசிரியரிடம் படித்த பிறகுதான் என்னால் படிக்க முடியும் என நம்பினேன். முதல் இருந்ததை விட என்னால் சுயமாகவும் பேச முடிகிறது.",
+      "handwrittenImage": "/images/feedback/feedback-10.jpg",
+      "verified": true
+    },
+    {
+      "id": "fb-11",
+      "name": "T****i N.",
+      "course": "Spoken & Practical English",
+      "destination": "Lifelong English Foundation",
+      "overallScore": "Crystal Clear Teaching",
+      "rating": 5,
+      "avatar": "https://pub-ff33384a505c4c0ab3bda1c1e0b82151.r2.dev/uploads/student-vaishnavi-avatar.jpg",
+      "date": "August 2026",
+      "comment": "I prefer to study in RK English Language Academy. My English teacher explains things so clearly, which has been immensely useful for me. I can never forget what she taught me. I am very happy to study in the class of RK Academy. Thank you so much.",
+      "handwrittenImage": "/images/feedback/feedback-11.jpg",
+      "verified": true
+    },
+    {
+      "id": "fb-12",
+      "name": "B****h 08 Student",
+      "course": "Batch 08 English Immersion",
+      "destination": "Affordable High-Quality Education",
+      "overallScore": "Fluent Writing & Speaking",
+      "rating": 5,
+      "avatar": "https://pub-ff33384a505c4c0ab3bda1c1e0b82151.r2.dev/uploads/student-nimalan-avatar.jpg",
+      "date": "September 2026",
+      "comment": "I joined RK Academy in Kilinochchi while struggling with writing and speaking English. The fees here are very affordable compared to other institutions. The English lecturer teaches with great discipline and structure. Her lessons make English simple to grasp. Today, I can write and speak English with ease, and I am very grateful to the academy.",
+      "originalTamil": "RK International Language Academy என்ற கல்வி நிலையத்தில் கல்வி கற்கும் நான் என்னுடைய சுயநினைவுடன் எழுதிக் கொள்கின்றேன். நான் ஆங்கிலத்தில் மிகவும் ஆங்கிலம் எழுதவும், பேசவும் சிரமப்பட்டு கொண்டு இருந்த வேளையில் கிளிநொச்சியில் இயங்கி வரும் இவ் நிறுவனத்தில் வந்து சேர்ந்து கொண்டேன். ஏனைய நிறுவனங்களை விட மிகவும் குறைந்த கட்டணத்தில் நான் இங்கு கல்வி கற்கின்றேன். ஆங்கில ஆசிரியை மிகவும் ஒழுக்கமாக கற்பிக்கின்றார். இப்போது நான் ஆங்கிலத்தில் எழுத, கதைக்க பழகிவிட்டேன்.",
+      "handwrittenImage": "/images/feedback/feedback-12.jpg",
+      "verified": true
+    },
+    {
+      "id": "fb-13",
+      "name": "T****n K.",
+      "course": "Level 2 English Grammar",
+      "destination": "Grammar Accuracy & Rules",
+      "overallScore": "Level 2 Grammar Mastered",
+      "rating": 5,
+      "avatar": "https://pub-ff33384a505c4c0ab3bda1c1e0b82151.r2.dev/uploads/student-pratheepan-australia.jpg",
+      "date": "July 2026",
+      "comment": "My grammar knowledge was quite low, so I enrolled in the Level 2 Grammar class. Despite scheduling difficulties, Madam Kamshalini's teaching made the grammar rules so simple to grasp and understand. I humbly request that she also be assigned as our teacher for Level III.",
+      "originalTamil": "எனக்கு Grammar சம்பந்தமான அறிவு குறைவாகவே இருந்தது. அதன் காரணமாகவே நான் Level 2 Grammar வகுப்பில் இணைந்தேன். தொடர்ச்சியாக வகுப்பு வருவதற்கு ஒரு சில சிக்கல்கள் இருந்தன. ஆனாலும் கம்சாலினி Madam கற்பித்ததன் காரணமாக உண்மை இலகுவாக விளங்கக் கூடியதாக இருந்தது. அதேபோல் Level III இவரை வகுப்பாசிரியராக தரும்படி தாழ்மையுடன் கேட்டுக் கொள்கிறேன்.",
+      "handwrittenImage": "/images/feedback/feedback-13.jpg",
+      "verified": true
+    },
+    {
+      "id": "fb-14",
+      "name": "M****n P.",
+      "course": "English Fundamentals & Dictation",
+      "destination": "Fast-Track Vocabulary Building",
+      "overallScore": "Daily Dictation Progress",
+      "rating": 5,
+      "avatar": "https://pub-ff33384a505c4c0ab3bda1c1e0b82151.r2.dev/uploads/student-ketheeswaran-avatar.jpg",
+      "date": "July 2026",
+      "comment": "Ever since joining RK Academy, the daily dictation sessions have significantly improved my vocabulary and spelling. The teacher explains everything clearly from the basics. I am learning a lot every week, and I am certain that over the next 2 months, my English proficiency will reach an even higher level.",
+      "originalTamil": "இந்த Academy க்கு வந்ததால Daily Dictation வைக்கிறதால கொஞ்சம் Improve ஆகி இருக்கிறேன். Miss கற்பிப்பது நன்றாக புரிகிறது. Basic ல இருந்து போறதால நான் நிறைய கற்றுக் கொள்கிறேன். இதையும் விட இன்னும் 02 மாதத்தில் நிறைய Improve கிடைக்கும் என்பதிலும் உறுதியாக உள்ளேன்.",
+      "handwrittenImage": "/images/feedback/feedback-14.jpg",
+      "verified": true
+    },
+    {
+      "id": "fb-15",
+      "name": "Y****i S.",
+      "course": "Spoken English Immersion",
+      "destination": "Speaking Fluency Achieved",
+      "overallScore": "Zero to Fluent in 2 Months",
+      "rating": 5,
+      "avatar": "https://pub-ff33384a505c4c0ab3bda1c1e0b82151.r2.dev/uploads/student-tharani-canada.jpg",
+      "date": "August 2026",
+      "comment": "When I first arrived here, I didn't even know basic English. But within just 2 months, I learned enough to speak confidently. Now 5 months are complete, and I have gained 100% benefit. Thank you to our teacher Kamshalini who taught us with so much patience and care from the basics. Really thank you so much teacher!",
+      "originalTamil": "நான் இங்கு முதல் முதலாக வரும் போது அடிப்படை ஆங்கிலம் மொழி தெரியாமல் தான் வந்தேன். ஆனால் 2 மாதங்களிலே நன்றாக பேசக்கூடிய அளவிற்கு அறிந்து கற்றுக்கொண்டேன். இப்போது 5 மாதங்கள் முடிவடைந்து விட்டது. எனவே 100% பிரயோசனம் அடைந்துள்ளேன். அடிப்படையாய் இருந்து ஒவ்வொருவருக்கும் விளங்கக் கூடியவாறும் அன்பாகவும் இந்த நிலையை அடைய வைத்த எமது கம்சாலினி ஆசிரியருக்கு நன்றி.",
+      "handwrittenImage": "/images/feedback/feedback-15.jpg",
+      "verified": true
+    },
+    {
+      "id": "fb-16",
+      "name": "P****n R.",
+      "course": "Comprehensive English & Grammar",
+      "destination": "Complete Basic & Grammar Mastery",
+      "overallScore": "Personalized Attention",
+      "rating": 5,
+      "avatar": "https://pub-ff33384a505c4c0ab3bda1c1e0b82151.r2.dev/uploads/student-nimalan-avatar.jpg",
+      "date": "August 2026",
+      "comment": "Before enrolling at RK Academy, I lacked clarity in English basics and grammar. Here, daily dictation helped us memorize unfamiliar words and write without spelling errors. After each topic, tests were conducted to track our progress. The teacher gives individual attention to every student, helping even hesitant students gain confidence.",
+      "originalTamil": "நான் RK International Language Academy க்கு வரும் போது English Basic ல் தெளிவு இல்லாமல் இருந்தேன். பின்னர் English Basic and Grammar சரியான தெளிவும் கல்வியறிவும் கிடைத்தது. Dictation மூலம் சொற்களை பிழையின்றி எழுதக் கற்றுக் கொண்டேன். ஆசிரியர் ஒவ்வொருவரையும் தனிப்பட்ட கவனம் எடுத்து கற்பிக்கின்றார்.",
+      "handwrittenImage": "/images/feedback/feedback-16.jpg",
+      "verified": true
+    },
+    {
+      "id": "fb-17",
+      "name": "S****h V.",
+      "course": "Diploma in English",
+      "destination": "Foundational Knowledge",
+      "overallScore": "Step-by-Step Pacing",
+      "rating": 5,
+      "avatar": "https://pub-ff33384a505c4c0ab3bda1c1e0b82151.r2.dev/uploads/student-pratheepan-australia.jpg",
+      "date": "August 2026",
+      "comment": "The English Diploma is very useful. I have learned so much. The teacher teaches very steadily and clearly so that every student can understand everything easily.",
+      "handwrittenImage": "/images/feedback/feedback-17.jpg",
+      "verified": true
+    },
+    {
+      "id": "fb-18",
+      "name": "S****a S.",
+      "course": "Comprehensive English Course",
+      "destination": "Listening, Speaking, Reading & Writing",
+      "overallScore": "4 Skills Excellence",
+      "rating": 5,
+      "avatar": "https://pub-ff33384a505c4c0ab3bda1c1e0b82151.r2.dev/uploads/student-vaishnavi-avatar.jpg",
+      "date": "July 2026",
+      "comment": "I am very happy to have attended this English course. The classes were very interesting, useful, and easy to understand. The teacher explained every lesson clearly and encouraged us to speak in English with confidence. Thank you to the teacher and Nivi Akka for your hard work and support. It has been a truly valuable learning experience for me.",
+      "handwrittenImage": "/images/feedback/feedback-18.jpg",
+      "verified": true
+    }
+  ]
+}

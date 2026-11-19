@@ -4,7 +4,7 @@ import ContactMapSection from '@/components/sections/ContactMapSection';
 export const metadata = {
   title: 'Contact Us | RK International Language Academy Kilinochchi',
   description:
-    'Contact RK International Language Academy on A-9 Road, Kilinochchi. Phone 074 0224 355, WhatsApp support, Google Map directions, and inquiry form.',
+    'Contact RK International Language Academy on A-9 Road, Kilinochchi. Hotlines 074 0224 355 / 076 744 5019, WhatsApp support, Google Map directions, and inquiry form.',
 };
 
 export default function ContactPage() {

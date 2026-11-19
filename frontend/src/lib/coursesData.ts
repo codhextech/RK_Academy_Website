@@ -1,3 +1,5 @@
+import { R2_MEDIA } from './constants';
+
 export interface CourseModule {
   number: string;
   title: string;
@@ -20,6 +22,10 @@ export interface CourseDetail {
   featured?: boolean;
   duration: string;
   modes: string;
+  campus?: string;
+  admissionsStatus?: string;
+  feeLKR?: number;
+  active?: boolean;
   targetAudience: string;
   description: string;
   longDescription: string;
@@ -44,7 +50,7 @@ export const ACADEMY_COURSES: CourseDetail[] = [
     shortTitle: 'IELTS / UKVI',
     tag: 'UKVI & Global University / PR Recognized',
     category: 'English & Exams',
-    image: 'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=800&q=80',
+    image: R2_MEDIA.courses.ieltsUkvi,
     badgeBg: 'bg-sky-50 text-[#0A3663] border border-sky-200',
     accentColor: 'border-[#0098DA]',
     popular: true,
@@ -157,7 +163,7 @@ export const ACADEMY_COURSES: CourseDetail[] = [
     shortTitle: 'PTE Academic',
     tag: 'Computer-Based Exam (Fast AI Scoring)',
     category: 'English & Exams',
-    image: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=800&q=80',
+    image: R2_MEDIA.courses.pteAcademic,
     badgeBg: 'bg-sky-50 text-[#0A3663] border border-sky-200',
     accentColor: 'border-[#0098DA]',
     popular: true,
@@ -240,7 +246,7 @@ export const ACADEMY_COURSES: CourseDetail[] = [
     shortTitle: 'Diploma in English',
     tag: 'Comprehensive Foundation & Fluency',
     category: 'English & Exams',
-    image: 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=800&q=80',
+    image: R2_MEDIA.courses.diplomaEnglish,
     badgeBg: 'bg-sky-50 text-[#0A3663] border border-sky-200',
     accentColor: 'border-[#0098DA]',
     duration: '12 – 16 Weeks (3 – 4 Months)',
@@ -325,7 +331,7 @@ export const ACADEMY_COURSES: CourseDetail[] = [
     shortTitle: 'Diploma in IT',
     tag: 'Practical Computing & Software Skills',
     category: 'Information Technology',
-    image: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=800&q=80',
+    image: R2_MEDIA.courses.diplomaIt,
     badgeBg: 'bg-sky-50 text-[#0A3663] border border-sky-200',
     accentColor: 'border-[#0098DA]',
     featured: true,
@@ -418,7 +424,7 @@ export const ACADEMY_COURSES: CourseDetail[] = [
     shortTitle: 'Diploma in Sinhala',
     tag: 'National Language Proficiency (සිංහල ඩිප්ලෝමාව)',
     category: 'Foreign Languages',
-    image: 'https://images.unsplash.com/photo-1546410531-bb4caa6b424d?auto=format&fit=crop&w=800&q=80',
+    image: R2_MEDIA.courses.diplomaSinhala,
     badgeBg: 'bg-sky-50 text-[#0A3663] border border-sky-200',
     accentColor: 'border-[#0098DA]',
     duration: '12 Weeks (3 Months)',
@@ -497,7 +503,7 @@ export const ACADEMY_COURSES: CourseDetail[] = [
     shortTitle: 'French DELF (A1/A2)',
     tag: 'Official French Ministry Certification (France & Canada)',
     category: 'Foreign Languages',
-    image: 'https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=800&q=80',
+    image: R2_MEDIA.courses.frenchDelf,
     badgeBg: 'bg-sky-50 text-[#0A3663] border border-sky-200',
     accentColor: 'border-[#0098DA]',
     duration: '10 – 12 Weeks',
@@ -574,7 +580,7 @@ export const ACADEMY_COURSES: CourseDetail[] = [
     shortTitle: 'Dutch & Deutsch',
     tag: 'European Career & Migration Preparation',
     category: 'Foreign Languages',
-    image: 'https://images.unsplash.com/photo-1467269204594-9661b134dd2b?auto=format&fit=crop&w=800&q=80',
+    image: R2_MEDIA.courses.dutchDeutsch,
     badgeBg: 'bg-sky-50 text-[#0A3663] border border-sky-200',
     accentColor: 'border-[#0098DA]',
     duration: '10 – 12 Weeks (Structured 40+ Hours)',

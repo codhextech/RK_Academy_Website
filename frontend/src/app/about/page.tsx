@@ -11,7 +11,10 @@ import {
   BookOpen,
 } from 'lucide-react';
 import WhatsAppIcon from '@/components/common/WhatsAppIcon';
-import { ACADEMY_INFO, ACADEMY_VISION, ACADEMY_MISSION } from '@/lib/constants';
+import { ACADEMY_INFO, ACADEMY_VISION, ACADEMY_MISSION, R2_MEDIA } from '@/lib/constants';
+import { getAcademySettings, syncFromMongoDBIfNeeded } from '@/lib/server/store';
+
+export const dynamic = 'force-dynamic';
 
 export const metadata = {
   title: 'About Us | Vision, Mission & Facilities | RK International Language Academy',
@@ -19,7 +22,12 @@ export const metadata = {
     'Discover the vision, mission, and strategic commitments of RK International Language Academy Kilinochchi. Empowering confident communicators and global achievers.',
 };
 
-export default function AboutPage() {
+export default async function AboutPage() {
+  await syncFromMongoDBIfNeeded();
+  const settings = getAcademySettings();
+  const campusImageSrc = settings.campusImageUrl || R2_MEDIA.brand.campusWorkshop;
+  const logoSrc = settings.logoUrl || R2_MEDIA.brand.logo;
+
   return (
     <div className="bg-white">
       {/* 1. Header Hero Banner - Compact & Authoritative */}
@@ -36,7 +44,7 @@ export default function AboutPage() {
 
       {/* 2. Core Vision & Mission Showcase (Directly from Academy Charter) */}
       <section className="py-12 md:py-18 bg-white border-b border-slate-100">
-        <div className="max-w-screen-2xl mx-auto px-4 sm:px-8 lg:px-12 xl:px-16">
+        <div className="site-container">
           <div className="text-center max-w-2xl mx-auto mb-10 md:mb-12">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#0A3663]">
               Our Vision &amp; Mission
@@ -117,7 +125,7 @@ export default function AboutPage() {
 
       {/* 3. Academy Background, Philosophy & Facilities */}
       <section className="py-14 md:py-22 bg-white">
-        <div className="max-w-screen-2xl mx-auto px-4 sm:px-8 lg:px-12 xl:px-16">
+        <div className="site-container">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             {/* Left Story Column */}
             <div className="space-y-6">
@@ -125,7 +133,7 @@ export default function AboutPage() {
                 Our Background &amp; Excellence
               </h2>
               <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-                Founded with a singular vision, <strong>RK International Language Academy</strong> provides world-class English language training, IELTS &amp; PTE preparation, Cambridge exams, and modern European language courses without students needing to leave Kilinochchi.
+                Founded with a singular vision, <strong>{settings.academyName || ACADEMY_INFO.name}</strong> provides world-class English language training, IELTS &amp; PTE preparation, Cambridge exams, and modern European language courses without students needing to leave Kilinochchi.
               </p>
               <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
                 Whether your destination is university study in the UK or Canada, skilled migration to Australia, or career advancement through English and IT diplomas, our certified trainers provide personalized guidance, structured mock exams, and British Council &amp; Pearson registration support.
@@ -155,19 +163,19 @@ export default function AboutPage() {
             <div className="bg-slate-50 rounded-3xl border border-slate-200 overflow-hidden shadow-lg space-y-6">
               <div className="relative h-64 sm:h-72 w-full">
                 <Image
-                  src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=800&q=80"
+                  src={campusImageSrc}
                   alt="RK Academy Classroom in Kilinochchi"
                   fill
                   className="object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0A3663] via-[#0A3663]/30 to-transparent flex items-end p-6">
-                  <div className="bg-white/95 px-5 py-2.5 rounded-xl backdrop-blur-xs shadow-md">
+                  <div className="bg-white/95 p-3 rounded-2xl backdrop-blur-xs shadow-md">
                     <Image
-                      src="/images/logo/rk-logo.png"
+                      src={logoSrc}
                       alt="RK Academy Logo"
-                      width={260}
-                      height={52}
-                      style={{ width: 'auto', height: 'auto', maxHeight: '52px', maxWidth: '260px' }}
+                      width={200}
+                      height={150}
+                      style={{ width: 'auto', height: 'auto', maxHeight: '68px', maxWidth: '200px' }}
                       className="object-contain"
                     />
                   </div>
@@ -203,21 +211,21 @@ export default function AboutPage() {
                 </ul>
 
                 <div className="pt-4 border-t border-slate-200 flex flex-col sm:flex-row items-center gap-3">
-                  <Link
-                    href="/register"
-                    className="w-full sm:w-auto text-center bg-[#0A3663] hover:bg-[#124C85] text-white py-3 px-6 rounded-xl font-bold text-xs sm:text-sm shadow-md transition-all active:scale-95"
-                  >
-                    Join Next Batch
-                  </Link>
                   <a
-                    href={`https://wa.me/${ACADEMY_INFO.whatsappNumber}?text=${ACADEMY_INFO.whatsappPreFilledMsg}`}
+                    href={`https://wa.me/${settings.whatsapp || ACADEMY_INFO.whatsappNumber}?text=${ACADEMY_INFO.whatsappPreFilledMsg}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="w-full sm:w-auto text-center bg-[#25D366] hover:bg-[#1EBE5D] text-white py-3 px-6 rounded-xl font-bold text-xs sm:text-sm shadow-md flex items-center justify-center gap-2 transition-all active:scale-95"
                   >
                     <WhatsAppIcon className="w-4 h-4 text-white" />
-                    <span>WhatsApp Admissions</span>
+                    <span>WhatsApp Inquiry</span>
                   </a>
+                  <Link
+                    href="/ielts-courses"
+                    className="w-full sm:w-auto text-center bg-[#0A3663] hover:bg-[#124C85] text-white py-3 px-6 rounded-xl font-bold text-xs sm:text-sm shadow-md transition-all active:scale-95"
+                  >
+                    Explore Courses
+                  </Link>
                   <Link
                     href="/contact"
                     className="w-full sm:w-auto text-center border border-slate-300 hover:bg-white text-slate-700 py-3 px-5 rounded-xl font-semibold text-xs sm:text-sm transition-colors"

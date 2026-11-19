@@ -5,7 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Phone, MapPin, Mail, Menu, X, ChevronDown, GraduationCap } from 'lucide-react';
 import WhatsAppIcon from '@/components/common/WhatsAppIcon';
-import { ACADEMY_INFO, NAV_LINKS } from '@/lib/constants';
+import { ACADEMY_INFO, NAV_LINKS, R2_MEDIA } from '@/lib/constants';
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -54,54 +54,66 @@ export default function Header() {
 
   return (
     <header
-      className={`w-full sticky top-0 z-50 bg-white transition-all duration-300 ease-in-out border-b ${
-        isScrolled ? 'border-slate-300 shadow-md' : 'border-slate-200 shadow-xs'
+      className={`w-full sticky top-0 z-50 bg-white transition-all duration-300 ease-in-out border-b-2 ${
+        isScrolled ? 'border-slate-300/90 shadow-md' : 'border-slate-200/90 shadow-xs'
       } ${isVisible || mobileMenuOpen ? 'translate-y-0' : '-translate-y-full'}`}
     >
       {/* 1. TOP URGENT ANNOUNCEMENT & CONTACT BAR */}
       <div className="bg-[#0A3663] text-white text-xs md:text-sm py-1.5 sm:py-2 px-3 sm:px-4 overflow-hidden select-none">
-        {/* Desktop / Laptop: Centered Static Bar (Hidden on Mobile) */}
-        <div className="hidden sm:flex max-w-screen-2xl mx-auto items-center justify-center flex-wrap gap-x-4 sm:gap-x-6 gap-y-1.5 text-center">
-          {/* Campus location */}
-          <span className="flex items-center gap-1.5 text-sky-200">
-            <MapPin className="w-3.5 h-3.5 text-[#0098DA] shrink-0" />
-            <span>A-9 Road, Near Theresamma Kovil, Kilinochchi</span>
-          </span>
+        {/* Desktop / Laptop: Dynamic Responsive Bar */}
+        <div className="hidden sm:flex site-container items-center justify-between flex-wrap gap-y-1.5 text-center sm:text-left">
+          <div className="flex items-center gap-4 lg:gap-6 flex-wrap">
+            {/* Campus location */}
+            <span className="flex items-center gap-1.5 text-sky-200">
+              <MapPin className="w-3.5 h-3.5 text-[#0098DA] shrink-0" />
+              <span>A-9 Road, Near Theresamma Kovil, Kilinochchi</span>
+            </span>
 
-          <span className="text-sky-300/40">•</span>
+            <span className="text-sky-300/40 hidden md:inline">•</span>
 
-          {/* Email */}
-          <a
-            href={`mailto:${ACADEMY_INFO.email}`}
-            className="flex items-center gap-1.5 hover:text-sky-200 transition-colors"
-          >
-            <Mail className="w-3.5 h-3.5 text-[#0098DA] shrink-0" />
-            <span>{ACADEMY_INFO.email}</span>
-          </a>
+            {/* Email */}
+            <a
+              href={`mailto:${ACADEMY_INFO.email}`}
+              className="flex items-center gap-1.5 hover:text-sky-200 transition-colors"
+            >
+              <Mail className="w-3.5 h-3.5 text-[#0098DA] shrink-0" />
+              <span>{ACADEMY_INFO.email}</span>
+            </a>
+          </div>
 
-          <span className="text-sky-300/40">•</span>
+          <div className="flex items-center gap-3 lg:gap-5 flex-wrap">
+            {/* Hotlines */}
+            <div className="flex items-center gap-1.5 font-semibold text-white">
+              <Phone className="w-3.5 h-3.5 text-[#0098DA] shrink-0" />
+              <span>Hotlines:</span>
+              <a
+                href={`tel:${ACADEMY_INFO.phone1Raw}`}
+                className="hover:text-sky-300 transition-colors underline decoration-sky-400/40 hover:decoration-sky-300"
+              >
+                {ACADEMY_INFO.phone1}
+              </a>
+              <span className="text-sky-300/40">/</span>
+              <a
+                href={`tel:${ACADEMY_INFO.phone2Raw}`}
+                className="hover:text-sky-300 transition-colors underline decoration-sky-400/40 hover:decoration-sky-300"
+              >
+                {ACADEMY_INFO.phone2}
+              </a>
+            </div>
 
-          {/* Hotline */}
-          <a
-            href={`tel:${ACADEMY_INFO.phone}`}
-            className="flex items-center gap-1.5 font-semibold text-white hover:text-sky-300 transition-colors"
-          >
-            <Phone className="w-3.5 h-3.5 text-[#0098DA] shrink-0" />
-            <span>Hotline: {ACADEMY_INFO.phone}</span>
-          </a>
+            <span className="text-sky-300/40 hidden sm:inline">•</span>
 
-          <span className="text-sky-300/40">•</span>
-
-          {/* WhatsApp */}
-          <a
-            href={`https://wa.me/${ACADEMY_INFO.whatsappNumber}?text=${ACADEMY_INFO.whatsappPreFilledMsg}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 bg-[#25D366] hover:bg-[#1EBE5D] text-white px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-full text-[11px] sm:text-xs font-semibold transition-all shadow-xs"
-          >
-            <WhatsAppIcon className="w-3.5 h-3.5 text-white shrink-0" />
-            <span>WhatsApp</span>
-          </a>
+            {/* WhatsApp */}
+            <a
+              href={`https://wa.me/${ACADEMY_INFO.whatsappNumber}?text=${ACADEMY_INFO.whatsappPreFilledMsg}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 bg-[#25D366] hover:bg-[#1EBE5D] text-white px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-full text-[11px] sm:text-xs font-semibold transition-all shadow-xs"
+            >
+              <WhatsAppIcon className="w-3.5 h-3.5 text-white shrink-0" />
+              <span>WhatsApp</span>
+            </a>
+          </div>
         </div>
 
         {/* Mobile Only: Single Line Slow-Moving Marquee Animation (No 2nd Line) */}
@@ -114,13 +126,23 @@ export default function Header() {
                   <span>A-9 Road, Near Theresamma Kovil, Kilinochchi</span>
                 </span>
                 <span className="text-sky-300/40 shrink-0">•</span>
-                <a
-                  href={`tel:${ACADEMY_INFO.phone}`}
-                  className="flex items-center gap-1 font-semibold text-white hover:text-sky-300 transition-colors mx-3 shrink-0"
-                >
+                <div className="flex items-center gap-1 font-semibold text-white mx-3 shrink-0">
                   <Phone className="w-3 h-3 text-[#0098DA] shrink-0" />
-                  <span>Hotline: {ACADEMY_INFO.phone}</span>
-                </a>
+                  <span>Hotlines:</span>
+                  <a
+                    href={`tel:${ACADEMY_INFO.phone1Raw}`}
+                    className="hover:text-sky-300 transition-colors ml-0.5"
+                  >
+                    {ACADEMY_INFO.phone1}
+                  </a>
+                  <span className="text-sky-300/40 mx-1">/</span>
+                  <a
+                    href={`tel:${ACADEMY_INFO.phone2Raw}`}
+                    className="hover:text-sky-300 transition-colors"
+                  >
+                    {ACADEMY_INFO.phone2}
+                  </a>
+                </div>
                 <span className="text-sky-300/40 shrink-0">•</span>
                 <a
                   href={`https://wa.me/${ACADEMY_INFO.whatsappNumber}?text=${ACADEMY_INFO.whatsappPreFilledMsg}`}
@@ -139,18 +161,18 @@ export default function Header() {
       </div>
 
       {/* 2. MAIN NAVIGATION BAR */}
-      <div className="max-w-screen-2xl mx-auto px-4 sm:px-8 lg:px-12 xl:px-16">
+      <div className="site-container">
         <div className="flex justify-between items-center h-18 sm:h-20 md:h-24 gap-3 sm:gap-4">
           {/* Official Logo (Bigger, bolder responsive sizing) */}
           <Link href="/" className="flex items-center group min-w-0">
             <div className="py-1">
               <Image
-                src="/images/logo/rk-logo.png"
+                src={R2_MEDIA.brand.logo}
                 alt="RK International Language Academy Logo"
-                width={360}
-                height={72}
+                width={280}
+                height={210}
                 priority
-                className="h-10 sm:h-12 md:h-14 lg:h-16 w-auto max-w-[210px] xs:max-w-[250px] sm:max-w-[300px] md:max-w-[340px] lg:max-w-[360px] object-contain object-left transition-transform duration-200 group-hover:scale-[1.02]"
+                className="h-11 sm:h-13 md:h-15 lg:h-16 w-auto max-w-[180px] sm:max-w-[220px] md:max-w-[260px] object-contain object-left transition-transform duration-200 group-hover:scale-[1.02]"
               />
             </div>
           </Link>
@@ -180,29 +202,52 @@ export default function Header() {
                     </Link>
 
                     {coursesDropdownOpen && (
-                      <div className="absolute top-full left-0 w-80 bg-white rounded-2xl shadow-xl border border-slate-100 py-3 px-2 z-50 animate-in fade-in slide-in-from-top-2 duration-150">
+                      <div className="absolute top-full left-0 w-[560px] lg:w-[600px] bg-white rounded-2xl shadow-2xl border border-slate-100 p-3 z-50 animate-in fade-in slide-in-from-top-2 duration-150">
                         {/* Explore All Courses Banner */}
                         <Link
                           href={link.href}
-                          className="flex items-center justify-between p-2.5 mb-1.5 rounded-xl bg-sky-50 text-[#0A3663] hover:bg-sky-100 font-bold text-xs transition-colors border border-sky-100"
+                          className="flex items-center justify-between px-3.5 py-2 mb-2 rounded-xl bg-sky-50 text-[#0A3663] hover:bg-sky-100 font-bold text-xs transition-colors border border-sky-100 group"
                           onClick={() => setCoursesDropdownOpen(false)}
                         >
                           <span>Explore All 7 Courses &amp; Diplomas</span>
-                          <span className="text-[#0098DA]">→</span>
+                          <span className="text-[#0098DA] font-bold group-hover:translate-x-0.5 transition-transform">
+                            View All Programs →
+                          </span>
                         </Link>
-                        {link.dropdown.map((item) => (
+
+                        {/* 2 Courses Per Row (2 Columns Grid) */}
+                        <div className="grid grid-cols-2 gap-1.5">
+                          {link.dropdown.map((item) => (
+                            <Link
+                              key={item.href}
+                              href={item.href}
+                              className="p-2.5 rounded-xl hover:bg-sky-50/80 group transition-colors border border-transparent hover:border-sky-100 flex flex-col justify-start"
+                              onClick={() => setCoursesDropdownOpen(false)}
+                            >
+                              <p className="font-semibold text-sm text-[#0A3663] group-hover:text-[#0098DA] transition-colors leading-snug">
+                                {item.label}
+                              </p>
+                              <p className="text-xs text-slate-500 mt-0.5 leading-relaxed line-clamp-1 group-hover:text-slate-600">
+                                {item.desc}
+                              </p>
+                            </Link>
+                          ))}
+
+                          {/* 8th Slot: Online Classes / Live Batches to Balance the 2-Column Grid */}
                           <Link
-                            key={item.href}
-                            href={item.href}
-                            className="block p-2.5 rounded-lg hover:bg-sky-50/70 group transition-colors"
+                            href="/online-ielts-classes"
+                            className="p-2.5 rounded-xl bg-sky-50/60 hover:bg-sky-100/80 border border-sky-100/90 group transition-colors flex flex-col justify-start"
                             onClick={() => setCoursesDropdownOpen(false)}
                           >
-                            <p className="font-semibold text-sm text-[#0A3663] group-hover:text-[#0098DA]">
-                              {item.label}
+                            <p className="font-semibold text-sm text-[#0098DA] group-hover:text-[#0A3663] transition-colors leading-snug flex items-center justify-between">
+                              <span>Online Live Batches</span>
+                              <span className="text-[#0098DA] group-hover:translate-x-0.5 transition-transform text-xs">→</span>
                             </p>
-                            <p className="text-xs text-slate-500 mt-0.5">{item.desc}</p>
+                            <p className="text-xs text-slate-500 mt-0.5 leading-relaxed line-clamp-1">
+                              Interactive live coaching worldwide
+                            </p>
                           </Link>
-                        ))}
+                        </div>
                       </div>
                     )}
                   </div>

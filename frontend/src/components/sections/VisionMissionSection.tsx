@@ -11,7 +11,7 @@ import { ACADEMY_VISION, ACADEMY_MISSION } from '@/lib/constants';
 export default function VisionMissionSection() {
   return (
     <section className="py-12 md:py-20 bg-slate-50 border-t border-slate-200/80">
-      <div className="max-w-screen-2xl mx-auto px-4 sm:px-8 lg:px-12 xl:px-16">
+      <div className="site-container">
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10 md:mb-14">
           <div className="max-w-2xl">

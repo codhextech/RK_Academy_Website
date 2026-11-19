@@ -11,9 +11,28 @@ import {
   ChevronRight,
   GraduationCap,
 } from 'lucide-react';
+import WhatsAppIcon from '@/components/common/WhatsAppIcon';
+import { ACADEMY_INFO } from '@/lib/constants';
 import { ACADEMY_COURSES } from '@/lib/coursesData';
 
-const COURSES = ACADEMY_COURSES.map((c) => ({
+export interface CourseOverviewCard {
+  id: string;
+  title: string;
+  tag: string;
+  slug: string;
+  linkHref: string;
+  image: string;
+  description: string;
+  highlights: string[];
+  duration: string;
+  modes: string;
+  accentColor: string;
+  badgeBg: string;
+  popular?: boolean;
+  category: string;
+}
+
+const DEFAULT_COURSES: CourseOverviewCard[] = ACADEMY_COURSES.map((c) => ({
   id: c.id,
   title: c.title,
   tag: c.tag,
@@ -30,7 +49,12 @@ const COURSES = ACADEMY_COURSES.map((c) => ({
   category: c.category,
 }));
 
-export default function CoursesOverviewSection() {
+export default function CoursesOverviewSection({
+  courses = DEFAULT_COURSES,
+}: {
+  courses?: CourseOverviewCard[];
+}) {
+  const COURSES = courses;
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const timerRef = useRef<NodeJS.Timeout | null>(null);
   const [isPaused, setIsPaused] = useState(false);
@@ -43,7 +67,7 @@ export default function CoursesOverviewSection() {
     const cardWidth = clientWidth < 640 ? clientWidth + 24 : clientWidth / 3;
     const currentIndex = Math.round(scrollLeft / cardWidth);
     setActiveCourseIndex(Math.min(currentIndex, COURSES.length - 1));
-  }, []);
+  }, [COURSES.length]);
 
   useEffect(() => {
     const el = scrollContainerRef.current;
@@ -127,7 +151,7 @@ export default function CoursesOverviewSection() {
       className="pt-4 pb-8 md:pt-5 md:pb-6 bg-slate-50 border-t border-slate-100 relative overflow-hidden"
       id="courses"
     >
-      <div className="max-w-screen-2xl mx-auto px-4 sm:px-8 lg:px-12 xl:px-16">
+      <div className="site-container">
         {/* Section Header */}
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3 mb-3 md:mb-4 text-center sm:text-left">
           <div>
@@ -140,7 +164,7 @@ export default function CoursesOverviewSection() {
             href="/ielts-courses"
             className="inline-flex items-center justify-center sm:justify-start gap-1.5 text-xs sm:text-sm font-bold text-[#0098DA] hover:text-[#0A3663] transition-colors group shrink-0 self-center sm:self-end pb-0.5"
           >
-            <span>View All 7 Programs</span>
+            <span>View All {COURSES.length} Programs</span>
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </Link>
         </div>
@@ -158,9 +182,9 @@ export default function CoursesOverviewSection() {
             type="button"
             onClick={() => handleScroll('left')}
             aria-label="Previous courses"
-            className="flex absolute left-1 sm:-left-4 md:-left-6 top-1/2 -translate-y-1/2 z-20 w-8 h-8 sm:w-11 sm:h-11 md:w-12 md:h-12 rounded-full bg-transparent text-[#0A3663] border border-[#0A3663]/40 items-center justify-center hover:bg-[#0A3663] hover:text-white hover:border-[#0A3663] hover:scale-110 active:scale-95 transition-all duration-200 cursor-pointer focus:outline-hidden focus:ring-2 focus:ring-[#0098DA]"
+            className="flex absolute left-0 sm:-left-5 md:-left-7 top-1/2 -translate-y-1/2 z-20 p-1 bg-transparent border-0 text-[#0A3663] hover:text-[#0098DA] items-center justify-center hover:scale-125 active:scale-90 transition-all duration-200 cursor-pointer focus:outline-hidden"
           >
-            <ChevronLeft className="w-4 h-4 sm:w-6 sm:h-6" />
+            <ChevronLeft className="w-6 h-6 sm:w-8 sm:h-8 stroke-[2.5]" />
           </button>
 
           {/* Cards Scroll Container */}
@@ -230,7 +254,7 @@ export default function CoursesOverviewSection() {
                   </div>
                 </div>
 
-                {/* Bottom Action Buttons: View Syllabus + Enroll Now */}
+                {/* Bottom Action Buttons: View Syllabus + WhatsApp Inquiry */}
                 <div className="pt-3.5 mt-3.5 border-t border-slate-100 flex items-center gap-2">
                   <Link
                     href={course.linkHref}
@@ -238,13 +262,15 @@ export default function CoursesOverviewSection() {
                   >
                     View Syllabus
                   </Link>
-                  <Link
-                    href={`/register?course=${course.slug}`}
-                    className="flex-1 text-center py-2.5 px-3 rounded-xl font-bold text-xs bg-[#0A3663] hover:bg-[#124C85] text-white flex items-center justify-center gap-1.5 transition-colors shadow-xs active:scale-95 truncate"
+                  <a
+                    href={`https://wa.me/${ACADEMY_INFO.whatsappNumber}?text=${encodeURIComponent(`Hi RK International Language Academy, I would like to inquire about the ${course.title} course (fees, schedule & syllabus).`)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex-1 text-center py-2.5 px-3 rounded-xl font-bold text-xs bg-[#25D366] hover:bg-[#1EBE5D] text-white flex items-center justify-center gap-1.5 transition-colors shadow-xs active:scale-95 truncate"
                   >
-                    <GraduationCap className="w-3.5 h-3.5 text-[#0098DA] shrink-0" />
-                    <span className="truncate">Enroll Now</span>
-                  </Link>
+                    <WhatsAppIcon className="w-3.5 h-3.5 text-white shrink-0" />
+                    <span className="truncate">WhatsApp Inquiry</span>
+                  </a>
                 </div>
               </div>
             </div>
@@ -256,9 +282,9 @@ export default function CoursesOverviewSection() {
           type="button"
           onClick={() => handleScroll('right')}
           aria-label="Next courses"
-          className="flex absolute right-1 sm:-right-4 md:-right-6 top-1/2 -translate-y-1/2 z-20 w-8 h-8 sm:w-11 sm:h-11 md:w-12 md:h-12 rounded-full bg-transparent text-[#0A3663] border border-[#0A3663]/40 items-center justify-center hover:bg-[#0A3663] hover:text-white hover:border-[#0A3663] hover:scale-110 active:scale-95 transition-all duration-200 cursor-pointer focus:outline-hidden focus:ring-2 focus:ring-[#0098DA]"
+          className="flex absolute right-0 sm:-right-5 md:-right-7 top-1/2 -translate-y-1/2 z-20 p-1 bg-transparent border-0 text-[#0A3663] hover:text-[#0098DA] items-center justify-center hover:scale-125 active:scale-90 transition-all duration-200 cursor-pointer focus:outline-hidden"
         >
-          <ChevronRight className="w-4 h-4 sm:w-6 sm:h-6" />
+          <ChevronRight className="w-6 h-6 sm:w-8 sm:h-8 stroke-[2.5]" />
         </button>
       </div>
 
