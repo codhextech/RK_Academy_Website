@@ -18,6 +18,7 @@ import {
 } from 'lucide-react';
 import WhatsAppIcon from '@/components/common/WhatsAppIcon';
 import CourseCurriculumSection from '@/components/common/CourseCurriculumSection';
+import PteDualTrackSection from '@/components/common/PteDualTrackSection';
 import { getCourseBySlug, getAllCourseSlugs, ACADEMY_COURSES } from '@/lib/coursesData';
 import {
   getAcademySettings,
@@ -283,6 +284,11 @@ export default async function CourseDetailPage({ params }: PageProps) {
                   </div>
                 )}
               </div>
+
+              {/* Interactive Dual-Track Switcher (PTE Academic vs. PTE Core) */}
+              {course.slug === 'pte-academic' && (
+                <PteDualTrackSection whatsappNumber={whatsappNum} />
+              )}
 
               {/* Collapsible Curriculum Highlights & Course Modules Dropdowns */}
               <CourseCurriculumSection
