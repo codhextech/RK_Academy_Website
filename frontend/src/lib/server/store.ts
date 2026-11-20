@@ -521,20 +521,34 @@ export function getStore(): StoreData {
     }
     if (
       !Array.isArray(parsed.examResults) ||
-      parsed.examResults.length < 7 ||
-      parsed.examResults.some((r: any) => r.id === 'res-1')
+      parsed.examResults.some(
+        (r: any) =>
+          r.id === 'res-1' ||
+          (typeof r.scorecardImage === 'string' && r.scorecardImage.startsWith('/images/'))
+      )
     ) {
       parsed.examResults = [...INITIAL_EXAM_RESULTS];
       needsSave = true;
     }
-    if (!Array.isArray(parsed.events)) {
+    if (
+      !Array.isArray(parsed.events) ||
+      parsed.events.some(
+        (e: any) =>
+          e.id === 'evt-1' ||
+          (typeof e.image === 'string' && e.image.startsWith('/images/'))
+      )
+    ) {
       parsed.events = [...INITIAL_ACADEMY_EVENTS];
       needsSave = true;
     }
     if (
       !Array.isArray(parsed.stories) ||
-      parsed.stories.length < 18 ||
-      parsed.stories.some((s: any) => s.id === 'sty-1')
+      parsed.stories.some(
+        (s: any) =>
+          s.id === 'sty-1' ||
+          (typeof s.handwrittenImage === 'string' && s.handwrittenImage.startsWith('/images/')) ||
+          (typeof s.avatar === 'string' && s.avatar.startsWith('/images/'))
+      )
     ) {
       parsed.stories = [...INITIAL_STUDENT_STORIES];
       needsSave = true;
@@ -785,15 +799,19 @@ export async function syncFromMongoDBIfNeeded(force = false): Promise<StoreData>
 
       if (mongoExamResults.length > 0) {
         if (
-          mongoExamResults.length < 7 ||
-          mongoExamResults.some((r: any) => r.id === 'res-1' || r.id === 'res-2')
+          mongoExamResults.some(
+            (r: any) =>
+              r.id === 'res-1' ||
+              r.id === 'res-2' ||
+              (typeof r.scorecardImage === 'string' && r.scorecardImage.startsWith('/images/'))
+          )
         ) {
           nextStore.examResults = [...INITIAL_EXAM_RESULTS];
           try {
             const col = db.collection('examresults');
             await col.deleteMany({});
             await col.insertMany(stripMongoIds(INITIAL_EXAM_RESULTS));
-            console.log('[Store] Auto-migrated 7 authentic official exam scorecards to MongoDB Atlas');
+            console.log('[Store] Auto-migrated 7 official exam scorecards (Cloudflare R2) to MongoDB Atlas');
           } catch (migrateErr) {
             console.warn('[Store] Mongo migration error for examresults:', migrateErr);
           }
@@ -811,17 +829,50 @@ export async function syncFromMongoDBIfNeeded(force = false): Promise<StoreData>
       }
 
       if (mongoEvents.length > 0) {
-        nextStore.events = stripMongoIds(mongoEvents) as unknown as AcademyEventItem[];
+        if (
+          mongoEvents.some(
+            (e: any) =>
+              e.id === 'evt-1' ||
+              (typeof e.image === 'string' && e.image.startsWith('/images/'))
+          )
+        ) {
+          nextStore.events = [...INITIAL_ACADEMY_EVENTS];
+          try {
+            const col = db.collection('events');
+            await col.deleteMany({});
+            await col.insertMany(stripMongoIds(INITIAL_ACADEMY_EVENTS));
+            console.log('[Store] Auto-migrated 10 authentic Academy Events & Workshops (Cloudflare R2) to MongoDB Atlas');
+          } catch (migrateErr) {
+            console.warn('[Store] Mongo migration error for events:', migrateErr);
+          }
+        } else {
+          nextStore.events = stripMongoIds(mongoEvents) as unknown as AcademyEventItem[];
+        }
+      } else {
+        nextStore.events = [...INITIAL_ACADEMY_EVENTS];
+        try {
+          const col = db.collection('events');
+          await col.insertMany(stripMongoIds(INITIAL_ACADEMY_EVENTS));
+        } catch {
+          // ignore
+        }
       }
 
       if (mongoStories.length > 0) {
-        if (mongoStories.length < 18 || mongoStories.some((s: any) => s.id === 'sty-1')) {
+        if (
+          mongoStories.some(
+            (s: any) =>
+              s.id === 'sty-1' ||
+              (typeof s.handwrittenImage === 'string' && s.handwrittenImage.startsWith('/images/')) ||
+              (typeof s.avatar === 'string' && s.avatar.startsWith('/images/'))
+          )
+        ) {
           nextStore.stories = [...INITIAL_STUDENT_STORIES];
           try {
             const col = db.collection('stories');
             await col.deleteMany({});
             await col.insertMany(stripMongoIds(INITIAL_STUDENT_STORIES));
-            console.log('[Store] Auto-migrated 18 authentic handwritten reviews to MongoDB Atlas');
+            console.log('[Store] Auto-migrated 18 handwritten reviews (Cloudflare R2) to MongoDB Atlas');
           } catch (migrateErr) {
             console.warn('[Store] Mongo migration error:', migrateErr);
           }
