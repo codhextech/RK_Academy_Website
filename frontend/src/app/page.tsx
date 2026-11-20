@@ -1,4 +1,5 @@
 import React from 'react';
+import StartupPreloader from '@/components/common/StartupPreloader';
 import HeroSection from '@/components/sections/HeroSection';
 import MarqueeTicker from '@/components/common/MarqueeTicker';
 import CoursesOverviewSection, { CourseOverviewCard } from '@/components/sections/CoursesOverviewSection';
@@ -48,10 +49,14 @@ export default async function HomePage() {
 
   return (
     <>
+      {/* Startup-Only Logo Preloader with Contour Blue Light */}
+      <StartupPreloader />
+
       {/* 1. Hero with local Kilinochchi targeting & CTA */}
       <HeroSection
         watermarkUrl={settings.watermarkUrl || R2_MEDIA.brand.watermark}
         heroClassroomUrl={settings.heroClassroomUrl || R2_MEDIA.brand.heroClassroom}
+        whatsappNumber={settings.whatsapp}
       />
 
       {/* 2. Core Certified Course Cards with Course Images */}

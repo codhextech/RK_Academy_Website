@@ -58,3 +58,105 @@
 .animate-marquee-header:active {
   animation-play-state: paused;
 }
+
+/* ========================================================= */
+/* Hero Section — Premium Motion & Slideshow Animations      */
+/* ========================================================= */
+@keyframes rk-ken-burns {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.07);
+  }
+}
+
+.animate-rk-ken-burns {
+  animation: rk-ken-burns 6.5s ease-out forwards;
+  will-change: transform;
+}
+
+@keyframes rk-word-enter {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-rk-word-enter {
+  animation: rk-word-enter 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes rk-float-delayed {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-7px);
+  }
+}
+
+.animate-rk-float-delayed {
+  animation: rk-float-delayed 4.6s ease-in-out 1.2s infinite;
+}
+
+@keyframes rk-shimmer {
+  0% {
+    transform: translateX(-120%) skewX(-18deg);
+  }
+  100% {
+    transform: translateX(260%) skewX(-18deg);
+  }
+}
+
+.group:hover .animate-rk-shimmer {
+  animation: rk-shimmer 0.85s ease-out;
+}
+
+/* ========================================================= */
+/* Startup Preloader — Contour Blue Light Around Logo        */
+/* ========================================================= */
+@keyframes rk-logo-light-run {
+  0% {
+    stroke-dashoffset: 0;
+  }
+  100% {
+    stroke-dashoffset: -1000;
+  }
+}
+
+@keyframes rk-logo-light-head {
+  0% {
+    stroke-dashoffset: -155;
+  }
+  100% {
+    stroke-dashoffset: -1155;
+  }
+}
+
+@keyframes rk-logo-breathe {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.025);
+  }
+}
+
+.animate-rk-logo-light-run {
+  animation: rk-logo-light-run 1.45s linear infinite;
+  will-change: stroke-dashoffset;
+}
+
+.animate-rk-logo-light-head {
+  animation: rk-logo-light-head 1.45s linear infinite;
+  will-change: stroke-dashoffset;
+}
+
+.animate-rk-logo-breathe {
+  animation: rk-logo-breathe 2.2s ease-in-out infinite;
+}
