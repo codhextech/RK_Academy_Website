@@ -3,11 +3,10 @@
 import React, { useState } from 'react';
 import {
   GraduationCap,
+  BookOpen,
   Briefcase,
   ArrowLeftRight,
-  CheckCircle2,
   Clock,
-  Award,
   FileText,
   Mail,
   Mic,
@@ -25,10 +24,10 @@ interface PteDualTrackSectionProps {
 export default function PteDualTrackSection({
   whatsappNumber = ACADEMY_INFO.whatsappNumber,
 }: PteDualTrackSectionProps) {
-  const [activeTab, setActiveTab] = useState<'academic' | 'core' | 'compare'>('academic');
+  const [activeTab, setActiveTab] = useState<'academic' | 'general' | 'core' | 'compare'>('academic');
 
   const whatsappInquiryUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
-    'Hi RK Academy, I would like guidance on whether I should prepare for PTE Academic or PTE Core.'
+    'Hi RK Academy, I would like guidance on whether I should prepare for PTE Academic, PTE General, or PTE Core.'
   )}`;
 
   return (
@@ -43,12 +42,12 @@ export default function PteDualTrackSection({
           Which PTE Test Do You Need?
         </h2>
         <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-          Both tests take approximately <strong>2 hours</strong> in our Kilinochchi computer lab, but test different skills depending on whether you are applying for university study abroad or Canadian Permanent Residency.
+          Pearson offers <strong>3 official PTE tracks</strong> — choose between <strong>PTE Academic</strong> (university study &amp; skilled migration), <strong>PTE General</strong> (everyday &amp; workplace CEFR A1–C2 certification), and <strong>PTE Core</strong> (Canadian Permanent Residency).
         </p>
       </div>
 
-      {/* 2. Three Interactive Tabs */}
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 p-1.5 bg-slate-100 rounded-2xl">
+      {/* 2. Four Interactive Tabs */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2.5 p-1.5 bg-slate-100 rounded-2xl">
         <button
           type="button"
           onClick={() => setActiveTab('academic')}
@@ -62,7 +61,25 @@ export default function PteDualTrackSection({
           <div className="text-left leading-tight">
             <span>Track 1: PTE Academic</span>
             <span className={`block text-[10px] font-normal truncate mt-0.5 ${activeTab === 'academic' ? 'text-sky-200' : 'text-slate-500'}`}>
-              Study &amp; Australia / UK Visas
+              Study &amp; AU / UK / NZ Visas
+            </span>
+          </div>
+        </button>
+
+        <button
+          type="button"
+          onClick={() => setActiveTab('general')}
+          className={`flex items-center justify-center sm:justify-start gap-2.5 p-3 rounded-xl font-bold text-xs sm:text-sm transition-all cursor-pointer ${
+            activeTab === 'general'
+              ? 'bg-[#0A3663] text-white shadow-md'
+              : 'text-slate-600 hover:text-[#0A3663] hover:bg-white/60'
+          }`}
+        >
+          <BookOpen className={`w-4 h-4 shrink-0 ${activeTab === 'general' ? 'text-[#0098DA]' : 'text-slate-400'}`} />
+          <div className="text-left leading-tight">
+            <span>Track 2: PTE General</span>
+            <span className={`block text-[10px] font-normal truncate mt-0.5 ${activeTab === 'general' ? 'text-sky-200' : 'text-slate-500'}`}>
+              Everyday &amp; Career (A1–C2)
             </span>
           </div>
         </button>
@@ -78,7 +95,7 @@ export default function PteDualTrackSection({
         >
           <Briefcase className={`w-4 h-4 shrink-0 ${activeTab === 'core' ? 'text-[#0098DA]' : 'text-slate-400'}`} />
           <div className="text-left leading-tight">
-            <span>Track 2: PTE Core</span>
+            <span>Track 3: PTE Core</span>
             <span className={`block text-[10px] font-normal truncate mt-0.5 ${activeTab === 'core' ? 'text-sky-200' : 'text-slate-500'}`}>
               🍁 Canada PR &amp; Express Entry
             </span>
@@ -98,7 +115,7 @@ export default function PteDualTrackSection({
           <div className="text-left leading-tight">
             <span>Compare Side-by-Side</span>
             <span className={`block text-[10px] font-normal truncate mt-0.5 ${activeTab === 'compare' ? 'text-sky-200' : 'text-slate-500'}`}>
-              Quick Differences Table
+              All 3 Tracks Table
             </span>
           </div>
         </button>
@@ -199,14 +216,98 @@ export default function PteDualTrackSection({
       )}
 
       {/* ============================================================== */}
-      {/* TAB 2: PTE CORE */}
+      {/* TAB 2: PTE GENERAL */}
+      {/* ============================================================== */}
+      {activeTab === 'general' && (
+        <div className="space-y-6 animate-in fade-in duration-200">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 p-4 bg-indigo-50/70 border border-indigo-100 rounded-2xl">
+            <div>
+              <div className="flex items-center gap-2">
+                <span className="text-xs font-bold uppercase tracking-wider text-indigo-600">Track 2 Focus</span>
+                <span className="text-xs text-slate-300">•</span>
+                <span className="text-xs text-slate-500 font-semibold">Pearson English International Certificate</span>
+              </div>
+              <h3 className="text-lg font-bold text-[#0A3663] mt-0.5">
+                PTE General (Everyday &amp; Workplace English • CEFR A1–C2)
+              </h3>
+            </div>
+            <div className="flex items-center gap-1.5 text-xs font-semibold text-slate-700 bg-white px-3 py-1.5 rounded-lg border border-indigo-100 shrink-0">
+              <Clock className="w-3.5 h-3.5 text-indigo-600" />
+              <span>Lifetime Certificate</span>
+            </div>
+          </div>
+
+          {/* Two Components */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="p-4 rounded-2xl bg-white border border-slate-200 space-y-2">
+              <div className="flex items-center gap-2 text-xs font-bold text-indigo-700">
+                <FileText className="w-4 h-4 text-indigo-600" />
+                <span>Part 1: Written Paper (Listening, Reading &amp; Writing)</span>
+              </div>
+              <p className="text-xs text-slate-600 leading-relaxed">
+                Theme-linked real-world tasks testing everyday comprehension, practical workplace emails, letters, and structured writing without tricky academic jargon.
+              </p>
+            </div>
+
+            <div className="p-4 rounded-2xl bg-white border border-slate-200 space-y-2">
+              <div className="flex items-center gap-2 text-xs font-bold text-indigo-700">
+                <Mic className="w-4 h-4 text-indigo-600" />
+                <span>Part 2: Spoken Interview (Real-Life Communication)</span>
+              </div>
+              <p className="text-xs text-slate-600 leading-relaxed">
+                A communicative speaking session covering sustained monologue, picture discussion, and interactive role-play with an examiner — ideal for building real fluency.
+              </p>
+            </div>
+          </div>
+
+          {/* 6 CEFR Levels Grid */}
+          <div className="space-y-3">
+            <h4 className="text-xs font-bold uppercase tracking-wider text-slate-500">
+              6 Official Levels Mapped to CEFR (A1 to C2)
+            </h4>
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5 text-xs">
+              <div className="p-3 bg-slate-50 rounded-xl border border-slate-200/80">
+                <p className="font-bold text-[#0A3663]">Foundation (CEFR A1)</p>
+                <p className="text-[11px] text-slate-500 mt-0.5">Beginner everyday communication</p>
+              </div>
+              <div className="p-3 bg-slate-50 rounded-xl border border-slate-200/80">
+                <p className="font-bold text-[#0A3663]">Level 1 (CEFR A2)</p>
+                <p className="text-[11px] text-slate-500 mt-0.5">Elementary daily &amp; travel usage</p>
+              </div>
+              <div className="p-3 bg-slate-50 rounded-xl border border-slate-200/80">
+                <p className="font-bold text-[#0A3663]">Level 2 (CEFR B1)</p>
+                <p className="text-[11px] text-slate-500 mt-0.5">Intermediate study &amp; work readiness</p>
+              </div>
+              <div className="p-3 bg-slate-50 rounded-xl border border-slate-200/80">
+                <p className="font-bold text-[#0A3663]">Level 3 (CEFR B2)</p>
+                <p className="text-[11px] text-slate-500 mt-0.5">Upper-intermediate career &amp; university prep</p>
+              </div>
+              <div className="p-3 bg-slate-50 rounded-xl border border-slate-200/80">
+                <p className="font-bold text-indigo-700">Level 4 (CEFR C1)</p>
+                <p className="text-[11px] text-slate-500 mt-0.5">Advanced professional &amp; academic fluency</p>
+              </div>
+              <div className="p-3 bg-slate-50 rounded-xl border border-slate-200/80">
+                <p className="font-bold text-indigo-700">Level 5 (CEFR C2)</p>
+                <p className="text-[11px] text-slate-500 mt-0.5">Proficient mastery for global leadership</p>
+              </div>
+            </div>
+          </div>
+
+          <div className="p-4 bg-indigo-50/50 rounded-2xl border border-indigo-100 text-xs text-slate-700 leading-relaxed">
+            <strong>Who should take PTE General?</strong> Ideal for school students, job seekers, corporate professionals, and learners who want an internationally recognized Pearson certificate that <strong>never expires</strong> (note: for Australia/UK/Canada visa immigration points, choose <strong>PTE Academic</strong> or <strong>PTE Core</strong>).
+          </div>
+        </div>
+      )}
+
+      {/* ============================================================== */}
+      {/* TAB 3: PTE CORE */}
       {/* ============================================================== */}
       {activeTab === 'core' && (
         <div className="space-y-6 animate-in fade-in duration-200">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 p-4 bg-emerald-50/70 border border-emerald-100 rounded-2xl">
             <div>
               <div className="flex items-center gap-2">
-                <span className="text-xs font-bold uppercase tracking-wider text-emerald-600">Track 2 Focus</span>
+                <span className="text-xs font-bold uppercase tracking-wider text-emerald-600">Track 3 Focus</span>
                 <span className="text-xs text-slate-300">•</span>
                 <span className="text-xs text-slate-500 font-semibold">Approved by IRCC Canada</span>
               </div>
@@ -312,68 +413,74 @@ export default function PteDualTrackSection({
       )}
 
       {/* ============================================================== */}
-      {/* TAB 3: SIDE-BY-SIDE COMPARISON TABLE */}
+      {/* TAB 4: SIDE-BY-SIDE COMPARISON TABLE */}
       {/* ============================================================== */}
       {activeTab === 'compare' && (
         <div className="space-y-5 animate-in fade-in duration-200">
           <div className="flex items-center justify-between border-b border-slate-100 pb-3">
             <h3 className="text-base sm:text-lg font-bold text-[#0A3663]">
-              Side-by-Side Comparison: Academic vs. Core
+              Side-by-Side Comparison: Academic vs. General vs. Core
             </h3>
-            <span className="text-xs text-[#0098DA] font-semibold">Taught in RK Computer Lab</span>
+            <span className="text-xs text-[#0098DA] font-semibold">Taught at RK Academy</span>
           </div>
 
           <div className="overflow-x-auto rounded-2xl border border-slate-200">
-            <table className="w-full text-left text-xs border-collapse">
+            <table className="w-full text-left text-xs border-collapse min-w-[640px]">
               <thead>
                 <tr className="bg-[#0A3663] text-white">
-                  <th className="p-3 w-1/4">Feature</th>
-                  <th className="p-3 w-3/8 bg-[#0C4177]">🎓 PTE Academic</th>
-                  <th className="p-3 w-3/8 bg-[#092B4F]">🍁 PTE Core</th>
+                  <th className="p-3 w-[18%]">Feature</th>
+                  <th className="p-3 w-[27%] bg-[#0C4177]">🎓 PTE Academic</th>
+                  <th className="p-3 w-[27%] bg-[#164A82]">📘 PTE General</th>
+                  <th className="p-3 w-[28%] bg-[#092B4F]">🍁 PTE Core</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-slate-100">
                 <tr className="hover:bg-slate-50">
                   <td className="p-3 font-bold text-slate-800 bg-slate-50/60">Primary Purpose</td>
-                  <td className="p-3 text-slate-700">University Studies &amp; Australia / NZ Skilled Visas</td>
-                  <td className="p-3 text-slate-700 font-semibold text-emerald-700">Canada Permanent Residency (Express Entry &amp; PNP)</td>
+                  <td className="p-3 text-slate-700">University Studies &amp; Australia / UK / NZ Visas</td>
+                  <td className="p-3 text-slate-700">Everyday &amp; Workplace English Certification (CEFR A1–C2)</td>
+                  <td className="p-3 text-emerald-700 font-semibold">Canada Permanent Residency (Express Entry &amp; PNP)</td>
                 </tr>
                 <tr className="hover:bg-slate-50">
-                  <td className="p-3 font-bold text-slate-800 bg-slate-50/60">Exam Duration</td>
-                  <td className="p-3 text-slate-700 font-semibold">~2 Hours (115 Mins)</td>
-                  <td className="p-3 text-slate-700 font-semibold">~2 Hours (115 Mins) — Same time</td>
+                  <td className="p-3 font-bold text-slate-800 bg-slate-50/60">Exam Format</td>
+                  <td className="p-3 text-slate-700 font-semibold">~2 Hours (100% Computer-Based)</td>
+                  <td className="p-3 text-slate-700 font-semibold">Written Paper + Spoken Interview</td>
+                  <td className="p-3 text-slate-700 font-semibold">~2 Hours (100% Computer-Based)</td>
                 </tr>
                 <tr className="hover:bg-slate-50">
-                  <td className="p-3 font-bold text-slate-800 bg-slate-50/60">Speaking Difference</td>
+                  <td className="p-3 font-bold text-slate-800 bg-slate-50/60">Speaking Focus</td>
                   <td className="p-3 text-slate-700">
                     <strong>Re-tell Lecture:</strong> University academic talks
                   </td>
                   <td className="p-3 text-slate-700">
-                    <strong>Respond to a Situation:</strong> Everyday phone &amp; workplace scenarios
+                    <strong>Spoken Interview:</strong> Real-life dialogue &amp; role-play
+                  </td>
+                  <td className="p-3 text-slate-700">
+                    <strong>Respond to a Situation:</strong> Everyday &amp; workplace scenarios
                   </td>
                 </tr>
                 <tr className="hover:bg-slate-50">
-                  <td className="p-3 font-bold text-slate-800 bg-slate-50/60">Writing Difference</td>
+                  <td className="p-3 font-bold text-slate-800 bg-slate-50/60">Writing Focus</td>
                   <td className="p-3 text-slate-700">
-                    <strong>Write Essay:</strong> 200–300 words formal academic essay
+                    <strong>Write Essay:</strong> 200–300 word academic essay
+                  </td>
+                  <td className="p-3 text-slate-700">
+                    <strong>Communicative Writing:</strong> Practical letters, articles &amp; essays
                   </td>
                   <td className="p-3 text-emerald-800 font-bold bg-emerald-50/40">
-                    <strong>Write Email:</strong> ~100-word workplace email (NO essay!)
+                    <strong>Write Email:</strong> ~100-word workplace email
                   </td>
                 </tr>
                 <tr className="hover:bg-slate-50">
-                  <td className="p-3 font-bold text-slate-800 bg-slate-50/60">Reading &amp; Listening</td>
-                  <td className="p-3 text-slate-700">Academic journals, lectures, university texts</td>
-                  <td className="p-3 text-slate-700">Practical memos, notices, customer audio clips</td>
-                </tr>
-                <tr className="hover:bg-slate-50">
-                  <td className="p-3 font-bold text-slate-800 bg-slate-50/60">Score Mapping</td>
-                  <td className="p-3 text-slate-700">IELTS Band Equivalencies (65 = 7.0, 79+ = 8.0)</td>
-                  <td className="p-3 text-slate-700">Canadian CLB Benchmarks (CLB 7, 8, 9)</td>
+                  <td className="p-3 font-bold text-slate-800 bg-slate-50/60">Score / Validity</td>
+                  <td className="p-3 text-slate-700">10–90 Scale (2 years) • IELTS Band Eqv.</td>
+                  <td className="p-3 text-slate-700">CEFR A1–C2 (Lifetime certificate validity)</td>
+                  <td className="p-3 text-slate-700">10–90 Scale (2 years) • Canadian CLB 7–9</td>
                 </tr>
                 <tr className="hover:bg-slate-50">
                   <td className="p-3 font-bold text-slate-800 bg-slate-50/60">Accepted By</td>
                   <td className="p-3 text-slate-700">Australia, UK, New Zealand, USA, Canada (Study SDS)</td>
+                  <td className="p-3 text-slate-700">Global employers, schools &amp; Ministries of Education</td>
                   <td className="p-3 text-slate-700 font-semibold">IRCC Canada (Express Entry &amp; Citizenship)</td>
                 </tr>
               </tbody>

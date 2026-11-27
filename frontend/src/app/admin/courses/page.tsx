@@ -718,7 +718,7 @@ function CoursesManager() {
                         type="text"
                         value={formTag}
                         onChange={(e) => setFormTag(e.target.value)}
-                        placeholder="e.g. UKVI & Life Skills A1/B1"
+                        placeholder="e.g. UKVI & IELTS Life Skills (A1/B1)"
                         className="w-full px-3.5 py-2 bg-slate-50 border border-slate-200 rounded-xl text-slate-900 text-xs focus:bg-white focus:ring-2 focus:ring-[#0098DA] focus:outline-none"
                       />
                     </div>

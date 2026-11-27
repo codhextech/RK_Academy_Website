@@ -182,7 +182,7 @@ export const BLOG_POSTS: BlogPost[] = [
     slug: 'uk-student-visa-ielts-requirements',
     title: 'UK Student Visa (Tier 4) & UKVI Requirements for Sri Lankan Students (2026)',
     metaTitle: 'UK Student Visa IELTS & UKVI Requirements (2026) | RK Academy',
-    metaDescription: 'Complete guide to UK Student Visa IELTS requirements from Sri Lanka. CAS letter minimums, IELTS for UKVI vs standard IELTS, and Life Skills A1/B1.',
+    metaDescription: 'Complete guide to UK Student Visa IELTS requirements from Sri Lanka. CAS letter minimums, IELTS for UKVI vs standard IELTS, and IELTS Life Skills (A1/B1).',
     keywords: ['UK student visa IELTS score Sri Lanka', 'IELTS for UKVI Kilinochchi', 'UK university admission requirements', 'CAS letter IELTS band', 'Tier 4 visa Sri Lanka'],
     category: 'Visa & Scores',
     date: 'March 2026',

@@ -46,7 +46,7 @@ export default function Footer() {
               <li>
                 <Link href="/ielts-courses/pte-academic" className="hover:text-[#0098DA] flex items-center gap-2 transition-colors">
                   <ArrowRight className="w-3.5 h-3.5 text-[#0098DA] shrink-0" />
-                  <span>PTE Academic Coaching</span>
+                  <span>PTE Coaching (Academic, General &amp; Core)</span>
                 </Link>
               </li>
               <li>

@@ -58,7 +58,7 @@ export const ACADEMY_COURSES: CourseDetail[] = [
     duration: '8 Weeks (60+ Hours)',
     modes: 'In-Person (Kilinochchi) & Live Online',
     targetAudience: 'Students pursuing university degrees abroad, professionals seeking PR/work visas in UK, Canada, Australia, and UKVI applicants.',
-    description: 'Complete coaching for IELTS Academic, General Training, and UKVI test-takers with official British Council preparation materials, mock speaking interviews, and Life Skills A1/B1 support.',
+    description: 'Complete coaching for IELTS Academic, General Training, and UKVI test-takers with official British Council preparation materials, mock speaking interviews, and IELTS Life Skills (A1/B1) support.',
     longDescription: 'Our IELTS & UKVI preparation program is Northern Sri Lanka’s highest-rated training track. We cover all four core sub-tests with personalized feedback, real examination simulations, and dedicated British Council registration assistance.',
     curriculumHighlights: [
       'Academic vs. General Training Distinction: Tailored tracks specifically designed for university admission (Academic) vs. immigration & PR work permits (General Training).',
@@ -70,7 +70,7 @@ export const ACADEMY_COURSES: CourseDetail[] = [
       'Shared Listening Lab Training: 40 questions across 4 recorded sections (dialogues, community monologues, academic tutorials, university lectures) featuring native British, Australian, and Canadian accents.',
       'Face-to-Face Speaking Drills: One-on-one simulated interviews covering Part 1 warm-up, Part 2 Cue Card sustained speeches, and Part 3 analytical two-way discussions with recorded diagnostic feedback.',
       'UKVI Biometric Compliance: Comprehensive guidance on UK Visas and Immigration (UKVI) test center rules, passport authentication, and Secure English Language Test (SELT) standards.',
-      'Life Skills A1 & B1 Coaching: Dedicated speaking and listening training for UK spouse/family visas (A1) and indefinite leave to remain/settlement (B1).',
+      'IELTS Life Skills (A1 & B1) Coaching: Dedicated speaking and listening training for UK spouse/family visas (A1) and indefinite leave to remain/settlement (B1).',
       'Official British Council & IDP Test Support: Free exam date booking, candidate verification, and TRF result collection assistance directly at our A-9 Road Kilinochchi center.',
     ],
     modules: [
@@ -138,8 +138,8 @@ export const ACADEMY_COURSES: CourseDetail[] = [
     optionalModules: [
       'Extra emphasis on UK visa requirements (Student, Skilled Worker, Health & Care visas)',
       'Test-day conduct, ID authentication, and biometric verification rules for UKVI',
-      'Life Skills A1 Preparation: For initial UK family/spouse visa applications (Listening & Speaking only)',
-      'Life Skills B1 Preparation: For UK visa extensions, settlement (ILR), and British citizenship (Listening & Speaking only)',
+      'IELTS Life Skills A1 Preparation: For initial UK family/spouse visa applications (Listening & Speaking only)',
+      'IELTS Life Skills B1 Preparation: For UK visa extensions, settlement (ILR), and British citizenship (Listening & Speaking only)',
       'Application guidance: University personal statements and embassy visa interview readiness',
     ],
     examFormat: {
@@ -155,13 +155,13 @@ export const ACADEMY_COURSES: CourseDetail[] = [
     ],
   },
 
-  // 2. PTE ACADEMIC & PTE CORE
+  // 2. PTE ACADEMIC, PTE GENERAL & PTE CORE
   {
     id: 'c-pte-academic',
     slug: 'pte-academic',
-    title: 'PTE Exam Preparation (Academic & Core)',
-    shortTitle: 'PTE (Academic & Core)',
-    tag: 'Computer-Based Exam (PTE Academic & Core)',
+    title: 'PTE Exam Preparation (Academic, General & Core)',
+    shortTitle: 'PTE (Academic, General & Core)',
+    tag: 'Computer-Based Exam (PTE Academic, General & Core)',
     category: 'English & Exams',
     image: R2_MEDIA.courses.pteAcademic,
     badgeBg: 'bg-sky-50 text-[#0A3663] border border-sky-200',
@@ -169,31 +169,32 @@ export const ACADEMY_COURSES: CourseDetail[] = [
     popular: true,
     duration: '6 – 8 Weeks',
     modes: 'Kilinochchi Computer Lab & Live Online',
-    targetAudience: 'Candidates seeking fast results (within 48 hours) for study abroad and skilled migration (Australia, UK, New Zealand) or Canadian Permanent Residency (IRCC-approved PTE Core / Express Entry).',
-    description: 'Complete Pearson Test of English training covering both PTE Academic (for university admissions & skilled migration to Australia/UK/NZ) and PTE Core (IRCC-approved for Canada PR & Express Entry) in our computer lab.',
-    longDescription: 'Pearson Test of English (PTE) is a 100% computer-delivered English test scored by Pearson’s advanced AI algorithms with results delivered in 48 hours. At RK International Language Academy, our specialized curriculum and dedicated computer lab in Kilinochchi provide end-to-end training for both official pathways:\n\n• Track 1: PTE Academic — Designed for students and skilled professionals aiming for university admissions, professional registration, and migration visas in Australia, New Zealand, the United Kingdom, and Canada (SDS).\n\n• Track 2: PTE Core — The newly approved general English test by IRCC (Immigration, Refugees and Citizenship Canada) for Canadian Permanent Residency, Express Entry, Provincial Nominee Programs (PNP), and work permits.',
+    targetAudience: 'Candidates seeking fast results for study abroad and skilled migration (PTE Academic), everyday & career CEFR A1–C2 certification (PTE General), or Canadian Permanent Residency (IRCC-approved PTE Core / Express Entry).',
+    description: 'Complete Pearson Test of English training covering PTE Academic (for university admissions & Australia/UK/NZ migration), PTE General (Pearson English International Certificate across CEFR A1–C2), and PTE Core (IRCC-approved for Canada PR & Express Entry).',
+    longDescription: 'Pearson Test of English (PTE) offers three official certification pathways depending on your academic, career, or immigration goals. At RK International Language Academy, our specialized curriculum and dedicated computer lab in Kilinochchi provide end-to-end training across all three official tracks:\n\n• Track 1: PTE Academic — 100% computer-delivered AI-scored test (results in 48 hours) designed for university admissions, professional registration, and skilled migration visas in Australia, New Zealand, the United Kingdom, and Canada (SDS).\n\n• Track 2: PTE General (Pearson English International Certificate) — Practical, scenario-based assessment across 6 CEFR levels (Foundation A1 to Level 5 C2) with lifetime certificate validity for schools, employers, and international career progression.\n\n• Track 3: PTE Core — The IRCC-approved general English computer test (Immigration, Refugees and Citizenship Canada) for Canadian Permanent Residency, Express Entry, Provincial Nominee Programs (PNP), and work permits.',
     curriculumHighlights: [
-      'Dual-Track Curriculum: Tailored preparation for both PTE Academic (Study/Work) and PTE Core (Canada PR)',
-      'Track 1: PTE Academic Focus (Describe Image, Retell Lecture, Academic Essay & Summarize Written Text)',
-      'Track 2: PTE Core Focus (Workplace Email Writing, Respond to a Situation, Everyday English Analysis for Canada PR)',
-      'AI algorithm scoring strategies for Oral Fluency, Pronunciation, and Content',
-      'Daily speed drills for Repeat Sentence, Write from Dictation, and Fill in the Blanks',
+      'Three-Track Curriculum: Tailored preparation for PTE Academic (Study/Work), PTE General (CEFR A1–C2), and PTE Core (Canada PR)',
+      'Track 1 (PTE Academic): Describe Image, Retell Lecture, Academic Essay & Summarize Written Text',
+      'Track 2 (PTE General): Written Paper (Listening, Reading & Writing) + Face-to-Face Spoken Interview across CEFR A1–C2',
+      'Track 3 (PTE Core): Workplace Email Writing, Respond to a Situation, and Everyday English Analysis for Canada PR',
+      'AI algorithm scoring strategies for Oral Fluency, Pronunciation, and Content + Daily Repeat Sentence & Dictation drills',
       'Official Pearson exam center simulation software in our Kilinochchi computer lab',
     ],
     modules: [
       {
         number: 'Module 1',
-        title: 'Speaking & Writing Module — Academic & Core (54 – 67 Minutes)',
-        description: 'Integrated speaking and writing tasks assessed by Pearson automated voice and language processing algorithms.',
+        title: 'Speaking & Writing — Academic, General & Core (54 – 67 Minutes)',
+        description: 'Integrated speaking and writing tasks assessed by Pearson automated voice processing (Academic & Core) plus real-life spoken interview & letter/essay writing (PTE General).',
         topics: [
           'Read Aloud: Pronunciation, syllable stress, intonation, and natural speech rhythm',
-          'Repeat Sentence: Working memory retention, phrase chunking, and oral fluency techniques',
+          'Repeat Sentence: Memory retention, phrase chunking, and oral fluency techniques',
           'Describe Image: Proven structured templates for graphs, charts, maps, process diagrams, and tables',
           'Re-tell Lecture (Academic) & Respond to a Situation (PTE Core): Note-taking and fluent spontaneous speech',
-          'Answer Short Questions: Rapid vocabulary retrieval and everyday knowledge responses',
+          'PTE General Spoken Interview: Sustained conversation, picture description, and role-play scenarios',
           'Summarize Written Text: Crafting one single compound-complex sentence between 5 and 75 words',
           'Track 1 (Academic): Write Essay — Standard 200–300 word formal argumentative essay template',
-          'Track 2 (PTE Core): Write Email — 100-word formal and informal workplace email responses for Canada PR',
+          'Track 2 (PTE General): Real-world correspondence, articles, and guided communicative writing (CEFR A1–C2)',
+          'Track 3 (PTE Core): Write Email — 100-word formal and informal workplace email responses for Canada PR',
         ],
       },
       {
@@ -201,11 +202,11 @@ export const ACADEMY_COURSES: CourseDetail[] = [
         title: 'Reading Module — Academic & Everyday Comprehension (29 – 30 Minutes)',
         description: 'Fast-paced reading comprehension, vocabulary collocation, and text organization.',
         topics: [
-          'Reading & Writing: Fill in the Blanks (Highest weighted reading section across both exams)',
+          'Reading & Writing: Fill in the Blanks (Highest weighted reading section across computer-based exams)',
           'Multiple Choice, Multiple Answers & Single Answer strategies',
-          'Re-order Paragraphs: Identifying topic sentences, pronoun referencing, and cohesive ties',
+          'Re-order Paragraphs: Identifying topic sentences, referencing pronouns, and logical sequence',
           'Reading: Fill in the Blanks (Drag-and-drop academic vocabulary and workplace collocations)',
-          'Skimming, scanning, and time-management under the 30-minute countdown timer',
+          'Skimming, scanning, and time-management under timed exam conditions',
         ],
       },
       {
@@ -223,31 +224,29 @@ export const ACADEMY_COURSES: CourseDetail[] = [
       },
       {
         number: 'Module 4',
-        title: 'Track Specialization, CLB Mapping & Lab Mock Tests',
-        description: 'Dedicated focus on student destination requirements, target band scores, and full software simulations.',
+        title: 'Track Specialization, CEFR/CLB Mapping & Lab Mock Tests',
+        description: 'Dedicated focus on student destination requirements, target band scores, and full software/interview simulations.',
         topics: [
-          'Track 1 Mastery: Australian/NZ visa score requirements (PTE 65+ for 65 points, 79+ for 20 migration points)',
-          'Track 2 Mastery: Canadian CLB 7, CLB 8, and CLB 9 score conversions for Express Entry CRS ranking',
-          'Full-length computer mock tests on Pearson-grade simulation platform in our Kilinochchi lab',
-          'One-on-one diagnostic feedback on enabling skills: Grammar, Oral Fluency, Pronunciation, Spelling, and Vocabulary',
+          'Track 1 Mastery (PTE Academic): Australian/NZ visa score requirements (PTE 65+ for 10 points, 79+ for 20 migration points)',
+          'Track 2 Mastery (PTE General): CEFR A1–C2 level placement, Written + Spoken scoring, and lifetime Pearson certificate readiness',
+          'Track 3 Mastery (PTE Core): Canadian CLB 7, CLB 8, and CLB 9 score conversions for Express Entry CRS ranking',
+          'Full-length computer mock tests on Pearson-grade simulation platform in our Kilinochchi lab & one-on-one diagnostic feedback',
         ],
       },
     ],
     keyComponents: [
-      '1. Dual-Track Pathway: Clear guidance for PTE Academic (Study/Work in AU/NZ/UK) and PTE Core (Canada PR)',
-      '2. AI Algorithm Training: Oral fluency, pronunciation accuracy, and typing speed at 40+ WPM',
+      '1. Three-Track Pathway: Clear guidance for PTE Academic (Study/Work), PTE General (CEFR A1–C2), and PTE Core (Canada PR)',
+      '2. AI & Communicative Training: Oral fluency, pronunciation accuracy, typing speed (40+ WPM), and spoken interviews',
       '3. Timed Lab Practice: Real-time countdown timer simulations under exact Pearson exam conditions',
       '4. Diagnostic Feedback: Individual score reports detailing enabling skills and personalized improvement plans',
     ],
     examFormat: {
       components: [
-        'Speaking & Writing (54–67 mins)',
-        'Reading (29–30 mins)',
-        'Listening (30–43 mins)',
-        'Total Duration: Approx. 2 Hours (100% Computer-Based)',
+        'PTE Academic & Core: Speaking & Writing (54–67 mins), Reading (29–30 mins), Listening (30–43 mins) — ~2 Hours Computer-Based',
+        'PTE General: Written Paper (Listening, Reading & Writing) + Spoken Interview across 6 CEFR Levels (A1–C2)',
       ],
-      certification: 'Pearson PTE Official Score Report (Score scale: 10 – 90 points, valid for 2 years)',
-      acceptance: 'PTE Academic: 100% accepted for Australia & New Zealand visas; UK universities & UKVI; top Canadian & US universities. PTE Core: Approved by IRCC Canada for Express Entry, PNP, and Canadian Citizenship.',
+      certification: 'Pearson PTE Official Score Report (10–90 points for Academic/Core, valid 2 years) or Pearson English International Certificate (PTE General, lifetime validity)',
+      acceptance: 'PTE Academic: 100% accepted for Australia & New Zealand visas, UK universities & UKVI, and Canada (SDS). PTE General: Recognized globally by employers, schools, and Ministries of Education across CEFR A1–C2. PTE Core: Approved by IRCC Canada for Express Entry, PNP, and Canadian Citizenship.',
     },
     tipsForSuccess: [
       'Never pause longer than 3 seconds in speaking tasks—the microphone will automatically shut off!',
@@ -703,7 +702,7 @@ export function getCourseBySlug(slug: string): CourseDetail | undefined {
   if (normalized === 'diploma-in-english' || normalized === 'spoken-english') {
     return ACADEMY_COURSES.find((c) => c.slug === 'basic-diploma-english');
   }
-  if (normalized === 'pte' || normalized === 'pte-academic-exam-preparation' || normalized === 'pte-core') {
+  if (normalized === 'pte' || normalized === 'pte-academic-exam-preparation' || normalized === 'pte-core' || normalized === 'pte-general') {
     return ACADEMY_COURSES.find((c) => c.slug === 'pte-academic');
   }
   if (normalized === 'it' || normalized === 'diploma-it') {

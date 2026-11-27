@@ -25,7 +25,7 @@ export async function generateMetadata(): Promise<Metadata> {
   const title = 'IELTS & UKVI (Academic & General Training) Coaching | RK International Kilinochchi';
   const description =
     courseData?.description ||
-    'Complete IELTS & UKVI coaching in Kilinochchi and online. Modules for Academic, General Training, and Life Skills A1/B1 with British Council registration support.';
+    'Complete IELTS & UKVI coaching in Kilinochchi and online. Modules for Academic, General Training, and IELTS Life Skills (A1/B1) with British Council registration support.';
 
   return {
     title,
@@ -141,7 +141,7 @@ export default async function AcademicCoursePage() {
     'Extra emphasis on UK visa requirements (Student Visa, Skilled Worker, Health & Care Visa)',
     'Test-day conduct, ID protocols, and biometric rules specific to UKVI test centers',
     'Application support: Personal statements, Statement of Purpose (SOP), and embassy visa interviews',
-    'Life Skills A1 & B1 coaching with dedicated spoken and listening test format simulations',
+    'IELTS Life Skills A1 & B1 coaching with dedicated spoken and listening test format simulations',
   ];
 
   const whatsappInquiryUrl = `https://wa.me/${whatsappNum}?text=${encodeURIComponent(
@@ -208,7 +208,7 @@ export default async function AcademicCoursePage() {
                 <div className="flex items-center gap-1.5 bg-white/10 px-3 py-1.5 rounded-lg border border-white/10">
                   <ShieldCheck className="w-4 h-4 text-[#0098DA]" />
                   <span>
-                    <strong>Includes:</strong> UKVI &amp; Life Skills A1/B1
+                    <strong>Includes:</strong> UKVI &amp; IELTS Life Skills (A1/B1)
                   </span>
                 </div>
               </div>
@@ -307,14 +307,14 @@ export default async function AcademicCoursePage() {
                 </div>
               </div>
 
-              {/* Preparation for Life Skills A1/B1 */}
+              {/* Preparation for IELTS Life Skills (A1/B1) */}
               <div className="p-6 sm:p-8 rounded-3xl bg-white border border-slate-200 shadow-sm space-y-6">
                 <div>
                   <span className="text-xs font-bold text-amber-700 bg-amber-50 px-3 py-1 rounded-full uppercase tracking-wider border border-amber-200">
                     UK Visa Categories
                   </span>
                   <h3 className="text-xl sm:text-2xl font-bold text-[#0A3663] mt-2 mb-2">
-                    Preparation for Life Skills A1 / B1
+                    Preparation for IELTS Life Skills (A1 / B1)
                   </h3>
                   <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
                     IELTS Life Skills is an official government-approved test meeting UKVI requirements for family, partner, and settlement visas.
@@ -324,7 +324,7 @@ export default async function AcademicCoursePage() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div className="p-5 rounded-2xl bg-amber-50/60 border border-amber-200 space-y-2">
                     <span className="text-xs font-extrabold text-amber-800 bg-white px-2 py-0.5 rounded-md border border-amber-300">
-                      Life Skills A1
+                      IELTS Life Skills A1
                     </span>
                     <h4 className="font-bold text-[#0A3663] text-sm sm:text-base">For Initial Family Visa</h4>
                     <p className="text-xs text-slate-600 leading-relaxed">
@@ -334,7 +334,7 @@ export default async function AcademicCoursePage() {
 
                   <div className="p-5 rounded-2xl bg-amber-50/60 border border-amber-200 space-y-2">
                     <span className="text-xs font-extrabold text-amber-800 bg-white px-2 py-0.5 rounded-md border border-amber-300">
-                      Life Skills B1
+                      IELTS Life Skills B1
                     </span>
                     <h4 className="font-bold text-[#0A3663] text-sm sm:text-base">For Visa Extensions &amp; Settlement</h4>
                     <p className="text-xs text-slate-600 leading-relaxed">
@@ -345,7 +345,7 @@ export default async function AcademicCoursePage() {
 
                 <div className="p-4 rounded-xl bg-slate-50 border border-slate-200">
                   <h4 className="text-xs font-bold text-[#0A3663] uppercase tracking-wider mb-2">
-                    Test Format (Life Skills A1 &amp; B1):
+                    Test Format (IELTS Life Skills A1 &amp; B1):
                   </h4>
                   <div className="grid grid-cols-2 gap-3 text-xs sm:text-sm text-slate-700">
                     <div className="flex items-center gap-2 p-2 bg-white rounded-lg border border-slate-200">
@@ -386,7 +386,7 @@ export default async function AcademicCoursePage() {
                     <span className="font-bold">Academic / General / UKVI</span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-slate-500">Life Skills A1/B1:</span>
+                    <span className="text-slate-500">IELTS Life Skills (A1/B1):</span>
                     <span className="font-bold text-[#0098DA]">Included</span>
                   </div>
                   <div className="flex justify-between">

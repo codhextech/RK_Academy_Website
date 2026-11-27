@@ -111,8 +111,8 @@ export const NAV_LINKS = [
     label: 'Courses',
     href: '/ielts-courses',
     dropdown: [
-      { label: 'IELTS & UKVI (Academic & General)', href: '/ielts-courses/academic', desc: 'UKVI, University & PR Visas + Life Skills A1/B1' },
-      { label: 'PTE Exam Prep (Academic & Core)', href: '/ielts-courses/pte-academic', desc: 'Australia/UK study & Canada PR (PTE Core)' },
+      { label: 'IELTS & UKVI (Academic & General)', href: '/ielts-courses/academic', desc: 'UKVI, University & PR Visas + IELTS Life Skills (A1/B1)' },
+      { label: 'PTE Exam Prep (Academic, General & Core)', href: '/ielts-courses/pte-academic', desc: 'PTE Academic, PTE General & PTE Core (Canada PR)' },
       { label: 'Basic Diploma in English', href: '/ielts-courses/basic-diploma-english', desc: 'Grammar, vocabulary, speaking & study skills' },
       { label: 'Diploma in Information Technology', href: '/ielts-courses/diploma-in-it', desc: 'Programming, web design, DBMS & networking' },
       { label: 'Diploma in Sinhala Language', href: '/ielts-courses/diploma-in-sinhala', desc: 'National language proficiency & translation' },

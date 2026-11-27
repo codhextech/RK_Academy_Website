@@ -121,7 +121,7 @@ export default function StudentSuccessClient({
   // Filtered Exam Results
   const filteredResults = examResults.filter((item) => {
     if (resultsFilter === 'All') return true;
-    if (resultsFilter === 'Life Skills & SELT') {
+    if (resultsFilter === 'IELTS Life Skills & SELT') {
       return (
         item.examType.toLowerCase().includes('life skills') ||
         item.examType.toLowerCase().includes('skills for english') ||
@@ -334,7 +334,7 @@ export default function StudentSuccessClient({
                 {/* Sub-Filters */}
                 <div className="flex flex-wrap items-center justify-between gap-3 pt-1">
                   <div className="flex items-center gap-2 overflow-x-auto pb-1">
-                    {['All', 'IELTS General', 'PTE Academic', 'Life Skills & SELT'].map((filter) => (
+                    {['All', 'IELTS General', 'PTE Academic', 'IELTS Life Skills & SELT'].map((filter) => (
                       <button
                         key={filter}
                         type="button"

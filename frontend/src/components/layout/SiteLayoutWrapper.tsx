@@ -33,11 +33,13 @@ export default function SiteLayoutWrapper({ children }: SiteLayoutWrapperProps) 
     );
   }
 
+  const isHomeRoute = pathname === '/';
+
   return (
     <>
       <LocalBusinessJsonLd />
       <Header />
-      <main className="flex-1">{children}</main>
+      <main className={`flex-1 ${isHomeRoute ? '' : 'pt-20 sm:pt-24'}`}>{children}</main>
       <Footer />
       <FloatingWhatsApp />
       <MobileStickyBar />
